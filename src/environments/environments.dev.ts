@@ -1,3 +1,4 @@
 export const ENV = {
-  mode: 'Development'
+  mode: 'Development',
+  url: 'heroku.url'
 }

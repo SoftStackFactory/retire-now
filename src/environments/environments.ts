@@ -1,3 +1,4 @@
 export const ENV = {
-  mode: 'Production'
+  mode: 'Production',
+
 }
