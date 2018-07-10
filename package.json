@@ -45,7 +45,7 @@
     "plugins": {
       "cordova-plugin-ionic": {
         "APP_ID": "1022dd18",
-        "CHANNEL_NAME": "Master",
+        "CHANNEL_NAME": "Production",
         "UPDATE_METHOD": "background"
       }
     }
