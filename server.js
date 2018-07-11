@@ -1,7 +1,16 @@
-var express = require('express');
-var path = require('path');
-var app = express();
-const PORT = process.env.PORT || 5000;
+'use strict';
 
-app.use(express.static(path.resolve(__dirname, "www")));
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+const path = require('path');
+const express = require('express');
+const http = require('http');
+
+const app = express();
+const server = http.Server(app);
+
+const port = process.env.PORT || 8080;
+
+app.use('/', express.static(path.join(__dirname, 'www')));
+
+server.listen(port, () => {
+  console.log(`Listening on http://localhost:${port}/`);
+});
