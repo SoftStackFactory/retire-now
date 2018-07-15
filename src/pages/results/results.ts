@@ -20,12 +20,11 @@ export class ResultsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
   barChart: any;
  
-  
-
     public barChartOptions:any = {
       scaleShowVerticalLines: false,
       responsive: true
     };
+
     public barChartLabels:string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
     public barChartType:string = 'bar';
     public barChartLegend:boolean = true;
