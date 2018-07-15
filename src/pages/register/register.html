@@ -42,6 +42,11 @@
     <ion-label color="primary" stacked>Verify Password</ion-label>
     <ion-input type="password" placeholder=""></ion-input>
   </ion-item>
+  <!-- new user enters their date of birth, MM/DD/YYYY. max is used for age 60 in current year -->
+  <ion-item>
+    <ion-label color="primary" stacked>Click to Enter Date of Birth</ion-label>
+    <ion-datetime  displayFormat="MM/DD/YYYY" max="1958" placeholder="ie. 01/01/1958" [(ngModel)]="myDate"></ion-datetime>
+  </ion-item>
 
   <!-- submit button to deploy function onRegister  of a new user -->
   <button ion-button block (click)="onRegister()" >Submit</button>
