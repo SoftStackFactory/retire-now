@@ -17,15 +17,23 @@
 
 <ion-content padding>
   <!-- new user enters first name -->
-  <ion-item>
-    <ion-label color="primary" stacked>Enter First Name</ion-label>
-    <ion-input type="text" placeholder="ie. sammy"></ion-input>
-  </ion-item>
+  <ion-row>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" col-width-50 stacked>Enter First Name</ion-label>
+        <ion-input type="text" placeholder="ie. sammy"></ion-input>
+      </ion-item>
+    </ion-col>
   <!-- new user enters last name -->
-  <ion-item>
-    <ion-label color="primary" stacked>Enter Last Name </ion-label>
-    <ion-input type="text" placeholder="ie. johnson"></ion-input>
-  </ion-item>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" col-width-50 stacked>Enter Last Name </ion-label>
+        <ion-input type="text" placeholder="ie. johnson"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  
+
   <!-- new user enters email -->
   <ion-item>
     <ion-label color="primary" stacked>Enter E-Mail Address</ion-label>
@@ -44,7 +52,7 @@
   </ion-item>
   <!-- new user enters their date of birth, MM/DD/YYYY. max is used for age 60 in current year -->
   <ion-item>
-    <ion-label color="primary" stacked>Click to Enter Date of Birth</ion-label>
+    <ion-label color="primary" stacked>Click to Select Date of Birth</ion-label>
     <ion-datetime  displayFormat="MM/DD/YYYY" max="1958" placeholder="ie. 01/01/1958" [(ngModel)]="myDate"></ion-datetime>
   </ion-item>
 
