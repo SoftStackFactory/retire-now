@@ -5,8 +5,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { RegisterPage } from '../pages/register/register';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage} from '../pages/login/login';
-import  { InputPage } from '../pages/input/input';
+import { InputPage } from '../pages/input/input';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,6 +21,8 @@ import { ResultsPage } from '../pages/results/results';
     MyApp,
     HomePage,
     ListPage,
+    RegisterPage,
+    DashboardPage,
     LandingPage,
     ResultsPage,
     LoginPage,
@@ -34,6 +38,8 @@ import { ResultsPage } from '../pages/results/results';
     MyApp,
     HomePage,
     ListPage,
+    RegisterPage,
+    DashboardPage,
     LandingPage,
     ResultsPage,
     LoginPage,
