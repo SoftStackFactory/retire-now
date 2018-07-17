@@ -10,27 +10,32 @@ import  { InputPage } from '../pages/input/input';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ChartsModule } from 'ng2-charts';
+import { ResultsPage } from '../pages/results/results';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
+    ResultsPage,
     LoginPage,
     InputPage
+
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     ListPage,
+    ResultsPage,
     LoginPage,
     InputPage
-
   ],
   providers: [
     StatusBar,

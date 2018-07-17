@@ -5,14 +5,37 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>results</ion-title>
+  <ion-navbar color="danger">
+    <ion-title>
+      Welcome User
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
+ 
+<ion-content>
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <button (click)="randomize()">Update</button>
+  </div>
 
+  <button ion-button full>Save Results </button>
+  <button ion-button full>Return to Dashboard</button>
 
-<ion-content padding>
+  <ion-item-group>
+      <ion-item-divider color="light">Retirment Information</ion-item-divider>
+      <ion-item>Average Salary $45,000</ion-item>
+      <ion-item>Monthly Retirement Amount $1200</ion-item>
+      <ion-item>Retirement Age 66</ion-item>
+  </ion-item-group>
 
+ 
 </ion-content>
