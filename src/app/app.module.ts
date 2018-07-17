@@ -7,9 +7,14 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { RegisterPage } from '../pages/register/register';
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { LoginPage} from '../pages/login/login';
+import { InputPage } from '../pages/input/input';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LandingPage } from '../pages/landing/landing';
+import { ChartsModule } from 'ng2-charts';
+import { ResultsPage } from '../pages/results/results';
 
 @NgModule({
   declarations: [
@@ -17,11 +22,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     RegisterPage,
-    DashboardPage
+    DashboardPage,
+    LandingPage,
+    ResultsPage,
+    LoginPage,
+    InputPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,7 +39,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     RegisterPage,
-    DashboardPage
+    DashboardPage,
+    LandingPage,
+    ResultsPage,
+    LoginPage,
+    InputPage
   ],
   providers: [
     StatusBar,
