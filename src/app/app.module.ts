@@ -10,6 +10,7 @@ import  { InputPage } from '../pages/input/input';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LandingPage } from '../pages/landing/landing';
 import { ChartsModule } from 'ng2-charts';
 import { ResultsPage } from '../pages/results/results';
 
@@ -18,10 +19,10 @@ import { ResultsPage } from '../pages/results/results';
     MyApp,
     HomePage,
     ListPage,
+    LandingPage,
     ResultsPage,
     LoginPage,
     InputPage
-
   ],
   imports: [
     BrowserModule,
@@ -33,6 +34,7 @@ import { ResultsPage } from '../pages/results/results';
     MyApp,
     HomePage,
     ListPage,
+    LandingPage,
     ResultsPage,
     LoginPage,
     InputPage
