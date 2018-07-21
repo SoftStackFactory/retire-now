@@ -27,12 +27,11 @@
 
 <ion-content padding>
 
-    <ion-card>
+    <ion-card (click)="openProfile()">
         <ion-card-header>
-          Profile #1
           <ion-buttons end>
           <button ion-button icon-only color="danger" stacked>
-              <ion-icon ios="ios-close" md="md-close"></ion-icon>
+              <ion-icon name="close"></ion-icon>
             </button>
           </ion-buttons>
     </ion-card-header>
@@ -45,7 +44,6 @@
 
   <ion-card>
     <ion-card-header>
-      Instance/Profile #2
       <ion-buttons end>
           <button ion-button icon-only color="danger" stacked>
               <ion-icon ios="ios-close" md="md-close"></ion-icon>
@@ -62,8 +60,6 @@
 
   <ion-card>
     <ion-card-header>
-      Instance/Profile #3
-
       <ion-buttons end>
           <button ion-button icon-only color="danger" stacked>
               <ion-icon ios="ios-close" md="md-close"></ion-icon>

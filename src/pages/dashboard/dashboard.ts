@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ResultsPage } from '../../pages/results/results';
 
 /**
  * Generated class for the DashboardPage page.
@@ -24,6 +25,10 @@ export class DashboardPage {
 
   moreInfo(){
     
+  }
+
+  openProfile(){
+    this.navCtrl.setRoot(ResultsPage, {});
   }
 
 }
