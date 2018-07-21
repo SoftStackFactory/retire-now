@@ -13,19 +13,20 @@
 
 
 <ion-content padding>
+  <ion-card>
   <!-- new user enters first name -->
   <ion-row>
     <ion-col width-50>
       <ion-item>
         <ion-label color="primary" col-width-50 floating>Enter First Name</ion-label>
-        <ion-input type="text" placeholder="ie. sammy"></ion-input>
+        <ion-input type="text" ></ion-input>
       </ion-item>
     </ion-col>
   <!-- new user enters last name -->
     <ion-col width-50>
       <ion-item>
         <ion-label color="primary" col-width-50 floating>Enter Last Name </ion-label>
-        <ion-input type="text" placeholder="ie. johnson"></ion-input>
+        <ion-input type="text" ></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -34,26 +35,26 @@
   <!-- new user enters email -->
   <ion-item>
     <ion-label color="primary" floating>Enter E-Mail Address</ion-label>
-    <ion-input type="email" placeholder="ie. sammyjohnson@aol.com"></ion-input>
+    <ion-input type="email" ></ion-input>
   </ion-item>
   <!-- new user enters password -->
   <ion-item>
     <ion-label color="primary" floating>Enter Password</ion-label>
-    <ion-input type="password" placeholder="ie. something you can remember easily"></ion-input>
+    <ion-input type="password" ></ion-input>
   </ion-item>
   <!-- new user verifys password -->
     <!-- **needs to be edited to have a "verify" ability -->
   <ion-item>
     <ion-label color="primary" floating>Verify Password</ion-label>
-    <ion-input type="password" placeholder="the exact same thing you wrote above"></ion-input>
+    <ion-input type="password" ></ion-input>
   </ion-item>
   <!-- new user enters their date of birth, MM/DD/YYYY. max is used for age 60 in current year -->
   <ion-item>
     <ion-label color="primary" floating>Click to Select Date of Birth</ion-label>
-    <ion-datetime  displayFormat="MM/DD/YYYY" max="1958" placeholder="ie. 01/01/1958" [(ngModel)]="myDate"></ion-datetime>
+    <ion-datetime  displayFormat="MM/DD/YYYY" max="1958"  [(ngModel)]="myDate"></ion-datetime>
   </ion-item>
 
   <!-- submit button to deploy function onRegister  of a new user -->
   <button ion-button block (click)="onRegister()" >Submit</button>
-
+</ion-card>
 </ion-content>
