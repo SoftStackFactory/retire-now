@@ -7,35 +7,34 @@
 <ion-header>
   <ion-navbar color="danger">
     <ion-title>
-      Welcome User
+      Results for Profile: Placeholder
     </ion-title>
   </ion-navbar>
 </ion-header>
  
 <ion-content>
-  <div>
-    <div style="display: block">
-      <canvas baseChart
-              [datasets]="barChartData"
-              [labels]="barChartLabels"
-              [options]="barChartOptions"
-              [legend]="barChartLegend"
-              [chartType]="barChartType"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
+  <ion-card>
+    <div>
+      <div style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
     </div>
-    <button (click)="randomize()">Update</button>
-  </div>
-
-  <button ion-button full>Save Results </button>
-  <button ion-button full>Return to Dashboard</button>
-
-  <ion-item-group>
-      <ion-item-divider color="light">Retirment Information</ion-item-divider>
-      <ion-item>Average Salary $45,000</ion-item>
-      <ion-item>Monthly Retirement Amount $1200</ion-item>
-      <ion-item>Retirement Age 66</ion-item>
-  </ion-item-group>
-
+    <ion-card-content>
+        <ion-item-group>
+          <ion-item-divider color="light">Retirement Information</ion-item-divider>
+          <ion-item>Retirement age: 66</ion-item>
+          <ion-item>Full retirement monthly amount: $1200</ion-item>
+          <ion-item>Monthly retirement amount at age XX: $850</ion-item>
+          <ion-item>Retirement in X yrs X Mths X Days</ion-item>      
+        </ion-item-group>
+    </ion-card-content>
+  </ion-card>
  
 </ion-content>
