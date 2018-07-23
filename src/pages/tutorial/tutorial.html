@@ -37,10 +37,18 @@
       </ion-toolbar>
       <img src="assets/imgs/coins.jpg" class="slide-image"/>
       <h2 class="slide-title">Ready to Play?</h2>
-      <button ion-button large clear icon-end color="primary" (click)="this.navCtrl.setRoot('HomePage')">
-        Continue
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>
+      <div *ngIf="isLoggedIn; else newUser">
+          <button ion-button large clear icon-end color="primary" (click)="this.navCtrl.setRoot('AccountPage')">
+              Continue
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </div>
+        <ng-template #newUser>
+          <button ion-button large clear icon-end color="primary" (click)="this.navCtrl.setRoot('InputPage')">
+            Continue
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </ng-template>
     </ion-slide>
   </ion-slides>
 
