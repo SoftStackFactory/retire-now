@@ -28,9 +28,9 @@
     <ion-slide>
       <ion-toolbar>
       </ion-toolbar>
-      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
+      <img src="assets/imgs/coins.jpg" class="slide-image"/>
       <h2 class="slide-title">Ready to Play?</h2>
-      <button ion-button large clear icon-end color="primary">
+      <button ion-button large clear icon-end color="primary" (click)="this.navCtrl.setRoot('HomePage')">
         Continue
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
