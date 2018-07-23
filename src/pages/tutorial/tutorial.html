@@ -17,9 +17,16 @@
 <ion-slides pager>
     <ion-slide *ngFor="let slide of slides">
       <ion-toolbar>
-        <ion-buttons end>
-          <button ion-button color="primary">Skip</button>
-        </ion-buttons>
+        <div *ngIf="isLoggedIn; else newUser">
+          <ion-buttons end>
+            <button ion-button color="primary" (click)="this.navCtrl.setRoot('AccountPage')">Skip</button>
+          </ion-buttons>
+        </div>
+        <ng-template #newUser>
+          <ion-buttons end>
+            <button ion-button color="primary" (click)="this.navCtrl.setRoot('InputPage')">Skip</button>
+          </ion-buttons>
+        </ng-template>
       </ion-toolbar>
       <img [src]="slide.image" class="slide-image"/>
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
