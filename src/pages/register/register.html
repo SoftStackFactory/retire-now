@@ -17,27 +17,27 @@
   <!-- new user enters first name -->
   <ion-row>
     <ion-col width-50>
-      <form>
+      <!-- <form> -->
       <ion-item>
         <ion-label color="primary" col-width-50 floating>Enter First Name</ion-label>
         <ion-input required type="text" ></ion-input>
       </ion-item>
-    </form>
+    <!-- </form> -->
     </ion-col>
   <!-- new user enters last name -->
     <ion-col width-50>
-        <form>
+        <!-- <form> -->
       <ion-item>
         <ion-label color="primary" col-width-50 floating>Enter Last Name </ion-label>
         <ion-input required type="text" ></ion-input>
       </ion-item>
-    </form>
+    <!-- </form> -->
     </ion-col>
   </ion-row>
   
 
   <!-- new user enters email -->
-  <form>
+  <!-- <form> -->
   <ion-item>
     <ion-label color="primary" floating>Enter E-Mail Address</ion-label>
     <ion-input  required type="email" ></ion-input>
@@ -64,7 +64,7 @@
     <ion-label color="primary" floating>Click to Select Date of Birth</ion-label>
     <ion-datetime required  displayFormat="MM/DD/YYYY" max="1958"  [(ngModel)]="myDate"></ion-datetime>
   </ion-item>
-</form>
+<!-- </form> -->
 </ion-card>
   <!-- submit button to deploy function onRegister  of a new user -->
   <button ion-button block (click)="onRegister()" >Submit</button>
