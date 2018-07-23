@@ -19,12 +19,13 @@
 
         <ion-item>
           <ion-label floating>D.O.B</ion-label>
+          <ion-datetime  displayFormat="MM/DD/YYYY" max="1958" [(ngModel)]="myDate"></ion-datetime>
           <ion-input type="text"></ion-input>
         </ion-item>
       
         <ion-item>
           <ion-label floating>FRA</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-datetime  displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDate"></ion-datetime>
         </ion-item>
 
         <ion-item>
