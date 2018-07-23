@@ -33,4 +33,7 @@ export class DashboardPage {
     this.navCtrl.setRoot(ResultsPage, {});
   }
 
+  delete(userProfile){
+    
+  }
 }
