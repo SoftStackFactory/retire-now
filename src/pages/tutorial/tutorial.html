@@ -1,9 +1,4 @@
-<!--
-  Generated template for the TutorialPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -12,28 +7,44 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="tutorial-page">
 
 <ion-slides pager>
-    <ion-slide *ngFor="let slide of slides">
+    <ion-slide *ngFor="let slide of mySlides">
       <ion-toolbar>
-        <ion-buttons end>
-          <button ion-button color="primary">Skip</button>
-        </ion-buttons>
+        <div *ngIf="isLoggedIn; else newUser">
+          <ion-buttons end>
+            <button ion-button color="primary" (click)="this.navCtrl.setRoot('AccountPage')">Skip</button>
+          </ion-buttons>
+        </div>
+        <ng-template #newUser>
+          <ion-buttons end>
+            <button ion-button color="primary" (click)="this.navCtrl.setRoot('InputPage')">Skip</button>
+          </ion-buttons>
+        </ng-template>
       </ion-toolbar>
       <img [src]="slide.image" class="slide-image"/>
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
+      <button ion-button (click)="nextSlide()">Next</button>
     </ion-slide>
     <ion-slide>
       <ion-toolbar>
       </ion-toolbar>
-      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
+      <img src="assets/imgs/coins.jpg" class="slide-image"/>
       <h2 class="slide-title">Ready to Play?</h2>
-      <button ion-button large clear icon-end color="primary">
-        Continue
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>
+      <div *ngIf="isLoggedIn; else newUser">
+          <button ion-button large clear icon-end color="primary" (click)="this.navCtrl.setRoot('AccountPage')">
+              Continue
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </div>
+        <ng-template #newUser>
+          <button ion-button large clear icon-end color="primary" (click)="this.navCtrl.setRoot('InputPage')">
+            Continue
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </ng-template>
     </ion-slide>
   </ion-slides>
 
