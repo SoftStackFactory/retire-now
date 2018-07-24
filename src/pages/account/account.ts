@@ -22,4 +22,8 @@ export class AccountPage {
     console.log('ionViewDidLoad AccountPage');
   }
 
+  linkTutorial(){
+    this.navCtrl.setRoot('TutorialPage')
+  }
+
 }
