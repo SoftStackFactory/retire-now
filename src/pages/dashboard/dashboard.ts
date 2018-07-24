@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ResultsPage } from '../../pages/results/results';
+import { InputPage } from '../../pages/input/input';
 /**
  * Generated class for the DashboardPage page.
  *
@@ -18,12 +19,19 @@ export class DashboardPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  profileInformation:any;
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
   }
 
-  moreInfo(){
-    
+  editInfo(){
+    this.navCtrl.setRoot(InputPage, {});
   }
 
+  
+
+  delete(userProfile){
+    
+  }
 }
