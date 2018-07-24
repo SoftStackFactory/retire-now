@@ -15,22 +15,22 @@
 
 <ion-content padding>
 
-    <ion-list>
-
+    <form [formGroup]="todo" (ngSubmit)="logForm()">
+     
         <ion-item>
+        
           <ion-label floating>Username</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" formControlName="userName"></ion-input>
         </ion-item>
       
         <ion-item>
           <ion-label floating>Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password"  formControlName="passWord"></ion-input>
         </ion-item>
+     
+      </form>
       
-      </ion-list>
-
-
-    <button ion-button color="secondary">Login</button>
+      <button ion-button full>Login</button>
 
     <p>
       or sign up
