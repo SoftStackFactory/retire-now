@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Validators, FormBuilder, FormGroup } from 'ionic-angular';
 
 
 /**
@@ -16,11 +17,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  registerInput: FormGroup;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private formBuilder: FormBuilder) {
+    
+    this.registerInput=this.formBuilder.group({
+      first: ['', Validators.required],
+      last: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      vpassword: ['', Validators.required],
+      dob: ['', Validators.required],
+
+    });
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+
+  onForm(){
+    console.log(this.registerInput.value)
   }
 
   }
