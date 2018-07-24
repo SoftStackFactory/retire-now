@@ -23,8 +23,4 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  onRegister(){
-    this.navCtrl.setRoot(InputPage, {});
   }
-
-}
