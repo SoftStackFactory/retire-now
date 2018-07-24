@@ -26,7 +26,7 @@
 
 
 <ion-content padding> 
-  <ion-card (click)="this.navCtrl.setRoot('InputPage')" >
+  <ion-card (click)="this.navCtrl.setRoot('ResultsPage')" >
     <!-- add once user input available to above *ngIf="cardInformation" -->
     <ion-card-header >
       Profile: User Saved Name
@@ -41,7 +41,9 @@
     <ion-card-content>
       saved overview of reults 
     </ion-card-content>
-
-      <button ion-button small (click)="this.navCtrl.setRoot('ResultsPage')"> Edit Information </button>
   </ion-card>
+    <ion-card>
+      <button ion-button small (click)="this.navCtrl.setRoot('InputPage')"> Edit Information </button>
+    </ion-card>
+  
 </ion-content>
