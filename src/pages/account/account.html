@@ -14,21 +14,15 @@
 
 <ion-content padding>
   
-  <ion-list>
-    <ion-list-header>Name</ion-list-header>
-    <ion-item>"User's Name"</ion-item>
-  </ion-list>
+    <ion-card>
+        <ion-card-header>Name</ion-card-header>
+        <ion-card>"User's Name"</ion-card>
+        <ion-card-header>Email</ion-card-header>
+        <ion-card>"User's Email"</ion-card>
+      </ion-card>
   
-  <ion-list>
-    <ion-list-header>Email</ion-list-header>
-    <ion-item>"User's Email"</ion-item>
-  </ion-list>
-  
-  <ion-list>
-    <ion-list-header> Password </ion-list-header>
-    <ion-item>"User's Password?"</ion-item>
-  </ion-list>
-  
-  <button ion-button>Logout</button>
+  <button ion-button block>Change Password</button>
+  <button ion-button block (click)="this.navCtrl.setRoot('TutorialPage')">View Tutorial</button>
+  <button ion-button block (click)="this.navCtrl.setRoot('LandingPage')">Logout</button>
 
 </ion-content>
