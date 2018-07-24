@@ -29,9 +29,7 @@ export class DashboardPage {
     this.navCtrl.setRoot(InputPage, {});
   }
 
-  openProfile(){
-    this.navCtrl.setRoot(ResultsPage, {});
-  }
+  
 
   delete(userProfile){
     

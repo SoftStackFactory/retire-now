@@ -9,16 +9,13 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
-import { ResultsPage } from '../pages/results/results';
-import { InputPage } from '../pages/input/input';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    ResultsPage,
-    InputPage
+    ListPage
   ],
   imports: [
     BrowserModule,
@@ -29,9 +26,7 @@ import { InputPage } from '../pages/input/input';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
-    ResultsPage,
-    InputPage
+    ListPage
   ],
   providers: [
     StatusBar,
