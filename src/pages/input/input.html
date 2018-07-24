@@ -20,12 +20,13 @@
 
         <ion-item>
           <ion-label floating>D.O.B</ion-label>
-          <ion-input type="text" formControlName="doB" displayFormat="MM/DD/YYYY" max="1958" [(ngModel)]="myDate"></ion-input>
+        <ion-datetime type="text" formControlName="doB" displayFormat="MM/DD/YYYY" max="1958" [(ngModel)]="myDate"></ion-datetime>
         </ion-item>
       
         <ion-item>
           <ion-label floating>Full Retirement Age</ion-label>
-          <ion-input type="text" formControlName="frA" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDate"></ion-input>
+          <ion-datetime type="text" formControlName="frA" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDay"></ion-datetime>
+        
         </ion-item>
 
         <ion-item>
