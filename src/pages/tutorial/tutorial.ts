@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Slides } from 'ionic-angular';
+import { ViewChild } from '@angular/core';
+
 
 /**
  * Generated class for the TutorialPage page.
@@ -18,11 +21,17 @@ export class TutorialPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  @ViewChild(Slides) slides: Slides;
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad TutorialPage');
   }
 
-  slides = [
+  nextSlide() {
+    this.slides.slideNext();
+  }
+
+  mySlides = [
     {
       title: "Welcome to the Docs!",
       description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",

@@ -1,9 +1,4 @@
-<!--
-  Generated template for the TutorialPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -12,10 +7,10 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="tutorial-page">
 
 <ion-slides pager>
-    <ion-slide *ngFor="let slide of slides">
+    <ion-slide *ngFor="let slide of mySlides">
       <ion-toolbar>
         <div *ngIf="isLoggedIn; else newUser">
           <ion-buttons end>
@@ -31,6 +26,7 @@
       <img [src]="slide.image" class="slide-image"/>
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
+      <button ion-button (click)="nextSlide()">Next</button>
     </ion-slide>
     <ion-slide>
       <ion-toolbar>
