@@ -25,54 +25,25 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding> 
+  <ion-card (click)="this.navCtrl.setRoot('ResultsPage')" >
+    <!-- add once user input available to above *ngIf="cardInformation" -->
+    <ion-card-header >
+      Profile: User Saved Name
+      <!-- add once user input available to above *ngFor="let card of cardInformaiton.results" -->
+      <ion-buttons end>
+        <button (click)="delete(userProfile)"ion-button icon-only color="danger" stacked>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-card-header>
+    
+    <ion-card-content>
+      saved overview of reults 
+    </ion-card-content>
+  </ion-card>
     <ion-card>
-        <ion-card-header>
-          Instance/Profile #1
-    
-          <button ion-button small color="danger" (click)="onDelete()">
-              Delete
-          </button>
-    
-        </ion-card-header>
-    
-        <ion-card-content>
-            saved instance of user information
-            <button ion-button small (click)="moreInfo()">Click for more Detail</button>
-        </ion-card-content>
-      </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      Instance/Profile #2
-
-      <button ion-button small color="danger" (click)="onDelete()">
-          Delete
-      </button>
-
-    </ion-card-header>
-
-    <ion-card-content>
-        saved instance of user information
-        <button ion-button small (click)="moreInfo()">Click for more Detail</button>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      Instance/Profile #3
-
-      <button ion-button small color="danger" (click)="onDelete()">
-          Delete
-      </button>
-    </ion-card-header>
-
-    <ion-card-content>
-        saved instance of user information
-        <button ion-button small (click)="moreInfo()">Click for more Detail</button>
-    </ion-card-content>
-  </ion-card>
-
-
+      <button ion-button small (click)="this.navCtrl.setRoot('InputPage')"> Edit Information </button>
+    </ion-card>
+  
 </ion-content>

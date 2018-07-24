@@ -5,33 +5,41 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
+  
+  <!--<ion-navbar>
     <ion-title>landing</ion-title>
   </ion-navbar>
-
+-->
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
+  <h1 class="header" align="center">
+    Retire Now
+  </h1>
+    <ion-card class="card">
         <img src="assets/imgs/coins.jpg"/>
+        <ion-card-header>
+            This app will help you:
+        </ion-card-header>
         <ion-card-content>
-          <ion-card-title>
-            Retire Now
-            </ion-card-title>
           <ul>
             <li>
-              Track your social security benefits
+              Compare the monthly amount you will receive at different retirement ages
             </li>
             <li>
-              Calculate your retirement income
+              Create and save profiles to compare retirement strategies
             </li>
             <li>
-              Plan your path to retirement
+              Discover the best path for maximizing your social security benefits
+            </li>
+            <li>
+              Make an informed descision, as you plan your path to retirement
             </li>
           </ul>
         </ion-card-content>
       </ion-card>
-    <button ion-button full>Place Holder Button</button>
+    <button (click)="doRegister()" class="buttons" ion-button block>Register</button>
+
+    <button (click)="doLogin()" class="buttons" ion-button block>Login</button>
 </ion-content>
 
