@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { InputPage } from '../../pages/input/input';
+
 
 /**
  * Generated class for the RegisterPage page.
