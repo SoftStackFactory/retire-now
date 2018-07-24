@@ -13,34 +13,39 @@
 </ion-header>
 
 
+   
 <ion-content padding>
 
-    <ion-list>
+    <form [formGroup]="lala" (ngSubmit)="logType()">
 
         <ion-item>
           <ion-label floating>D.O.B</ion-label>
-          <ion-datetime  displayFormat="MM/DD/YYYY" max="1958" [(ngModel)]="myDate"></ion-datetime>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" formControlName="doB" displayFormat="MM/DD/YYYY" max="1958" [(ngModel)]="myDate"></ion-input>></ion-input>
         </ion-item>
       
         <ion-item>
-          <ion-label floating>FRA</ion-label>
-          <ion-datetime  displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDate"></ion-datetime>
+          <ion-label floating>Full Retirement Age</ion-label>
+          <ion-input type="text" formControlName="frA" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDate"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Expected SS</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label floating>Expected REtirement Age</ion-label>
+            <ion-input type="text" formControlName="sS"></ion-input>
+        </ion-item>     
+
+       <ion-item>    
+            <ion-label floating>Social Security Contribution</ion-label>
+            <ion-input type="text" formControlName="sS"></ion-input>    
         </ion-item>
 
-        
-      
+
+        <ion-item>    
+            <ion-label floating>Save Profile As</ion-label>
+            <ion-input type="text" formControlName="proFile"></ion-input>    
+        </ion-item>
           
-          <button ion-button color="secondary">Reset</button>      <button ion-button color="secondary">Submit</button>
+          <button ion-button full (click) = "this.lala.reset()">Reset</button>      <button ion-button full >Submit</button>
         
-      
-
-      
-      </ion-list>
+       </form>
 
 </ion-content>
