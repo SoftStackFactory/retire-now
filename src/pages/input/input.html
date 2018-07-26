@@ -20,32 +20,33 @@
     <form [formGroup]="lala" (ngSubmit)="logType()">
        
         <ion-item>
-          <ion-label floating>Full Retirement Age</ion-label>
+          <ion-label floating>Full Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
           <ion-datetime type="text" formControlName="frA" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDay"></ion-datetime>
         </ion-item>
       
         <ion-item>
-            <ion-label floating>Expected Retirement Age</ion-label>
+            <ion-label floating>Expected Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
             <ion-input type="text" formControlName="sS"></ion-input>
         </ion-item>     
       
         <ion-item>    
-            <ion-label floating>FRA monthly payment </ion-label>
+            <ion-label floating>FRA monthly payment </ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
             <ion-input type="text" formControlName="sS"></ion-input>    
         </ion-item>
      
         <ion-item>    
-            <ion-label floating>Save Profile As</ion-label>
+            <ion-label floating>Save Profile As</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
             <ion-input type="text" formControlName="proFile"></ion-input>    
         </ion-item>
           
-              <button ion-button full class="buttons" >Submit</button>
-              
-              <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>  
-      
-            </form>
+     </form>
 
     </ion-card>
+
+
+    <button ion-button full class="buttons" >Submit</button>
+              
+    <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>  
     
 </ion-content>
  
