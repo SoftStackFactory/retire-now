@@ -15,21 +15,27 @@
 
 <ion-content padding>
 
+
     <form [formGroup]="todo" (ngSubmit)="logForm()">
      
+        <ion-card>
         <ion-item>
         
           <ion-label floating>Username</ion-label>
           <ion-input type="text" formControlName="userName"></ion-input>
         </ion-item>
-      
+      </ion-card>
+
+      <ion-card>
         <ion-item>
           <ion-label floating>Password</ion-label>
           <ion-input type="password"  formControlName="passWord"></ion-input>
         </ion-item>
+      </ion-card>
      
-      </form>
-      
+    </form>
+
+    
       <button ion-button full>Login</button>
 
     <p>
@@ -37,3 +43,13 @@
     </p>
 
 </ion-content>
+
+
+
+
+<ion-card>
+        <ion-card-header>Name</ion-card-header>
+        <ion-card>"User's Name"</ion-card>
+        <ion-card-header>Email</ion-card-header>
+        <ion-card>"User's Email"</ion-card>
+      </ion-card>
