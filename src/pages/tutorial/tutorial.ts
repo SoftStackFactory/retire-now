@@ -27,6 +27,10 @@ export class TutorialPage {
     console.log('ionViewDidLoad TutorialPage');
   }
 
+  slidePrev() {
+    this.slides.slidePrev();
+  }
+
   nextSlide() {
     this.slides.slideNext();
   }
