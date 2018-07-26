@@ -5,9 +5,9 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar color="danger">
+  <ion-navbar color="primary">
     <ion-title>
-      Results for Profile: Placeholder
+      Profile: Placeholder
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -26,13 +26,13 @@
                 (chartClick)="chartClicked($event)"></canvas>
       </div>
     </div>
-    <ion-card-content>
-        <ion-item-group>
-          <ion-item-divider color="light">Retirement Information</ion-item-divider>
+    <ion-card-content class="cardContent">
+        <ion-item-group text-wrap> 
+          <ion-item-divider text-center color="light">Retirement Information</ion-item-divider>
           <ion-item>Retirement age: 66</ion-item>
-          <ion-item>Full retirement monthly amount: $1200</ion-item>
-          <ion-item>Monthly retirement amount at age XX: $850</ion-item>
-          <ion-item>Retirement in X yrs X Mths X Days</ion-item>      
+          <ion-item>FRA Monthly Amount: $1200</ion-item> 
+          <ion-item>Monthly Amount at 66: $850</ion-item>
+          <ion-item>Retirement in: X yrs X Mths X Days</ion-item>      
         </ion-item-group>
     </ion-card-content>
   </ion-card>
