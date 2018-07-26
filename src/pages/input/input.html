@@ -16,37 +16,52 @@
    
 <ion-content padding>
 
+  
+
+<ion-content>
     <form [formGroup]="lala" (ngSubmit)="logType()">
 
-        
+        <ion-card>
       
+          <ion-card>
         <ion-item>
           <ion-label floating>Full Retirement Age</ion-label>
           <ion-datetime type="text" formControlName="frA" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDay"></ion-datetime>
-        
         </ion-item>
+      </ion-card>
 
+      <ion-card>
         <ion-item>
             <ion-label floating>Expected Retirement Age</ion-label>
             <ion-input type="text" formControlName="sS"></ion-input>
         </ion-item>     
+      </ion-card>
 
+     <ion-card>
        <ion-item>    
             <ion-label floating>FRA monthly payment </ion-label>
             <ion-input type="text" formControlName="sS"></ion-input>    
         </ion-item>
+      </ion-card>
 
-
+       
+      <ion-card>
         <ion-item>    
             <ion-label floating>Save Profile As</ion-label>
             <ion-input type="text" formControlName="proFile"></ion-input>    
         </ion-item>
-          
+      </ion-card>    
+
+    
+
               <button ion-button full >Submit</button>
               
               <button ion-button full (click) = "this.lala.reset()">Reset</button>  
         
-       </form>
+    </ion-card>
+    
+            </form>
 
+    
 </ion-content>
  
