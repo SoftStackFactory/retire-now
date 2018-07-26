@@ -9,7 +9,6 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
-import { TooltipsModule} from 'ionic-tooltips';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { TooltipsModule} from 'ionic-tooltips';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
-    TooltipsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
