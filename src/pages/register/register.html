@@ -20,14 +20,14 @@
   <ion-row>
     <ion-col width-50>
       <ion-item>
-        <ion-label color="primary" col-width-50 floating>Enter First Name</ion-label>
+        <ion-label  col-width-50 floating>Enter First Name</ion-label>
         <ion-input required type="text" formControlName="first" ></ion-input>
       </ion-item>
     </ion-col>
   <!-- new user enters last name -->
     <ion-col width-50>
       <ion-item>
-        <ion-label color="primary" col-width-50 floating>Enter Last Name </ion-label>
+        <ion-label  col-width-50 floating>Enter Last Name </ion-label>
         <ion-input required type="text" formControlName="last"></ion-input>
       </ion-item>
     </ion-col>
@@ -35,26 +35,26 @@
   
   <!-- new user enters email -->
   <ion-item>
-    <ion-label color="primary" floating>Enter E-Mail Address</ion-label>
+    <ion-label  floating>Enter E-Mail Address</ion-label>
     <ion-input  required type="email" formControlName="email"></ion-input>
   </ion-item>
 
   <!-- new user enters password -->
   <ion-item>
-    <ion-label color="primary" floating>Enter Password</ion-label>
+    <ion-label  floating>Enter Password</ion-label>
     <ion-input  required type="password" formControlName="password"></ion-input>
   </ion-item>
 
   <!-- new user verifys password -->
     <!-- **needs to be edited to have a "verify" ability -->
   <ion-item>
-    <ion-label color="primary" floating>Verify Password</ion-label>
+    <ion-label  floating>Verify Password</ion-label>
     <ion-input required type="password" formControlName="vpassword"></ion-input>
   </ion-item>
 
   <!-- new user enters their date of birth, MM/DD/YYYY. max is used for age 60 in current year -->
   <ion-item>
-    <ion-label color="primary" floating>Click to Select Date of Birth</ion-label>
+    <ion-label  floating>Click to Select Date of Birth</ion-label>
     <ion-datetime required  displayFormat="MM/DD/YYYY" max="1958" formControlName="dob"  [(ngModel)]="myDate"></ion-datetime>
   </ion-item>
 </form>

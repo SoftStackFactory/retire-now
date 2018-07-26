@@ -1,8 +1,9 @@
 {
   "name": "retire-now",
-  "app_id": "1022dd18",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "ionic-angular",
+  "pro_id": "1022dd18",
+  "app_id": ""
 }
