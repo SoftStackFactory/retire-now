@@ -21,14 +21,14 @@
     <ion-col width-50>
       <ion-item>
         <ion-label  col-width-50 floating>Enter First Name</ion-label>
-        <ion-input required type="text" formControlName="first" ></ion-input>
+        <ion-input type="text" formControlName="first" ></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
       </ion-item>
     </ion-col>
   <!-- new user enters last name -->
     <ion-col width-50>
       <ion-item>
         <ion-label  col-width-50 floating>Enter Last Name </ion-label>
-        <ion-input required type="text" formControlName="last"></ion-input>
+        <ion-input type="text" formControlName="last"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -36,31 +36,34 @@
   <!-- new user enters email -->
   <ion-item>
     <ion-label  floating>Enter E-Mail Address</ion-label>
-    <ion-input  required type="email" formControlName="email"></ion-input>
+    <ion-input type="email" formControlName="email"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
   </ion-item>
 
   <!-- new user enters password -->
   <ion-item>
     <ion-label  floating>Enter Password</ion-label>
-    <ion-input  required type="password" formControlName="password"></ion-input>
+    <ion-input type="password" formControlName="password"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
   </ion-item>
 
   <!-- new user verifys password -->
     <!-- **needs to be edited to have a "verify" ability -->
   <ion-item>
     <ion-label  floating>Verify Password</ion-label>
-    <ion-input required type="password" formControlName="vpassword"></ion-input>
+    <ion-input type="password" formControlName="vpassword"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
   </ion-item>
 
   <!-- new user enters their date of birth, MM/DD/YYYY. max is used for age 60 in current year -->
   <ion-item>
     <ion-label  floating>Click to Select Date of Birth</ion-label>
-    <ion-datetime required  displayFormat="MM/DD/YYYY" max="1958" formControlName="dob"  [(ngModel)]="myDate"></ion-datetime>
+    <ion-datetime  displayFormat="MM/DD/YYYY" max="1958" formControlName="dob"  [(ngModel)]="myDate"></ion-datetime>
+    <ion-icon small name="medical" color="danger" item-right></ion-icon>
   </ion-item>
 </form>
 </ion-card>
 
   <!-- submit button to deploy function onRegister  of a new user -->
   <button ion-button block (click)="this.navCtrl.setRoot('InputPage')">Submit</button>
+
+  <ion-icon name="medical" color="danger">Required</ion-icon>
 
 </ion-content>
