@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { DashboardPage } from '../dashboard/dashboard';
+import { RegisterPage } from '../register/register';
+
 
 /**
  * Generated class for the LoginPage page.
@@ -36,5 +39,14 @@ export class LoginPage {
 
 
 
+  doDashboard(){
+    this.navCtrl.setRoot('DashboardPage');
+  }
+
+  doRegister(){
+    this.navCtrl.setRoot('RegisterPage');
+  }
 
 }
+
+
