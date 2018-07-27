@@ -32,6 +32,6 @@ export class DashboardPage {
   
 
   delete(userProfile){
-    
+    //need to set delete up
   }
 }
