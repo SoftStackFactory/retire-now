@@ -50,6 +50,12 @@ const items = [
     note: 'This is the account page',
     icon: 'cloudy'
   },
+  {
+    name: 'Tabs Page',
+    component: 'TabsPage',
+    note: 'This is the tabs page',
+    icon: 'disc'
+  },
 ]
 
 @Component({
