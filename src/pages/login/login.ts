@@ -50,6 +50,16 @@ export class LoginPage {
     this.navCtrl.setRoot('RegisterPage');
   }
 
+  //function to login a user
+  submitLog(){
+    this._user.onLog(this.user)
+        .subscribe( (res:any) => {
+            sessionStorage.setItem('token', res.token);
+            sessionStorage.setItem('userId', res.userId);
+          })
+  }
+  
+
 }
 
 
