@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ResultsPage } from '../../pages/results/results';
 import { InputPage } from '../../pages/input/input';
+import { ModalController } from 'ionic-angular';
+import { ModalPage } from './modal-page';
 /**
  * Generated class for the DashboardPage page.
  *
@@ -16,7 +18,7 @@ import { InputPage } from '../../pages/input/input';
 })
 export class DashboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   profileInformation:any;
@@ -33,5 +35,10 @@ export class DashboardPage {
 
   delete(userProfile){
     //need to set delete up
+  }
+
+  presentModal() {
+    const modal = this.modalCtrl.create(ModalPage);
+    modal.present();
   }
 }
