@@ -25,16 +25,19 @@ export class LoginPage {
 
     this.todo = this.formBuilder.group({
       userName: ['', [Validators.pattern('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'), Validators.required]],
-      passWord: ['', Validators.required],
+      passWord: ['', [Validators.pattern('^[a-zA-Z0-9._-](?=.*[!@#\$%\^&\*]).{6,8}$'), Validators.required]],
     });
   }
 
+  //^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#\$%\^&\*]){6,8}$
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    console.log(this.todo);
   }
 
   logForm(){
-    console.log(this.todo.value)
+    console.log(this.todo)
   }
 
   doDashboard(){
