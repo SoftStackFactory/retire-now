@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { UserProvider } from '../../providers/user/user';
 
-
-
 /**
  * Generated class for the RegisterPage page.
  *

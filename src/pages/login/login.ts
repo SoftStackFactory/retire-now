@@ -4,7 +4,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { DashboardPage } from '../dashboard/dashboard';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from "../tabs/tabs";
-
+import { UserProvider} from '../../providers/user/user';
 /**
  * Generated class for the LoginPage page.
  *
@@ -20,11 +20,12 @@ import { TabsPage } from "../tabs/tabs";
 export class LoginPage {
 
    todo : FormGroup;
+   user={};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public _user: UserProvider) {
 
     this.todo = this.formBuilder.group({
-      userName: ['', Validators.required],
+      email: ['', Validators.required],
       passWord: ['', Validators.required],
     });
   }
