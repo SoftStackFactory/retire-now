@@ -30,21 +30,20 @@ export class LoginPage {
     public _user: UserProvider) {
 
     this.todo = this.formBuilder.group({
-<<<<<<< HEAD
-      email: ['', Validators.required],
-=======
       userName: ['', [Validators.pattern('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'), Validators.required]],
->>>>>>>  made an email validator pattern to require a correct input format of email with @ ,etc
       passWord: ['', Validators.required],
     });
   }
 
+  //^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#\$%\^&\*]){6,8}$
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    console.log(this.todo);
   }
 
   logForm(){
-    console.log(this.todo.value)
+    console.log(this.todo)
   }
 
   doDashboard(){
