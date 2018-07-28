@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ResultsPage } from '../../pages/results/results';
 import { InputPage } from '../../pages/input/input';
 import { ModalController } from 'ionic-angular';
-import { ModalPage } from './modal-page';
+
 /**
  * Generated class for the DashboardPage page.
  *
@@ -32,13 +32,12 @@ export class DashboardPage {
   }
 
   
-
   delete(userProfile){
     //need to set delete up
   }
 
   presentModal() {
-    const modal = this.modalCtrl.create(ModalPage);
+    const modal = this.modalCtrl.create(ResultsPage);
     modal.present();
   }
 }
