@@ -19,20 +19,20 @@ export class UserProvider {
   //api loopback calls below
   
   //base URL to call loopback api
-  baseURL:string='';
+  baseURL:string='https://retire-now-backend-lauren.herokuapp.com/api';
   //loopback add on to register a user
-  regURL:string='';
+  regURL:string='/appUsers';
   //loopback add on to login in a already registered user
-  logURL:string='';
+  logURL:string='/login';
 
   //register call to create an account
   onReg(user){
-    return this.http.post(this.regURL, user)
+    return this.http.post(this.baseURL + this.regURL, user)
   };
 
   //login call after a user has registered 
   onLog(login){
-    return this.http.post(this.regURL + this.logURL, login)
+    return this.http.post(this.baseURL + this.regURL + this.logURL, login)
   };
 
   //reset password
