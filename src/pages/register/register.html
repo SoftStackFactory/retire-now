@@ -21,14 +21,14 @@
     <ion-col width-50>
       <ion-item>
         <ion-label  col-width-50 floating>Enter First Name</ion-label>
-        <ion-input type="text" formControlName="first" ></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
+        <ion-input [(ngModel)]="user.firstName" type="text" formControlName="first" ></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
       </ion-item>
     </ion-col>
   <!-- new user enters last name -->
     <ion-col width-50>
       <ion-item>
         <ion-label  col-width-50 floating>Enter Last Name </ion-label>
-        <ion-input type="text" formControlName="last"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
+        <ion-input [(ngModel)]="user.lastName" type="text" formControlName="last"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -36,13 +36,13 @@
   <!-- new user enters email -->
   <ion-item>
     <ion-label  floating>Enter E-Mail Address</ion-label>
-    <ion-input type="email" formControlName="email"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
+    <ion-input [(ngModel)]="user.email" type="email" formControlName="email"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
   </ion-item>
 
   <!-- new user enters password -->
   <ion-item>
     <ion-label  floating>Enter Password</ion-label>
-    <ion-input type="password" formControlName="password"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
+    <ion-input [(ngModel)]="user.password" type="password" formControlName="password"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
   </ion-item>
 
   <!-- new user verifys password -->
