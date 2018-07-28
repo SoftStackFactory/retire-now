@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { UserProvider } from '../../providers/user/user';
 
 
 /**
@@ -22,7 +23,9 @@ export class RegisterPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private _user: UserProvider
+      ) {
     
     this.registerInput=this.formBuilder.group({
       first: ['', Validators.required],
@@ -39,7 +42,7 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
-
+  //form builder function that allows for register input to become validated
   onForm(){
     console.log(this.registerInput.value)
   }
