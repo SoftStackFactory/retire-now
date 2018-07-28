@@ -4,6 +4,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { UserProvider } from '../../providers/user/user';
 
 
+
 /**
  * Generated class for the RegisterPage page.
  *
@@ -25,7 +26,7 @@ export class RegisterPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     private formBuilder: FormBuilder,
-    private _user: UserProvider
+    public _user: UserProvider
       ) {
     
     this.registerInput=this.formBuilder.group({

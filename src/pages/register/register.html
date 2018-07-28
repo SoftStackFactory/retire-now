@@ -62,7 +62,7 @@
 </ion-card>
 
   <!-- submit button to deploy function onRegister  of a new user -->
-  <button ion-button block (click)="this.navCtrl.setRoot('InputPage')">Submit</button>
+  <button ion-button block (click)="onRegister()" (click)="this.navCtrl.setRoot('InputPage')">Submit</button>
 
   <ion-icon name="medical" color="danger">Required</ion-icon>
 
