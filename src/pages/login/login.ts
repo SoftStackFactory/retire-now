@@ -24,7 +24,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
 
     this.todo = this.formBuilder.group({
-      userName: ['', Validators.required],
+      userName: ['', [Validators.pattern('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'), Validators.required]],
       passWord: ['', Validators.required],
     });
   }
