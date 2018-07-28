@@ -26,13 +26,11 @@
 
 
 <ion-content padding> 
-  <ion-card>
-    <!-- add once user input available to above *ngIf="cardInformation" -->
-    <!-- "this.navCtrl.setRoot('ResultsPage')"
-    "this.navCtrl.setRoot('ResultsPage')" -->
-
-    <ion-card-header  (click)='presentModal()' >
-      <!-- add once user input available to above *ngFor="let card of cardInformaiton.results" -->
+  <ion-card >
+      <!-- *ngIf="cardInformation" -->
+      
+    <ion-card-header  (click)='presentModal()'>
+        <!-- *ngFor="let card of cardInformaiton.results" -->
       <strong>Profile:</strong> User Saved Name
     </ion-card-header>
 
