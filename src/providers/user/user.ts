@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserProvider {
 
-  data={};
+  // data={};
 
   constructor(public http: HttpClient) {
     console.log('Hello UserProvider Provider');
@@ -19,16 +19,25 @@ export class UserProvider {
   //api loopback calls below
   
   //base URL to call loopback api
-  baseURL:'';
+  baseURL:string='';
   //loopback add on to register a user
-  regURL:'';
+  regURL:string='';
   //loopback add on to login in a already registered user
-  logURL:'';
+  logURL:string='';
 
   //register call to create an account
+  onReg(user){
+    return this.http.post(this.regURL, user)
+  };
 
   //login call after a user has registered 
+  onLog(login){
+    return this.http.post(this.regURL + this.logURL, login)
+  };
 
+  //reset password
+
+  //logout user
 
 
 
