@@ -19,6 +19,7 @@ import { UserProvider } from '../../providers/user/user';
 export class RegisterPage {
 
   registerInput: FormGroup;
+  user ={};
 
   constructor(
     public navCtrl: NavController, 
@@ -45,6 +46,15 @@ export class RegisterPage {
   //form builder function that allows for register input to become validated
   onForm(){
     console.log(this.registerInput.value)
+  }
+
+  //function to register a user
+  onRegister(){
+    this._user.onReg(this.user)
+    .subscribe( (res:any) => {
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('userId', res.userId);
+    })
   }
 
   }
