@@ -52,6 +52,7 @@ export class LoginPage {
 
   //function to login a user
   submitLog(){
+    console.log(this.user);
     this._user.onLog(this.user)
         .subscribe( (res:any) => {
             sessionStorage.setItem('token', res.token);
