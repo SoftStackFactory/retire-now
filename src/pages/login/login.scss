@@ -13,3 +13,15 @@ page-login {
     border-bottom-color: #dedede !important;
 }
 }
+
+
+.error {
+    color: red;
+}
+
+.error-msg {
+    display: block;
+    position: absolute;
+    font-size: 75%;
+    bottom: -2em;
+}
