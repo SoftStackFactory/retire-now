@@ -21,7 +21,7 @@ export class UserProvider {
   //api loopback calls below
   
   //base URL to call loopback api
-  baseURL:string='ENV.url';
+  baseURL:string= ENV.url;
   //loopback add on to register a user
   regURL:string='/appUsers';
   //loopback add on to login in a already registered user

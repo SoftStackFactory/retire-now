@@ -49,6 +49,7 @@ export class RegisterPage {
 
   //function to register a user
   onRegister(){
+    console.log(this.user);
     this._user.onReg(this.user)
     .subscribe( (res:any) => {
         sessionStorage.setItem('token', res.token);
