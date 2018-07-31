@@ -23,27 +23,78 @@
         <ion-label  col-width-50 floating>Enter First Name</ion-label>
         <ion-input type="text" formControlName="first" ></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
       </ion-item>
+
+      <ion-item no-lines *ngIf="registerInput.get('first').hasError('required') && registerInput.get('first').touched">
+
+          <div no-lines class="error" *ngIf="registerInput.get('first').hasError('required') && registerInput.get('first').touched">
+          First Name is required!
+          </div>
+          
+  
+          
+          </ion-item>
     </ion-col>
+
+    
   <!-- new user enters last name -->
     <ion-col width-50>
       <ion-item>
         <ion-label  col-width-50 floating>Enter Last Name </ion-label>
         <ion-input type="text" formControlName="last"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
+     
+        
       </ion-item>
+      
+      <ion-item no-lines *ngIf="registerInput.get('last').hasError('required') && registerInput.get('last').touched">
+
+          <div no-lines class="error" *ngIf="registerInput.get('last').hasError('required') && registerInput.get('last').touched">
+          Email is required!
+          </div>
+          
+          </ion-item>
+
     </ion-col>
   </ion-row>
   
   <!-- new user enters email -->
   <ion-item>
     <ion-label  floating>Enter E-Mail Address</ion-label>
-    <ion-input type="email" formControlName="email"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
+    <ion-input type="text" formControlName="Email"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
   </ion-item>
+
+  <ion-item no-lines *ngIf="( registerInput.get('Email').hasError('required') || registerInput.get('Email').hasError('email') ) && registerInput.get('Email').touched">
+
+      <div no-lines class="error" *ngIf="registerInput.get('Email').hasError('required') && registerInput.get('Email').touched">
+      Email is required!
+      </div>
+      
+      <div no-lines class="error" *ngIf="registerInput.get('Email').hasError('email') && registerInput.get('Email').touched">
+      Please enter valid email!
+      </div>
+      
+      </ion-item>
+
+
 
   <!-- new user enters password -->
   <ion-item>
     <ion-label  floating>Enter Password</ion-label>
     <ion-input type="password" formControlName="password"></ion-input><ion-icon small name="medical" color="danger" item-right></ion-icon>
   </ion-item>
+
+
+
+  <ion-item no-lines *ngIf="( registerInput.get('password').hasError('required') || registerInput.get('password').hasError('pattern') ) && registerInput.get('password').touched">
+
+      <div no-lines class="error" *ngIf="registerInput.get('password').hasError('required') && registerInput.get('password').touched">
+      Password is required!
+      </div>
+      
+      <div no-lines class="error" *ngIf="registerInput.get('password').hasError('pattern') && registerInput.get('password').touched">
+      Please enter valid password!
+      </div>
+      
+      </ion-item>
 
   <!-- new user verifys password -->
     <!-- **needs to be edited to have a "verify" ability -->

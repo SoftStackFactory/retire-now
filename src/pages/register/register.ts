@@ -27,7 +27,7 @@ export class RegisterPage {
     this.registerInput=this.formBuilder.group({
       first: ['', Validators.required],
       last: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      Email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.pattern('^[a-zA-Z0-9._-](?=.*[!@#\$%\^&\*]).{6,8}$'), Validators.required]],
       vpassword: ['', Validators.required],
       dob: ['', Validators.required],
