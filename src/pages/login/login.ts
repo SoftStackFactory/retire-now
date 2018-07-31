@@ -24,11 +24,12 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
 
     this.todo = this.formBuilder.group({
-      userName: ['', [Validators.pattern('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'), Validators.required]],
+      userName: ['', [Validators.required, Validators.email]],
       passWord: ['', [Validators.pattern('^[a-zA-Z0-9._-](?=.*[!@#\$%\^&\*]).{6,8}$'), Validators.required]],
     });
   }
 
+  // '^[a-zA-Z0-9._-](?=.*[!@#\$%\^&\*]).{6,8}$'
   //^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#\$%\^&\*]){6,8}$
 
   ionViewDidLoad() {
