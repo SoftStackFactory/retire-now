@@ -29,21 +29,7 @@
           <ion-label floating>Password</ion-label>
           <ion-input type="password"  formControlName="passWord"></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
         </ion-item>
-
-
-
-        <ion-item no-lines *ngIf="( todo.get('userName').hasError('required') || todo.get('userName').hasError('email') ) && todo.get('userName').touched">
-
-            <div no-lines class="error" *ngIf="todo.get('userName').hasError('required') && todo.get('userName').touched">
-            Email is required!
-            </div>
-            
-            <div no-lines class="error" *ngIf="todo.get('userName').hasError('email') && todo.get('userName').touched">
-            Please enter valid email!
-            </div>
-            
-            </ion-item>
-     
+          
       </form>
 
     </ion-card>
