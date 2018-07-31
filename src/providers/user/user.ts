@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ENV } from '../../environments/environments.dev';
+
 
 /*
   Generated class for the UserProvider provider.
@@ -19,7 +21,7 @@ export class UserProvider {
   //api loopback calls below
   
   //base URL to call loopback api
-  baseURL:string='https://retire-now-backend-lauren.herokuapp.com/api';
+  baseURL:string='ENV.url';
   //loopback add on to register a user
   regURL:string='/appUsers';
   //loopback add on to login in a already registered user
