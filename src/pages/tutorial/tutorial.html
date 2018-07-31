@@ -10,6 +10,24 @@
 <ion-content padding class="tutorial-page">
 
 <ion-slides pager>
+    <ion-slide>
+      <ion-toolbar>
+          <div *ngIf="isLoggedIn; else newUser1">
+            <ion-buttons end>
+              <button ion-button color="primary" (click)="this.navCtrl.setRoot('AccountPage')">Skip</button>
+            </ion-buttons>
+          </div>
+          <ng-template #newUser1>
+            <ion-buttons end>
+              <button ion-button color="primary" (click)="this.navCtrl.setRoot('InputPage')">Skip</button>
+            </ion-buttons>
+          </ng-template>
+        </ion-toolbar>
+      <img src="assets/imgs/coins.jpg" class="slide-image"/>
+      <h2 class="slide-title">"Welcome to the Docs!"</h2>
+      <ion-icon id="forward-arrow" name="arrow-forward" (click)="nextSlide()"></ion-icon>
+      <p>"The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic."</p>
+    </ion-slide>
     <ion-slide *ngFor="let slide of mySlides">
       <ion-toolbar>
         <div *ngIf="isLoggedIn; else newUser">
@@ -25,14 +43,16 @@
       </ion-toolbar>
       <img [src]="slide.image" class="slide-image"/>
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <ion-icon id="back-arrow" name="arrow-back" (click)="slidePrev()"></ion-icon>
+      <ion-icon id="forward-arrow" name="arrow-forward" (click)="nextSlide()"></ion-icon>
       <p [innerHTML]="slide.description"></p>
-      <button ion-button (click)="nextSlide()">Next</button>
     </ion-slide>
     <ion-slide>
       <ion-toolbar>
       </ion-toolbar>
       <img src="assets/imgs/coins.jpg" class="slide-image"/>
       <h2 class="slide-title">Ready to Play?</h2>
+      <ion-icon id="back-arrow" name="arrow-back" (click)="slidePrev()"></ion-icon>
       <div *ngIf="isLoggedIn; else newUser">
           <button ion-button large clear icon-end color="primary" (click)="this.navCtrl.setRoot('AccountPage')">
               Continue

@@ -26,24 +26,34 @@
 
 
 <ion-content padding> 
-  <ion-card (click)="this.navCtrl.setRoot('ResultsPage')" >
+  <ion-card>
     <!-- add once user input available to above *ngIf="cardInformation" -->
-    <ion-card-header >
-      Profile: User Saved Name
+
+    <ion-card-header (click)="this.navCtrl.setRoot('ResultsPage')"  >
       <!-- add once user input available to above *ngFor="let card of cardInformaiton.results" -->
-      <ion-buttons end>
-        <button (click)="delete(userProfile)"ion-button icon-only color="danger" stacked>
-          <ion-icon name="close"></ion-icon>
-        </button>
-      </ion-buttons>
+      <strong>Profile:</strong> User Saved Name
     </ion-card-header>
-    
-    <ion-card-content>
+
+    <ion-card-content (click)="this.navCtrl.setRoot('ResultsPage')" >
       saved overview of reults 
     </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small (click)="this.navCtrl.setRoot('InputPage')">
+          <ion-icon name="text"></ion-icon>
+          <div>Edit Informaiton</div>
+        </button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button icon-start clear small color="danger" (click)="delete(userProfile)">
+          <ion-icon name="close"></ion-icon>
+          <div>Delete Profile</div>
+        </button>
+      </ion-col>
+
+    </ion-row>
   </ion-card>
-    <ion-card>
-      <button ion-button small (click)="this.navCtrl.setRoot('InputPage')"> Edit Information </button>
-    </ion-card>
   
 </ion-content>

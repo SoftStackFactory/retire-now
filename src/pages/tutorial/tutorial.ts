@@ -27,16 +27,20 @@ export class TutorialPage {
     console.log('ionViewDidLoad TutorialPage');
   }
 
+  slidePrev() {
+    this.slides.slidePrev();
+  }
+
   nextSlide() {
     this.slides.slideNext();
   }
 
   mySlides = [
-    {
-      title: "Welcome to the Docs!",
-      description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
-      image: "assets/imgs/coins.jpg",
-    },
+    // {
+    //   title: "Welcome to the Docs!",
+    //   description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
+    //   image: "assets/imgs/coins.jpg",
+    // },
     {
       title: "What is Ionic?",
       description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
