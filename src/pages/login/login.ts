@@ -21,6 +21,7 @@ export class LoginPage {
 
    todo : FormGroup;
    user={};
+   error={message:''};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public _user: UserProvider) {
 
@@ -55,12 +56,20 @@ export class LoginPage {
     console.log(this.user);
     this._user.onLog(this.user)
         .subscribe( (res:any) => {
+        
             sessionStorage.setItem('token', res.token);
             sessionStorage.setItem('userId', res.userId);
-          })
+
+          }, (error: any) => {
+            if (error.status === 401) {
+              console.log('Error Message:', error.message)
+              this.error.message= 'you are not a registered user'
+            }     
+            else if (error.status === 400) {
+              console.log('Error Message:', error.message)
+              this.error.message= 'you did not enter information above'
+            }    
+          } )
+
   }
-  
-
 }
-
-
