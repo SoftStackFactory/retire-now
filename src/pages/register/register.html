@@ -62,7 +62,8 @@
 </ion-card>
 
   <!-- submit button to deploy function onRegister  of a new user -->
-  <button ion-button block (click)="onRegister()" (click)="this.navCtrl.setRoot('InputPage')">Submit</button>
+  <div class="error" ng-if="error">{{ error.message }}</div>
+  <button ion-button block (click)="onRegister()" >Submit</button>
 
   <ion-icon name="medical" color="danger">Required</ion-icon>
 
