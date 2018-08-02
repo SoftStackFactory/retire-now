@@ -19,6 +19,7 @@ export class RegisterPage {
 
   registerInput: FormGroup;
   user ={};
+  error={message:''};
 
   constructor(
     public navCtrl: NavController, 
@@ -54,7 +55,16 @@ export class RegisterPage {
     .subscribe( (res:any) => {
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('userId', res.userId);
-    })
+    }, (error: any) => {
+      if (error.status === 401) {
+        console.log('Error Message:', error.message)
+        this.error.message= 'you are not a registered user'
+      }     
+      else if (error.status === 422) {
+        console.log('Error Message:', error.message)
+        this.error.message= 'you did not enter information above'
+      }    
+    } )
   }
 
   }

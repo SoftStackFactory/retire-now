@@ -34,7 +34,9 @@
 
     </ion-card>
     
-    <button ion-button full (click)= "doTabs()" (click)="submitLog()">Login</button>
+    <div class="error" ng-if="error">{{ error.message }}</div>
+    <button ion-button  full (click)="submitLog()">Login</button>
+
 
     <p>
         or <span (click)="doRegister()">sign up!!</span>

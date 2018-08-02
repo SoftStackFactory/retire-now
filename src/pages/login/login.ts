@@ -5,6 +5,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from "../tabs/tabs";
 import { UserProvider} from '../../providers/user/user';
+import { InputPage } from '../input/input';
 /**
  * Generated class for the LoginPage page.
  *
@@ -21,8 +22,12 @@ export class LoginPage {
 
    todo : FormGroup;
    user={};
+   error={message:''};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public _user: UserProvider) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private formBuilder: FormBuilder, 
+    public _user: UserProvider) {
 
     this.todo = this.formBuilder.group({
       email: ['', Validators.required],
@@ -55,12 +60,23 @@ export class LoginPage {
     console.log(this.user);
     this._user.onLog(this.user)
         .subscribe( (res:any) => {
+        
             sessionStorage.setItem('token', res.token);
             sessionStorage.setItem('userId', res.userId);
-          })
+            this.navCtrl.push(InputPage, {});
+
+          }, (error: any) => {
+            if (error.status === 401) {
+              console.log('Error Message:', error.message)
+              this.error.message= 'you are not a registered user'
+            }     
+            else if (error.status === 400) {
+              console.log('Error Message:', error.message)
+              this.error.message= 'you did not enter information above'
+            }    
+           
+          } )
+
   }
-  
 
 }
-
-
