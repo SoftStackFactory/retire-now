@@ -22,10 +22,12 @@
         <ion-item>
         
           <ion-label floating>E-mail</ion-label>
-          <ion-input type="e-mail" formControlName="userName"></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
-      </ion-item>
-   
 
+   
+</ion-item>
+          
+          <ion-input [(ngModel)]="user.userName" type="text" formControlName="email"></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
+        </ion-item>
 
 
       <ion-item no-lines *ngIf="( todo.get('userName').hasError('required') || todo.get('userName').hasError('email') ) && todo.get('userName').touched">
@@ -38,12 +40,12 @@
           Please enter valid email!
           </div>
           
-          </ion-item>
+          
       
        
         <ion-item>
           <ion-label floating>Password</ion-label>
-          <ion-input type="password"  formControlName="passWord"></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
+          <ion-input [(ngModel)]="user.password" type="password"  formControlName="passWord"></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
         </ion-item>
 
         <ion-item no-lines *ngIf="( todo.get('passWord').hasError('required') || todo.get('passWord').hasError('pattern') ) && todo.get('passWord').touched">
@@ -56,16 +58,21 @@
 
 
      
-      </form>
+     
+     </form>
+
+     <p padding>
+        Need to register? <span (click)="doRegister()">Click here!!</span>
+    </p>
+
 
     </ion-card>
     
-    <button ion-button full (click)= "doTabs()">Login</button>
+    <div class="error" ng-if="error">{{ error.message }}</div>
+    <button ion-button  full (click)="submitLog()">Login</button>
 
-    <p>
-        or <span (click)="doRegister()">sign up!!</span>
-    </p>
 
+   
     <ion-icon name="medical" color="danger">Required</ion-icon>
 
 </ion-content>

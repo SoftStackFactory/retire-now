@@ -4,6 +4,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { DashboardPage } from '../dashboard/dashboard';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from "../tabs/tabs";
+import { UserProvider} from '../../providers/user/user';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,12 +21,22 @@ import { TabsPage } from "../tabs/tabs";
 export class LoginPage {
 
    todo : FormGroup;
+   user={};
+   error={message:''};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private formBuilder: FormBuilder, 
+    public _user: UserProvider) {
 
     this.todo = this.formBuilder.group({
+<<<<<<< 75-userinputvalidation
       userName: ['', [Validators.required, Validators.email]],
       passWord: ['', [Validators.pattern('^[a-zA-Z0-9._-](?=.*[!@#\$%\^&\*]).{6,8}$'), Validators.required]],
+=======
+      email: ['', Validators.required],
+      passWord: ['', Validators.required],
+>>>>>>> dev
     });
   }
 
@@ -53,6 +64,28 @@ export class LoginPage {
     this.navCtrl.setRoot('RegisterPage');
   }
 
+  //function to login a user
+  submitLog(){
+    console.log(this.user);
+    this._user.onLog(this.user)
+        .subscribe( (res:any) => {
+        
+            sessionStorage.setItem('token', res.token);
+            sessionStorage.setItem('userId', res.userId);
+            this.navCtrl.push('DashboardPage');
+
+          }, (error: any) => {
+            if (error.status === 401) {
+              console.log('Error Message:', error.message)
+              this.error.message= 'you are not a registered user'
+            }     
+            else if (error.status === 400) {
+              console.log('Error Message:', error.message)
+              this.error.message= 'you did not enter information above'
+            }    
+           
+          } )
+
+  }
+
 }
-
-
