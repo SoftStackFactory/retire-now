@@ -11,5 +11,6 @@ import { InputPageModule } from '../input/input.module';
     IonicPageModule.forChild(LoginPage),
     InputPageModule
   ],
+  exports: [LoginPage]
 })
 export class LoginPageModule {}
