@@ -5,7 +5,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from "../tabs/tabs";
 import { UserProvider} from '../../providers/user/user';
-import { InputPage } from '../input/input';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -63,7 +63,7 @@ export class LoginPage {
         
             sessionStorage.setItem('token', res.token);
             sessionStorage.setItem('userId', res.userId);
-            this.navCtrl.push(InputPage, {});
+            this.navCtrl.push('DashboardPage');
 
           }, (error: any) => {
             if (error.status === 401) {

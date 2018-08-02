@@ -55,6 +55,7 @@ export class RegisterPage {
     .subscribe( (res:any) => {
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('userId', res.userId);
+        this.navCtrl.push('TutorialPage');
     }, (error: any) => {
       if (error.status === 401) {
         console.log('Error Message:', error.message)
@@ -64,6 +65,10 @@ export class RegisterPage {
         console.log('Error Message:', error.message)
         this.error.message= 'you did not enter information above'
       }    
+      else if (error.status === 404) {
+        console.log('Error Message:', error.message)
+        this.error.message= 'you did not enter information above'
+      } 
     } )
   }
 
