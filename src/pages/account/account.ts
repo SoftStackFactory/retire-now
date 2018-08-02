@@ -22,4 +22,11 @@ export class AccountPage {
     console.log('ionViewDidLoad AccountPage');
   }
 
+  view(){
+    this.navCtrl.push('TutorialPage')
+  }
+
+  logout(){
+    this.navCtrl.push('LandingPage')
+  }
 }
