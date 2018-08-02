@@ -5,6 +5,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from "../tabs/tabs";
 import { UserProvider} from '../../providers/user/user';
+import { InputPage } from '../input/input';
 /**
  * Generated class for the LoginPage page.
  *
@@ -23,7 +24,10 @@ export class LoginPage {
    user={};
    error={message:''};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public _user: UserProvider) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private formBuilder: FormBuilder, 
+    public _user: UserProvider) {
 
     this.todo = this.formBuilder.group({
       email: ['', Validators.required],
@@ -59,6 +63,7 @@ export class LoginPage {
         
             sessionStorage.setItem('token', res.token);
             sessionStorage.setItem('userId', res.userId);
+            this.navCtrl.push(InputPage, {});
 
           }, (error: any) => {
             if (error.status === 401) {
@@ -69,7 +74,9 @@ export class LoginPage {
               console.log('Error Message:', error.message)
               this.error.message= 'you did not enter information above'
             }    
+           
           } )
 
   }
+
 }
