@@ -5,78 +5,77 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Login</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-    <form [formGroup]="todo" (ngSubmit)="logForm()">
-  <ion-card>
-
-    
-     
-        <ion-item>
-        
-          <ion-label floating>E-mail</ion-label>
-
-   
-</ion-item>
-          
-          <ion-input [(ngModel)]="user.userName" type="text" formControlName="email"></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
-        </ion-item>
-
-
-      <ion-item no-lines *ngIf="( todo.get('userName').hasError('required') || todo.get('userName').hasError('email') ) && todo.get('userName').touched">
-
-          <div no-lines class="error" *ngIf="todo.get('userName').hasError('required') && todo.get('userName').touched">
-          Email is required!
-          </div>
-          
-          <div no-lines class="error" *ngIf="todo.get('userName').hasError('email') && todo.get('userName').touched">
-          Please enter valid email!
-          </div>
-          
-          </ion-item>
-       
-        <ion-item>
-          <ion-label floating>Password</ion-label>
-          <ion-input [(ngModel)]="user.password" type="password"  formControlName="passWord"></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
-        </ion-item>
-          
-      </form>
-
-        <ion-item no-lines *ngIf="( todo.get('passWord').hasError('required') || todo.get('passWord').hasError('pattern') ) && todo.get('passWord').touched">
-
-            <div no-lines class="error" *ngIf="todo.get('passWord').hasError('required') && todo.get('passWord').touched">
-            Password is required!
-            </div>
-            
-        </ion-item>
-    
-      </ion-card>
-      
-        <button ion-button full type="submit" [disabled]="!todo">Submit</button>
-     
-     
-     </form>
-
-     <p padding>
-        Need to register? <span (click)="doRegister()">Click here!!</span>
-    </p>
-
-
-   
-    
-    
-    <div class="error" ng-if="error">{{ error.message }}</div>
-    <button ion-button  full (click)="submitLog()">Login</button>
-
-
-   
-    <ion-icon name="medical" color="danger">Required</ion-icon>
-
+<ion-content padding-horizontal>
+  <ion-grid no-padding fixed>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header no-padding padding-top padding-left padding-right>
+            <h3>Enter your email and password to login:</h3>
+            <p no-padding>All fields with <ion-icon name="medical" color="danger" size="small"></ion-icon> are required.
+            </p>
+          </ion-card-header>
+          <ion-card-content padding-horizontal padding-bottom>
+            <form [formGroup]="todo" (ngSubmit)="logForm()">
+              
+              <ion-list>
+                <ion-item no-lines no-padding>
+                  <ion-label floating>E-mail</ion-label>
+                  <ion-input [(ngModel)]="user.userName" type="text" formControlName="userName"></ion-input>
+                  <ion-icon small name="medical" color="danger" item-right></ion-icon>
+                </ion-item>
+                
+                <ion-item no-lines no-padding
+                  *ngIf="( todo.get('userName').hasError('required') || todo.get('userName').hasError('userName') ) && todo.get('userName').touched">
+                  <div no-lines class="error"
+                    *ngIf="todo.get('userName').hasError('required') && todo.get('userName').touched">
+                    Email is required!
+                  </div>
+                  <div no-lines class="error"
+                    *ngIf="todo.get('userName').hasError('userName') && todo.get('userName').touched">
+                    Please enter valid email!
+                  </div>
+                </ion-item>
+              </ion-list>
+              
+              <ion-list>
+                <ion-item no-padding>
+                  <ion-label floating>Password</ion-label>
+                  <ion-input [(ngModel)]="user.password" type="password" formControlName="passWord"></ion-input>
+                  <ion-icon small name="medical" color="danger" item-right></ion-icon>
+                </ion-item>
+                
+                <ion-item no-lines no-padding
+                  *ngIf="( todo.get('passWord').hasError('required') || todo.get('passWord').hasError('pattern') ) && todo.get('passWord').touched">
+                  <div no-lines class="error"
+                    *ngIf="todo.get('passWord').hasError('required') && todo.get('passWord').touched">
+                    Password is required!
+                  </div>
+                </ion-item>
+              </ion-list>
+              
+              <ion-list>
+                <ion-item no-lines no-padding>
+                  <p>Need to register? <span ion-text color="primary" (click)="doRegister()">Click here!!</span></p>
+                </ion-item>
+              </ion-list>
+              
+              <div class="error" ng-if="error">{{ error.message }}</div>
+              
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center padding-horizontal>
+      <ion-col>
+        <button ion-button full (click)="submitLog()" type="submit" [disabled]="!todo">Login</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
