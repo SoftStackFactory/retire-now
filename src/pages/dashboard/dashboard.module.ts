@@ -7,7 +7,7 @@ import { DashboardPage } from './dashboard';
     DashboardPage
   ],
   imports: [
-    IonicPageModule.forChild(DashboardPage),
+    IonicPageModule.forChild(DashboardPage)
   ],
   exports: [DashboardPage]
 })
