@@ -11,5 +11,6 @@ import { ChartsModule } from 'ng2-charts';
     IonicPageModule.forChild(ResultsPage),
     ChartsModule
   ],
+  exports: [ResultsPage]
 })
 export class ResultsPageModule {}

@@ -12,16 +12,11 @@ page-login {
     box-shadow: inset 0 -1px 0 0 #dedede;
     border-bottom-color: #dedede !important;
 }
+
+.error{
+    font-weight:bold;
+    color:red;
+    text-align: center;
+    font-size: large;
 }
-
-
-.error {
-    color: red;
-}
-
-.error-msg {
-    display: block;
-    position: absolute;
-    font-size: 75%;
-    bottom: -2em;
 }
