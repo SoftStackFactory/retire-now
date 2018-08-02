@@ -67,7 +67,7 @@ export class RegisterPage {
       }    
       else if (error.status === 404) {
         console.log('Error Message:', error.message)
-        this.error.message= 'something went wrong'
+        this.error.message= 'you did not enter information above'
       } 
     } )
   }
