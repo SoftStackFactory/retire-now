@@ -30,7 +30,13 @@
           <ion-input [(ngModel)]="user.password" type="password"  formControlName="passWord"></ion-input> <ion-icon small name="medical" color="danger" item-right></ion-icon>
         </ion-item>
      
-      </form>
+     
+     </form>
+
+     <p padding>
+        Need to register? <span (click)="doRegister()">Click here!!</span>
+    </p>
+
 
     </ion-card>
     
@@ -38,10 +44,7 @@
     <button ion-button  full (click)="submitLog()">Login</button>
 
 
-    <p>
-        or <span (click)="doRegister()">sign up!!</span>
-    </p>
-
+   
     <ion-icon name="medical" color="danger">Required</ion-icon>
 
 </ion-content>
