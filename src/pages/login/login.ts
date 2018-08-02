@@ -30,18 +30,8 @@ export class LoginPage {
     public _user: UserProvider) {
 
     this.todo = this.formBuilder.group({
-<<<<<<< HEAD
       userName: ['', [Validators.required, Validators.email]],
       passWord: ['',Validators.required],
-=======
-<<<<<<< 75-userinputvalidation
-      userName: ['', [Validators.required, Validators.email]],
-      passWord: ['', [Validators.pattern('^[a-zA-Z0-9._-](?=.*[!@#\$%\^&\*]).{6,8}$'), Validators.required]],
-=======
-      email: ['', Validators.required],
-      passWord: ['', Validators.required],
->>>>>>> dev
->>>>>>> 301b12cf27be7fa1c70edc9d972749f8d6abbb35
     });
   }
 
@@ -50,20 +40,12 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-<<<<<<< HEAD
     //console.log(this.todo);
   }
 
   logForm(){
     //this.navCtrl.setRoot('TabsPage')
     console.log(this.todo.value)
-=======
-    console.log(this.todo);
-  }
-
-  logForm(){
-    console.log(this.todo)
->>>>>>> 301b12cf27be7fa1c70edc9d972749f8d6abbb35
   }
 
   doDashboard(){
