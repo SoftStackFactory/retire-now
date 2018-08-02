@@ -14,10 +14,10 @@
 
 
 <ion-content padding>
-
+    <form [formGroup]="todo" (ngSubmit)="logForm()">
   <ion-card>
 
-    <form [formGroup]="todo" (ngSubmit)="logForm()">
+    
      
         <ion-item>
         
@@ -54,6 +54,9 @@
             
         </ion-item>
 
+      </ion-card>
+      
+        <button ion-button full type="submit" [disabled]="!todo">Submit</button>
 
      
      
@@ -64,7 +67,8 @@
     </p>
 
 
-    </ion-card>
+   
+    
     
     <div class="error" ng-if="error">{{ error.message }}</div>
     <button ion-button  full (click)="submitLog()">Login</button>

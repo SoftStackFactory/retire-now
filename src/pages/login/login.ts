@@ -31,7 +31,7 @@ export class LoginPage {
 
     this.todo = this.formBuilder.group({
       userName: ['', [Validators.required, Validators.email]],
-      passWord: ['', [Validators.pattern('^[a-zA-Z0-9._-](?=.*[!@#\$%\^&\*]).{6,8}$'), Validators.required]],
+      passWord: ['',Validators.required],
     });
   }
 
@@ -40,20 +40,21 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-    console.log(this.todo);
+    //console.log(this.todo);
   }
 
   logForm(){
-    console.log(this.todo)
+    //this.navCtrl.setRoot('TabsPage')
+    console.log(this.todo.value)
   }
 
   doDashboard(){
     this.navCtrl.setRoot('DashboardPage');
   }
 
-  doTabs(){
-    this.navCtrl.setRoot('TabsPage');
-  }
+  // doTabs(){
+  //   this.navCtrl.setRoot('TabsPage');
+  // }
 
   doRegister(){
     this.navCtrl.setRoot('RegisterPage');
