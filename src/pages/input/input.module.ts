@@ -9,5 +9,6 @@ import { InputPage } from './input';
   imports: [
     IonicPageModule.forChild(InputPage),
   ],
+  exports: [InputPage]
 })
 export class InputPageModule {}

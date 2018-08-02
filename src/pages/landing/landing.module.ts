@@ -9,5 +9,6 @@ import { LandingPage } from './landing';
   imports: [
     IonicPageModule.forChild(LandingPage),
   ],
+  exports: [LandingPage]
 })
 export class LandingPageModule {}
