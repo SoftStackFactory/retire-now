@@ -63,7 +63,7 @@ export class LoginPage {
         
             sessionStorage.setItem('token', res.token);
             sessionStorage.setItem('userId', res.userId);
-            this.navCtrl.push('InputPage');
+            this.navCtrl.push('DashboardPage');
 
           }, (error: any) => {
             if (error.status === 401) {
