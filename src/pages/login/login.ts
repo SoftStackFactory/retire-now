@@ -72,8 +72,12 @@ export class LoginPage {
             }     
             else if (error.status === 400) {
               console.log('Error Message:', error.message)
-              this.error.message= 'you did not enter information above'
+              this.error.message= 'something went wrong'
             }    
+            else if (error.status === 404) {
+              console.log('Error Message:', error.message)
+              this.error.message= 'something went wrong'
+            }   
            
           } )
 
