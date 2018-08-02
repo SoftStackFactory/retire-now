@@ -14,8 +14,10 @@
 
 <ion-content padding>
 
-  <ion-card>
+ 
       <form [formGroup]="registerInput" (ngSubmit)="onForm()">
+
+          <ion-card>
   <!-- new user enters first name -->
   <ion-row>
     <ion-col width-50>
@@ -118,11 +120,20 @@
     <ion-datetime  displayFormat="MM/DD/YYYY" max="1958" formControlName="dob"  [(ngModel)]="myDate"></ion-datetime>
     <ion-icon small name="medical" color="danger" item-right></ion-icon>
   </ion-item>
-</form>
+
+
 </ion-card>
 
+
+
+<button ion-button block (click)="this.navCtrl.setRoot('InputPage')">Submit</button>
+
+</form>
+
+
+
   <!-- submit button to deploy function onRegister  of a new user -->
-  <button ion-button block (click)="this.navCtrl.setRoot('InputPage')">Submit</button>
+ 
 
   <ion-icon name="medical" color="danger">Required</ion-icon>
 
