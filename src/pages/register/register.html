@@ -108,6 +108,9 @@
       <div no-lines class="error" *ngIf="registerInput.get('vpassword').hasError('required') && registerInput.get('vpassword').touched">
       Password is required!
       </div>
+      <div no-lines class="error" *ngIf="registerInput.get('vpassword').hasError('pattern') && registerInput.get('vpassword').touched">
+          Please enter valid password!
+          </div>
 </ion-item>
   <!-- new user enters their date of birth, MM/DD/YYYY. max is used for age 60 in current year -->
   <ion-item>
