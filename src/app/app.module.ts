@@ -6,32 +6,31 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { ResultsPage } from '../pages/results/results';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
 import { UserProvider } from '../providers/user/user';
+import { ResultsPageModule } from "../pages/results/results.module";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    ResultsPage
+    ListPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    ResultsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
-    ResultsPage
+    ListPage
   ],
   providers: [
     StatusBar,
