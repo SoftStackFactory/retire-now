@@ -35,7 +35,7 @@
             
         </ion-item>
         
-        <button ion-item [tooltip]="tootText" positionH="right" event="click" arrow>
+        <button ion-item tooltip ="I'm a tooltip below a button" positionH="right" arrow>
             <ion-icon name="help-circle"  item-right></ion-icon>
              <ion-label floating>FRA monthly payment </ion-label> <ion-icon small name="medical" color="danger" item-right></ion-icon>
             <ion-input type="text" formControlName="sS"></ion-input> 
@@ -58,12 +58,8 @@
               
     <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>  
 
-    <button ion-button tooltip="I'm a tooltip below a button" positionV="bottom" arrow>
-        Press me to see a tooltip
-      </button>
-      
-
-   <ion-icon name="medical" color="danger">Required</ion-icon>   
+   <ion-icon name="medical" color="danger">Required</ion-icon>  
+    
 </ion-content>
 
 
