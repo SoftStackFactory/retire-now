@@ -9,6 +9,7 @@ import { TooltipsModule } from 'ionic-tooltips';
   ],
   imports: [
     IonicPageModule.forChild(InputPage),
+    TooltipsModule
   ],
   exports: [InputPage]
 })

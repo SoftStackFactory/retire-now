@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TooltipsModule } from 'ionic-tooltips';
 
 /**
  * Generated class for the InputPage page.
@@ -15,6 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'input.html',
 })
 export class InputPage {
+
+  
 
   lala : FormGroup;
 
@@ -37,5 +40,7 @@ export class InputPage {
   logType(){
     console.log(this.lala.value)
   }
+
+
 
 }

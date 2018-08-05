@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChartsModule } from 'ng2-charts';
 import { UserProvider } from '../providers/user/user';
 import { ResultsPageModule } from "../pages/results/results.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ResultsPageModule } from "../pages/results/results.module";
     IonicModule.forRoot(MyApp),
     ChartsModule,
     HttpClientModule,
-    ResultsPageModule
+    ResultsPageModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

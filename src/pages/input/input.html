@@ -30,13 +30,19 @@
         </ion-item>     
       
         <ion-item>    
-            <ion-label floating>FRA monthly payment </ion-label> <button ion-button mat-raised-button
-            matTooltip="Info about the action"
-            aria-label="Button that displays a tooltip when focused or hovered over">
-      Action
-    </button><ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="sS"></ion-input>    
+            <ion-label floating>FRA monthly payment </ion-label> <ion-icon small name="medical" color="danger" item-right></ion-icon>
+            <ion-input type="text" formControlName="sS"></ion-input> 
+            
         </ion-item>
+        
+        <button ion-item [tooltip]="tootText" positionH="right" event="click" arrow>
+            <ion-icon name="help-circle"  item-right></ion-icon>
+             <ion-label floating>FRA monthly payment </ion-label> <ion-icon small name="medical" color="danger" item-right></ion-icon>
+            <ion-input type="text" formControlName="sS"></ion-input> 
+            </button>  
+        
+        
+       
      
         <ion-item>    
             <ion-label floating>Save Profile As</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
@@ -52,6 +58,10 @@
               
     <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>  
 
+    <button ion-button tooltip="I'm a tooltip below a button" positionV="bottom" arrow>
+        Press me to see a tooltip
+      </button>
+      
 
    <ion-icon name="medical" color="danger">Required</ion-icon>   
 </ion-content>
