@@ -12,16 +12,24 @@
 
 </ion-header>
   
-<ion-content padding>
-
-
-  <ion-card>
+<ion-content padding-horizontal>
+    <ion-grid no-padding fixed>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header no-padding padding-top padding-left padding-right>
+              <h3>Please enter your information </h3>
+              <p no-padding>All fields with <ion-icon name="medical" color="danger" size="small"></ion-icon> are required.</p>
+            </ion-card-header>
+            
+            <ion-card-content padding-horizontal padding-bottom>
 
     <form [formGroup]="lala" (ngSubmit)="logType()">
        
         <ion-item>
           <ion-label floating>Full Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-          <ion-datetime type="text" formControlName="frA" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDay"></ion-datetime>
+          <ion-input  formControlName="frA" class="hotfix" ></ion-input>
+          <ion-datetime type="text" formControlName="frA"  [min]="minimumfrA" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDay"></ion-datetime>
         </ion-item>
       
         <ion-item>
@@ -41,7 +49,7 @@
           
      </form>
 
-    </ion-card>
+            </ion-card-content>
 
 
     <button ion-button full class="buttons" >Submit</button>
