@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {UserProvider} from '../../providers/user/user';
-import { PasswordValidation } from './password-validation';
+import { PasswordValidation } from '../../components/password-validation/password-validation';
 
 /**
  * Generated class for the RegisterPage page.

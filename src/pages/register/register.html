@@ -80,7 +80,7 @@
               <!-- new user enters password -->
               <ion-list>
                 <ion-item no-padding>
-                  <ion-label floating>Enter Password</ion-label>
+                  <ion-label for="password" floating>Enter Password</ion-label>
                   <ion-input [(ngModel)]="user.password" type="password" formControlName="password"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
@@ -102,7 +102,7 @@
               <!-- **needs to be edited to have a "verify" ability -->
               <ion-list>
                 <ion-item no-padding >
-                  <ion-label  floating>Verify Password</ion-label>
+                  <ion-label for="confirmPassword"  floating>Verify Password</ion-label>
                   <ion-input [(ngModel)]="vpassword" type="password" formControlName="vpassword"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
