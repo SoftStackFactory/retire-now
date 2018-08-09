@@ -18,7 +18,8 @@ import {UserProvider} from '../../providers/user/user';
 export class RegisterPage {
 
   registerInput: FormGroup;
-  user = {};
+  user = {vpassword: '',
+          password: ''};
   error = {message: ''};
 
   constructor(
@@ -26,19 +27,28 @@ export class RegisterPage {
     public navParams: NavParams,
     private formBuilder: FormBuilder,
     public _user: UserProvider
-  ) {
-
-    this.registerInput = this.formBuilder.group({
+    ) {this.registerInput = this.formBuilder.group({
       first: ['', Validators.required],
       last: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', this.matchPasswords],
       vpassword: ['', Validators.required],
       dob: ['', Validators.required],
-
-    });
-
+    }, {validator: this.matchPasswords('password', 'vpassword')});
+    
   }
+
+  matchPasswords(passwordKey: any, vpasswordKey: string){
+    return(group: FormGroup): {[key:string]: any} => {
+      let password = group.controls[passwordKey];
+      let vpassword = group.controls[vpasswordKey];
+
+      if (password.value !== vpassword.value) {
+        return {mismatchedPasswords: true};
+      }
+    }
+  }
+
 
   //[Validators.pattern('^[a-zA-Z0-9._-](?=.*[!@#\$%\^&\*]).{6,8}$') in case needed use this.
 //   userName: ['', [Validators.required, Validators.email]],
@@ -69,12 +79,13 @@ export class RegisterPage {
         }
         else if (error.status === 422) {
           console.log('Error Message:', error.message)
-          this.error.message = 'you did not enter information above'
+          this.error.message = 'something went wrong'
         }
         else if (error.status === 404) {
           console.log('Error Message:', error.message)
           this.error.message = 'you did not enter information above'
         }
+       
       })
   }
 

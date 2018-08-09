@@ -101,9 +101,9 @@
               <!-- new user verifys password -->
               <!-- **needs to be edited to have a "verify" ability -->
               <ion-list>
-                <ion-item no-padding>
-                  <ion-label floating>Verify Password</ion-label>
-                  <ion-input type="password" formControlName="vpassword"></ion-input>
+                <ion-item no-padding >
+                  <ion-label  floating>Verify Password</ion-label>
+                  <ion-input [(ngModel)]="vpassword" type="password" formControlName="vpassword"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
@@ -116,6 +116,9 @@
                   <div no-lines class="error"
                     *ngIf="registerInput.get('vpassword').hasError('pattern') && registerInput.get('vpassword').touched">
                     Please enter valid password!
+                  </div>
+                  <div *ngIf="registerInput.controls.confirmPassword.touched && userForm.hasError('mismatchedPasswords') && userForm.controls.password.valid">
+
                   </div>
                 </ion-item>
               </ion-list>
@@ -132,7 +135,7 @@
               </ion-list>
               
               <!-- submit button to deploy function onRegister  of a new user -->
-              <div class="error" ng-if="error">{{ error.message }}</div>
+              <div class="error1" ng-if="error">{{ error.message }}</div>
               
             </form>
           </ion-card-content>
