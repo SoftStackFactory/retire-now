@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserProvider } from '../../providers/user/user';
 
 /**
  * Generated class for the InputPage page.
@@ -18,7 +19,7 @@ export class InputPage {
 
   lala : FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public _user: UserProvider) {
 
     this.lala = this.formBuilder.group({
       doB: ['', Validators.required],
@@ -31,6 +32,10 @@ export class InputPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InputPage');
+  }
+
+  onSubmit(){
+    
   }
 
 
