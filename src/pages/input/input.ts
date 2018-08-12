@@ -38,7 +38,7 @@ export class InputPage {
 
 
   logType(){
-    console.log(this.lala.value)
+    console.log(this.lala)
   }
 
 

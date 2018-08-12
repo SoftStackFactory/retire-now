@@ -19,21 +19,32 @@
 
     <form [formGroup]="lala" (ngSubmit)="logType()">
        
-        <ion-item>
-          <ion-label floating>Full Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-          <ion-datetime type="text" formControlName="frA" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDay"></ion-datetime>
-        </ion-item>
-      
+  
+        <ion-list>
+            <ion-item no-padding>
+              <ion-label floating>Full Retirement Age</ion-label>
+              <ion-datetime displayFormat="MM/DD/YYYY" initialValue="1959"
+                formControlName="frA"
+                [(ngModel)]="myDate"></ion-datetime>
+              <ion-icon small name="medical" color="danger" item-right></ion-icon>
+            </ion-item>
+            <ion-item no-lines no-padding
+              *ngIf="lala.get('frA').hasError('required') && lala.get('frA').touched">
+              <div no-lines class="error"
+                *ngIf="lala.get('frA').hasError('required') && lala.get('frA').touched">
+                Full Retirement Age  is required!
+              </div>
+            </ion-item>
+          </ion-list>
+
+    
+
         <ion-item>
             <ion-label floating>Expected Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
             <ion-input type="text" formControlName="sS"></ion-input>
         </ion-item>     
       
-        <ion-item>    
-            <ion-label floating>FRA monthly payment </ion-label> <ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="sS"></ion-input> 
-            
-        </ion-item>
+        
         
         <button ion-item tooltip ="I'm a tooltip below a button" positionH="right" arrow>
             <ion-icon name="help-circle"  item-right></ion-icon>
@@ -54,7 +65,8 @@
     </ion-card>
 
 
-    <button ion-button full class="buttons" >Submit</button>
+
+    <button ion-button full class="buttons" [disabled]="!lala.valid && lala.dirty">Submit</button>
               
     <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>  
 
