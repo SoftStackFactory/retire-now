@@ -24,10 +24,11 @@ export class InputPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
 
     this.lala = this.formBuilder.group({
-      doB: ['', Validators.required],
       frA: ['', Validators.required],
+      ErA: ['', Validators.required],
       sS: ['', Validators.required],
       proFile: ['', Validators.required],
+      
       
     });
    }

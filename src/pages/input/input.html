@@ -28,11 +28,13 @@
          
           <ion-list>
               <ion-item no-padding>
-                <ion-label floating>Click to Select Date of Birth</ion-label>
+                <ion-label floating>Click to Select Date of Birth
+                    <ion-icon small name="medical" item-left></ion-icon>
+                </ion-label>
                 <ion-datetime  displayFormat="MM/DD/YYYY" initialValue="1959"
                   formControlName="frA"
                   [(ngModel)]="myDate"></ion-datetime>
-                <ion-icon small name="medical" color="danger" item-right></ion-icon>
+               
               </ion-item>
               <ion-item no-lines no-padding
                 *ngIf="lala.get('frA').hasError('required') && lala.get('frA').touched">
@@ -43,17 +45,39 @@
               </ion-item>
             </ion-list>
           <ion-item>
-              <ion-label floating>Expected Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-              <ion-input type="text" formControlName="sS"></ion-input>
+              <ion-label floating>Expected Retirement Age<ion-icon small name="medical" item-left></ion-icon>
+              </ion-label>
+              <ion-input type="text" formControlName="ErA"></ion-input>
           </ion-item>     
+
+    
+        <ion-item no-lines no-padding
+          *ngIf="lala.get('ErA').hasError('required') && lala.get('ErA').touched">
+          <div no-lines class="error"
+            *ngIf="lala.get('ErA').hasError('required') && lala.get('ErA').touched">
+            Expected Retirement Age is required!
+          </div>
+        </ion-item>
         
           <ion-item>    
-              <ion-label floating>FRA monthly payment </ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
+              <ion-label floating>FRA monthly payment <ion-icon small name="medical" item-left></ion-icon>
+                 </ion-label>
+                 <ion-icon name="help-circle" item-right tooltip="I'm a tooltip below a button" positionH="left" arrow>
+              </ion-icon>
               <ion-input type="text" formControlName="sS"></ion-input>    
-          </ion-item>
+            </ion-item>
+        <ion-item no-lines no-padding
+          *ngIf="lala.get('sS').hasError('required') && lala.get('sS').touched">
+          <div no-lines class="error"
+            *ngIf="lala.get('sS').hasError('required') && lala.get('sS').touched">
+            FRA monthly payment is required!
+          </div>
+        </ion-item>
        
           <ion-item>    
-              <ion-label floating>Save Profile As</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
+              <ion-label floating>Save Profile As
+              <ion-icon small name="medical" item-left></ion-icon>
+            </ion-label>
               <ion-input type="text" formControlName="proFile"></ion-input>    
           </ion-item>
           
@@ -67,7 +91,7 @@
     <ion-row justify-content-center padding-horizontal>
     <ion-col>
     
-        <button ion-button full class="buttons" >Submit</button>
+        <button ion-button full class="buttons" [disabled] ="!lala.valid" >Submit</button>
                 
         <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>  
     
