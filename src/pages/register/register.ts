@@ -49,7 +49,6 @@ export class RegisterPage {
   //form builder function that allows for register input to become validated
   onForm() {
     console.log(this.registerInput.value)
- 
   }
 
   //function to register a user
@@ -66,12 +65,10 @@ export class RegisterPage {
         if (error.status === 401) {
           console.log('Error Message:', error.message)
           this.error.message = 'you are not a registered user'
-        }
-        else if (error.status === 422) {
+        }else if (error.status === 422) {
           console.log('Error Message:', error.message)
           this.error.message = 'something went wrong'
-        }
-        else if (error.status === 404) {
+        }else if (error.status === 404) {
           console.log('Error Message:', error.message)
           this.error.message = 'you did not enter information above'
         }
