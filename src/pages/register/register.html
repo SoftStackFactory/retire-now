@@ -102,7 +102,7 @@
               <!-- **needs to be edited to have a "verify" ability -->
               <ion-list>
                 <ion-item no-padding >
-                  <ion-label for="confirmPassword"  floating>Verify Password</ion-label>
+                  <ion-label for="vPassword"  floating>Verify Password</ion-label>
                   <ion-input [(ngModel)]="vpassword" type="password" formControlName="vpassword"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
@@ -118,8 +118,8 @@
                     Please enter valid password!
                   </div>
                   <div *ngIf="registerInput.controls.confirmPassword.touched && userForm.hasError('mismatchedPasswords') && userForm.controls.password.valid">
-
                   </div>
+                  <div *ngIf="form.controls.vpassword.errors.MatchPassword">Password Did Not Match</div>
                 </ion-item>
               </ion-list>
               
@@ -144,7 +144,7 @@
     </ion-row>
     <ion-row justify-content-center padding-horizontal>
       <ion-col>
-        <button ion-button icon-end block full (click)="onRegister()">Register</button>
+        <button ion-button icon-end block full [disabled]="!registerInput.valid" (click)="onRegister()">Register</button>
       </ion-col>
     </ion-row>
   </ion-grid>
