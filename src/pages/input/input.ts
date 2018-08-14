@@ -26,7 +26,7 @@ export class InputPage {
     this.lala = this.formBuilder.group({
 
       frA: ['', Validators.required],
-      erA: ['', Validators.required],
+      ErA: ['', Validators.required],
       sS: ['', Validators.required],
       proFile: ['', Validators.required],
       
