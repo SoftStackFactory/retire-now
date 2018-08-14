@@ -34,18 +34,33 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
+  primary:     #28288a,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  lightTan: #F4EED5,
-  darkTan: #e5b864,
+  lightTan: #e8cda9 ,
+  darkTan: #d2b48c ,
   lightGreen: #80b74b,
   darkGreen: #007936,
-  lightBlue: 	#a7cce7,
-  darkBlue: #000080
+  lightBlue: 	#5c98c4,
+  darkBlue: #28288a
 );
+
+// ionic primary button color #488aff
+
+.scroll-content {
+  background: #e8cda9 ;
+}
+
+$toolbar-background: #d2b48c ;
+
+$card-ios-background-color: #a7cce7;
+$card-md-background-color: #a7cce7;
+$card-background-color: #a7cce7;
+
+
+
 
 
 // App iOS Variables
