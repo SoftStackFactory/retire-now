@@ -35,6 +35,7 @@
     "cordova-plugin-ionic": "^4.1.7",
     "express": "^4.16.3",
     "ionic-angular": "3.9.2",
+    "ionic-tooltips": "^2.0.1",
     "ionicons": "3.0.0",
     "moment": "^2.22.2",
     "ng2-charts": "^1.6.0",
