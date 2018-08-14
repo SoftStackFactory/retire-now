@@ -1,12 +1,18 @@
 page-register {
-    .card-md .item-md.item-block .item-inner,
-    .card-ios .item-ios.item-block .item-inner {
+  .card-md .item-md.item-block .item-inner,
+  .card-ios .item-ios.item-block .item-inner {
     box-shadow: inset 0 -1px 0 0 #dedede;
     border-bottom-color: #dedede !important;
-}
-    .card-md .col .item-md.item-block:last-child .item-inner,
-    .card-ios .col .item-ios.item-block:last-child .item-inner {
+  }
+
+  .card-md .col .item-md.item-block:last-child .item-inner,
+  .card-ios .col .item-ios.item-block:last-child .item-inner {
     box-shadow: inset 0 -1px 0 0 #dedede;
     border-bottom-color: #dedede !important;
-}
+  }
+
+  .error {
+    color: red;
+    font-size: 1em;
+  }
 }

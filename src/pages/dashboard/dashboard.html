@@ -26,21 +26,21 @@
 
 
 <ion-content padding> 
-  <ion-card>
-    <!-- add once user input available to above *ngIf="cardInformation" -->
-
-    <ion-card-header (click)="this.navCtrl.setRoot('ResultsPage')"  >
-      <!-- add once user input available to above *ngFor="let card of cardInformaiton.results" -->
+  <ion-card >
+      <!-- *ngIf="cardInformation" -->
+      
+    <ion-card-header  (click)='presentModal()'>
+        <!-- *ngFor="let card of cardInformaiton.results" -->
       <strong>Profile:</strong> User Saved Name
     </ion-card-header>
 
-    <ion-card-content (click)="this.navCtrl.setRoot('ResultsPage')" >
+    <ion-card-content (click)='presentModal()' >
       saved overview of reults 
     </ion-card-content>
 
     <ion-row>
       <ion-col>
-        <button ion-button icon-start clear small (click)="this.navCtrl.setRoot('InputPage')">
+        <button ion-button icon-start clear small (click)="editInfo()">
           <ion-icon name="text"></ion-icon>
           <div>Edit Informaiton</div>
         </button>

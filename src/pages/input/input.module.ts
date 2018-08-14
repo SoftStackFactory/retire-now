@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { InputPage } from './input';
+import { TooltipsModule } from 'ionic-tooltips';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,8 @@ import { InputPage } from './input';
   ],
   imports: [
     IonicPageModule.forChild(InputPage),
+    TooltipsModule
   ],
+  exports: [InputPage]
 })
 export class InputPageModule {}

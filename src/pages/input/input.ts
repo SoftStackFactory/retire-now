@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TooltipsModule } from 'ionic-tooltips';
 
 /**
  * Generated class for the InputPage page.
@@ -16,15 +17,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class InputPage {
 
+  
+
   lala : FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
 
     this.lala = this.formBuilder.group({
-      doB: ['', Validators.required],
       frA: ['', Validators.required],
+      ErA: ['', Validators.required],
       sS: ['', Validators.required],
       proFile: ['', Validators.required],
+      
       
     });
    }
@@ -35,7 +39,17 @@ export class InputPage {
 
 
   logType(){
-    console.log(this.lala.value)
+
+    if(this.lala.status==="VALID" && this.lala.touched) {
+      console.log(this.lala)
+      console.log('Submit the form!')
+    } else {
+      console.log('Dont Submit the form!')
+      alert('Form was incorrect!!')
+    }
+    
   }
+
+
 
 }
