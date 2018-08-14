@@ -62,7 +62,7 @@
           <ion-item>    
               <ion-label floating>FRA monthly payment <ion-icon small name="medical" item-left></ion-icon>
                  </ion-label>
-                 <ion-icon name="help-circle" item-right tooltip="I'm a tooltip below a button" positionH="left" arrow>
+                 <ion-icon name="help-circle" item-right tooltip="I'm a tooltip below a button" positionV="top" arrow>
               </ion-icon>
               <ion-input type="text" formControlName="sS"></ion-input>    
             </ion-item>
@@ -91,7 +91,7 @@
     <ion-row justify-content-center padding-horizontal>
     <ion-col>
     
-        <button ion-button full class="buttons" [disabled] ="!lala.valid" >Submit</button>
+        <button ion-button full class="buttons" [disabled] ="!lala.valid" (click)="logType()">Submit</button>
                 
         <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>  
     

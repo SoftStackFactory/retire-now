@@ -39,7 +39,15 @@ export class InputPage {
 
 
   logType(){
-    console.log(this.lala)
+
+    if(this.lala.status==="VALID" && this.lala.touched) {
+      console.log(this.lala)
+      console.log('Submit the form!')
+    } else {
+      console.log('Dont Submit the form!')
+      alert('Form was incorrect!!')
+    }
+    
   }
 
 
