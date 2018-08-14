@@ -80,7 +80,7 @@
               <!-- new user enters password -->
               <ion-list>
                 <ion-item no-padding>
-                  <ion-label floating>Enter Password</ion-label>
+                  <ion-label for="password" floating>Enter Password</ion-label>
                   <ion-input [(ngModel)]="user.password" type="password" formControlName="password"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
@@ -101,9 +101,9 @@
               <!-- new user verifys password -->
               <!-- **needs to be edited to have a "verify" ability -->
               <ion-list>
-                <ion-item no-padding>
-                  <ion-label floating>Verify Password</ion-label>
-                  <ion-input type="password" formControlName="vpassword"></ion-input>
+                <ion-item no-padding >
+                  <ion-label for="vPassword"  floating>Verify Password</ion-label>
+                  <ion-input [(ngModel)]="vpassword" type="password" formControlName="vpassword"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
@@ -117,6 +117,9 @@
                     *ngIf="registerInput.get('vpassword').hasError('pattern') && registerInput.get('vpassword').touched">
                     Please enter valid password!
                   </div>
+                  <div *ngIf="registerInput.controls.confirmPassword.touched && userForm.hasError('mismatchedPasswords') && userForm.controls.password.valid">
+                  </div>
+                  <div *ngIf="form.controls.vpassword.errors.MatchPassword">Password Did Not Match</div>
                 </ion-item>
               </ion-list>
               
@@ -132,7 +135,7 @@
               </ion-list>
               
               <!-- submit button to deploy function onRegister  of a new user -->
-              <div class="error" ng-if="error">{{ error.message }}</div>
+              <div class="error1" ng-if="error">{{ error.message }}</div>
               
             </form>
           </ion-card-content>
@@ -141,7 +144,7 @@
     </ion-row>
     <ion-row justify-content-center padding-horizontal>
       <ion-col>
-        <button ion-button icon-end block full (click)="onRegister()">Register</button>
+        <button ion-button icon-end block full [disabled]="!registerInput.valid" (click)="onRegister()">Register</button>
       </ion-col>
     </ion-row>
   </ion-grid>
