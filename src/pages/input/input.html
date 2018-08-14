@@ -44,7 +44,8 @@
                 </div>
               </ion-item>
             </ion-list>
-          <ion-item>
+
+          <ion-item no-padding>
               <ion-label floating>Expected Retirement Age<ion-icon small name="medical" item-left></ion-icon>
               </ion-label>
               <ion-input type="text" formControlName="ErA"></ion-input>
@@ -59,7 +60,7 @@
           </div>
         </ion-item>
         
-          <ion-item>    
+          <ion-item no-padding>    
               <ion-label floating>FRA monthly payment <ion-icon small name="medical" item-left></ion-icon>
                  </ion-label>
                  <ion-icon name="help-circle" item-right tooltip="I'm a tooltip below a button" positionV="top" arrow>
@@ -74,14 +75,20 @@
           </div>
         </ion-item>
        
-          <ion-item>    
+          <ion-item no-padding>    
               <ion-label floating>Save Profile As
               <ion-icon small name="medical" item-left></ion-icon>
             </ion-label>
               <ion-input type="text" formControlName="proFile"></ion-input>    
           </ion-item>
           
-  
+          <ion-item no-lines no-padding
+          *ngIf="lala.get('proFile').hasError('required') && lala.get('proFile').touched">
+          <div no-lines class="error"
+            *ngIf="lala.get('proFile').hasError('required') && lala.get('proFile').touched">
+            Profile name is required!
+          </div>
+        </ion-item>
   
       </form>
     </ion-card-content>
