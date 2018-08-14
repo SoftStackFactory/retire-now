@@ -28,7 +28,7 @@ export class DashboardPage {
   }
 
   editInfo(){
-    this.navCtrl.setRoot(InputPage, {});
+    this.navCtrl.push('InputPage');
   }
 
   

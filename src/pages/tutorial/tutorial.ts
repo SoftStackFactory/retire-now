@@ -35,6 +35,14 @@ export class TutorialPage {
     this.slides.slideNext();
   }
 
+  skip(){
+    this.navCtrl.push('DashboardPage')
+  }
+
+  newUserSkip(){
+    this.navCtrl.push('InputPage')
+  }
+
   mySlides = [
     // {
     //   title: "Welcome to the Docs!",
