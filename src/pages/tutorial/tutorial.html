@@ -14,12 +14,12 @@
       <ion-toolbar>
           <div *ngIf="isLoggedIn; else newUser1">
             <ion-buttons end>
-              <button ion-button color="primary" (click)="this.navCtrl.setRoot('AccountPage')">Skip</button>
+              <button ion-button color="primary" (click)="skip()">Skip</button>
             </ion-buttons>
           </div>
           <ng-template #newUser1>
             <ion-buttons end>
-              <button ion-button color="primary" (click)="this.navCtrl.setRoot('InputPage')">Skip</button>
+              <button ion-button color="primary" (click)="newUserSkip()">Skip</button>
             </ion-buttons>
           </ng-template>
         </ion-toolbar>
