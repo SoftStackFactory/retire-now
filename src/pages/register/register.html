@@ -14,23 +14,23 @@
   <ion-grid no-padding fixed>
     <ion-row>
       <ion-col>
-        <ion-card>
+        <ion-card >
           <ion-card-header no-padding padding-top padding-left padding-right>
             <h3>Please enter your information to register:</h3>
             <p no-padding>All fields with <ion-icon name="medical" color="danger" size="small"></ion-icon> are required.</p>
           </ion-card-header>
-          <ion-card-content padding-horizontal padding-bottom>
-            <form [formGroup]="registerInput" (ngSubmit)="onForm()">
+          <ion-card-content padding-horizontal padding-bottom >
+            <form [formGroup]="registerInput" (ngSubmit)="onForm()" >
               
               <!-- new user enters first name -->
-              <ion-list>
-                <ion-item no-lines no-padding>
+              <ion-list >
+                <ion-item no-lines no-padding class="register-input">
                   <ion-label col-width-50 floating>Enter First Name</ion-label>
                   <ion-input [(ngModel)]="user.firstName" type="text" formControlName="first"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
-                <ion-item no-lines no-padding
+                <ion-item no-lines no-padding class="register-input"
                   *ngIf="registerInput.get('first').hasError('required') && registerInput.get('first').touched">
                   <div no-lines class="error"
                     *ngIf="registerInput.get('first').hasError('required') && registerInput.get('first').touched">
@@ -41,13 +41,13 @@
               
               <!-- new user enters last name -->
               <ion-list>
-                <ion-item no-padding>
+                <ion-item no-padding class="register-input">
                   <ion-label col-width-50 floating>Enter Last Name</ion-label>
                   <ion-input [(ngModel)]="user.lastName" type="text" formControlName="last"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
-                <ion-item no-lines no-padding
+                <ion-item no-lines no-padding class="register-input" class="register-input"
                   *ngIf="registerInput.get('last').hasError('required') && registerInput.get('last').touched">
                   <div no-lines class="error"
                     *ngIf="registerInput.get('last').hasError('required') && registerInput.get('last').touched">
@@ -58,13 +58,13 @@
               
               <!-- new user enters email -->
               <ion-list>
-                <ion-item no-padding>
+                <ion-item no-padding class="register-input">
                   <ion-label floating>Enter E-Mail Address</ion-label>
                   <ion-input [(ngModel)]="user.email" type="email" formControlName="email"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
-                <ion-item no-lines no-padding
+                <ion-item no-lines no-padding class="register-input"
                   *ngIf="( registerInput.get('email').hasError('required') || registerInput.get('email').hasError('email') ) && registerInput.get('email').touched">
                   <div no-lines class="error"
                     *ngIf="registerInput.get('email').hasError('required') && registerInput.get('email').touched">
@@ -79,13 +79,13 @@
               
               <!-- new user enters password -->
               <ion-list>
-                <ion-item no-padding>
+                <ion-item no-padding class="register-input">
                   <ion-label floating>Enter Password</ion-label>
                   <ion-input [(ngModel)]="user.password" type="password" formControlName="password"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
-                <ion-item no-lines no-padding
+                <ion-item no-lines no-padding class="register-input"
                   *ngIf="( registerInput.get('password').hasError('required') || registerInput.get('password').hasError('pattern') ) && registerInput.get('password').touched">
                   <div no-lines class="error"
                     *ngIf="registerInput.get('password').hasError('required') && registerInput.get('password').touched">
@@ -101,13 +101,13 @@
               <!-- new user verifys password -->
               <!-- **needs to be edited to have a "verify" ability -->
               <ion-list>
-                <ion-item no-padding>
+                <ion-item no-padding class="register-input">
                   <ion-label floating>Verify Password</ion-label>
                   <ion-input type="password" formControlName="vpassword"></ion-input>
                   <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
-                <ion-item no-lines no-padding
+                <ion-item no-lines no-padding class="register-input"
                   *ngIf="( registerInput.get('vpassword').hasError('required') || registerInput.get('vpassword').hasError('pattern') ) && registerInput.get('vpassword').touched">
                   <div no-lines class="error"
                     *ngIf="registerInput.get('vpassword').hasError('required') && registerInput.get('vpassword').touched">
@@ -122,7 +122,7 @@
               
               <!-- new user enters their date of birth, MM/DD/YYYY. max is used for age 60 in current year -->
               <ion-list>
-                <ion-item no-padding>
+                <ion-item no-padding class="register-input">
                   <ion-label floating>Click to Select Date of Birth</ion-label>
                   <ion-datetime [(ngModel)]="user.dob" displayFormat="MM/DD/YYYY" initialValue="1959"
                     formControlName="dob"
