@@ -26,6 +26,8 @@ export class UserProvider {
   regURL:string='appUsers';
   //loopback add on to login in a already registered user
   logURL:string='/login';
+  //loopback add on to access profile model
+  profileURL:string='/profile';
 
   //register call to create an account
   onReg(user){
@@ -42,13 +44,19 @@ export class UserProvider {
   //logout user
 
   //on submit button click - input page
-  onSubmit(){
+  getUserData(){
+
     //sessionStorage.setItem("userId")
     let userId = sessionStorage.getItem("userId");
     let token = sessionStorage.getitem("token");
-    console.log(userId);
-    console.log(this.baseURL + this.regURL + userId);
+    console.log("tokens",userId,token);
+    console.log(this.baseURL + this.regURL + token + "/" + userId);
     return this.http.get(this.baseURL + this.regURL + token + "/" + userId);
+  }
+
+  //Takes in assembled userData object from input page and returns a profile lb model object
+  runRetireNowCalc(userData){
+    return this.http.post(this.baseURL + this.profileURL + "/retireNowCalc", userData)
   }
 
 

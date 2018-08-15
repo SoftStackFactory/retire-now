@@ -46,16 +46,15 @@ export class InputPage {
   }
 
   onSubmit(){
-    //send form variables to the user provider
-    //send profile name, fraAmount, and retire date to pro
-    let userData = {
-      FRANumMths: 0,
+
+  let userData = {
+      fraMonths: 0,
       FRAAge: 0,
-      FRADate: "",
-      profileName: "",
-      myFRAAmt: 0,
-      myDOR: "",
-      myDOB: "" 
+      FRADate: "2022-05-20",
+      profileName: "profile1",
+      myFRAAmt: 1000,
+      myDOR: "2020-01-20",
+      myDOB: "1965-01-15" 
   }
 
     userData.myFRAAmt = this.inputForm.value.fra$;
@@ -63,12 +62,25 @@ export class InputPage {
     userData.myDOR = this.inputForm.value.dor;
   //userData.profileName = 
     //have the get request pull the data object for that user id
-    console.log("this is the inputform var",this.inputForm);
-    console.log("this is the inputform var",);
-    // this._user.onSubmit()
-    // .subscribe((res: any) => {
-    //   console.log(res);
-    // })
+   
+    this._user.getUserData()    
+      .subscribe((res: any) => {
+      console.log(res);
+      userData.fraMonths = res.fraMonths;
+      userData.FRAAge = res.fraAge;
+      userData.FRADate = res.fraDate;
+      
+      this._user.runRetireNowCalc(userData)
+        .subscribe((res: any) => {
+        console.log("this is the response from the res", res);
+
+
+      
+      })
+
+    })
+
+ 
     //take the user object data and push it into a data object for sending to backend
   
     //take the user input and the combined data from the get request and build the userData object
