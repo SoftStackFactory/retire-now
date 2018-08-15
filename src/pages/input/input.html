@@ -17,26 +17,26 @@
 
   <ion-card>
 
-    <form [formGroup]="lala" (ngSubmit)="logType()">
+    <form [formGroup]="inputForm" (ngSubmit)="logType()">
        
         <ion-item>
-          <ion-label floating>Full Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-          <ion-datetime type="text" formControlName="frA" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDay"></ion-datetime>
+          <ion-label floating>Expected Retirement Date</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
+          <ion-datetime type="text" formControlName="dor" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDay"></ion-datetime>
         </ion-item>
       
         <ion-item>
-            <ion-label floating>Expected Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="sS"></ion-input>
+            <ion-label floating>Full Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
+            <ion-input type="text" formControlName="frA"></ion-input>
         </ion-item>     
       
         <ion-item>    
-            <ion-label floating>FRA monthly payment </ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="sS"></ion-input>    
+            <ion-label floating>FRA Monthly Amount </ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
+            <ion-input type="text" formControlName="fra$"></ion-input>    
         </ion-item>
      
         <ion-item>    
             <ion-label floating>Save Profile As</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="proFile"></ion-input>    
+            <ion-input type="text" formControlName="profile"></ion-input>    
         </ion-item>
           
      </form>
@@ -44,7 +44,7 @@
     </ion-card>
 
 
-    <button ion-button full class="buttons" (click)="onSubmit">Submit</button>
+    <button ion-button full class="buttons" (click)="onSubmit()">Submit</button>
               
     <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>  
 
