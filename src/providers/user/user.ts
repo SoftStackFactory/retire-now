@@ -24,9 +24,11 @@ export class UserProvider {
   //base URL to call loopback api
   baseURL:string= ENV.url;
   //loopback add on to register a user
-  regURL:string='/appUsers';
+  regURL:string='appUsers/';
   //loopback add on to login in a already registered user
   logURL:string='/login';
+  //loopback add on to access profile model
+  profileURL:string='profiles';
 
   isLoggedIn: boolean = false; 
 
@@ -86,6 +88,25 @@ export class UserProvider {
   //reset password
 
   //logout user
+
+
+  //on submit button click - input page
+  getUserData(){
+
+    //sessionStorage.setItem("userId")
+    let userId = sessionStorage.getItem("userId");
+    let token = sessionStorage.getItem("token");
+    return this.http.get(this.baseURL + this.regURL + userId + "?access_token=" + token);
+  }
+
+  //Takes in assembled userData object from input page and returns a profile lb model object
+  //https://retire-now-backend-kevin.herokuapp.com/api/profiles/retireNowCalc
+  //https://retire-now-backend-kevin.herokuapp.com/api/profiles/retireNowCalc
+  runRetireNowCalc(userData){
+    console.log('send post:', userData)
+    return this.http.post(this.baseURL + this.profileURL + "/retireNowCalc", userData)
+  }
+
   onLogout(){
     this.isLoggedIn = false; 
   }
