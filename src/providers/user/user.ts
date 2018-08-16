@@ -28,6 +28,8 @@ export class UserProvider {
   //loopback add on to login in a already registered user
   logURL:string='/login';
 
+  isLoggedIn: boolean = false; 
+
   //register call to create an account and calculate appUser FRA info
   onReg(user){
     console.log("user.dob", user.dob)
@@ -73,13 +75,16 @@ export class UserProvider {
 
   //login call after a user has registered 
   onLog(login){
+    this.isLoggedIn = true; 
     return this.http.post(this.baseURL + this.regURL + this.logURL, login)
   };
 
   //reset password
 
   //logout user
-
+  onLogout(){
+    this.isLoggedIn = false; 
+  }
 
 
 }
