@@ -30,6 +30,8 @@ export class UserProvider {
   //loopback add on to access profile model
   profileURL:string='profiles';
 
+  isLoggedIn: boolean = false; 
+
   //register call to create an account and calculate appUser FRA info
   onReg(user){
     console.log("user.dob", user.dob)
@@ -75,12 +77,18 @@ export class UserProvider {
 
   //login call after a user has registered 
   onLog(login){
+    this.isLoggedIn = true; 
     return this.http.post(this.baseURL + this.regURL + this.logURL, login)
   };
+
+  // infoPull(login) {
+  //    return this.http.get(this.baseURL+ this.logURL, login)
+  // }
 
   //reset password
 
   //logout user
+
 
   //on submit button click - input page
   getUserData(){
@@ -99,6 +107,9 @@ export class UserProvider {
     return this.http.post(this.baseURL + this.profileURL + "/retireNowCalc", userData)
   }
 
+  onLogout(){
+    this.isLoggedIn = false; 
+  }
 
 
 }
