@@ -79,6 +79,10 @@ export class UserProvider {
     return this.http.post(this.baseURL + this.regURL + this.logURL, login)
   };
 
+  // infoPull(login) {
+  //    return this.http.get(this.baseURL+ this.logURL, login)
+  // }
+
   //reset password
 
   //logout user
