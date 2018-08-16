@@ -5,72 +5,107 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
+  
   <ion-navbar>
     <ion-title>input</ion-title>
   </ion-navbar>
 
 </ion-header>
-  
+
 <ion-content padding-horizontal>
-    <ion-grid no-padding fixed>
-      <ion-row>
-        <ion-col>
-          <ion-card>
-            <ion-card-header no-padding padding-top padding-left padding-right>
-              <h3>Please enter your information </h3>
-              <p no-padding>All fields with <ion-icon name="medical" color="danger" size="small"></ion-icon> are required.</p>
-            </ion-card-header>
+  <ion-grid no-padding fixed>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header no-padding padding-top padding-left padding-right>
+            <h3>Please enter your information </h3>
+            <p no-padding>All fields with <ion-icon name="medical" color="danger" size="small"></ion-icon> are required.</p>
+          </ion-card-header>
+          
+          <ion-card-content padding-horizontal padding-bottom>
             
-            <ion-card-content padding-horizontal padding-bottom>
-
-    <form [formGroup]="lala" (ngSubmit)="logType()">
-       
-        <ion-item>
-          <ion-label floating>Full Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-          <ion-input  formControlName="frA" class="hotfix" ></ion-input>
-          <ion-datetime type="text" formControlName="frA"  [min]="minimumfrA" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDay"></ion-datetime>
-        </ion-item>
-      
-        <ion-item>
-            <ion-label floating>Expected Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="erA"></ion-input>
-        </ion-item>     
-      
-        <ion-item>    
-            <ion-label floating>FRA monthly payment </ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="sS"></ion-input>    
-        </ion-item>
-     
-        <ion-item>    
-            <ion-label floating>Save Profile As</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="proFile"></ion-input>    
-        </ion-item>
-        
-
-
-    </form>
-  </ion-card-content>
-  </ion-card>
-  </ion-col>
-  </ion-row>
-  <ion-row justify-content-center padding-horizontal>
-  <ion-col>
-  
-      <button ion-button full class="buttons" >Submit</button>
+            <form [formGroup]="lala" (ngSubmit)="logType()">
               
-      <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>  
-  
-
-  </ion-col>
-  </ion-row>
+              <ion-list>
+                <ion-item no-padding>
+                  <ion-label floating>Click to Select Date of Birth
+                    <ion-icon small name="medical" item-left></ion-icon>
+                  </ion-label>
+                  <ion-datetime  displayFormat="MM/DD/YYYY" initialValue="1959"
+                    formControlName="frA"
+                    [(ngModel)]="myDate"></ion-datetime>
+                
+                </ion-item>
+                <ion-item no-lines no-padding
+                  *ngIf="lala.get('frA').hasError('required') && lala.get('frA').touched">
+                  <div no-lines class="error"
+                    *ngIf="lala.get('frA').hasError('required') && lala.get('frA').touched">
+                    Full Retirement Age is required!
+                  </div>
+                </ion-item>
+              </ion-list>
+              
+              <ion-item no-padding>
+                <ion-label floating>Expected Retirement Age<ion-icon small name="medical" item-left></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="ErA"></ion-input>
+              </ion-item>
+              
+              
+              <ion-item no-lines no-padding
+                *ngIf="lala.get('ErA').hasError('required') && lala.get('ErA').touched">
+                <div no-lines class="error"
+                  *ngIf="lala.get('ErA').hasError('required') && lala.get('ErA').touched">
+                  Expected Retirement Age is required!
+                </div>
+              </ion-item>
+              
+              <ion-item no-padding>
+                <ion-label floating>FRA monthly payment <ion-icon small name="medical" item-left></ion-icon>
+                </ion-label>
+                <ion-icon name="help-circle" item-right tooltip="I'm a tooltip below a button" positionV="top" arrow>
+                </ion-icon>
+                <ion-input type="text" formControlName="sS"></ion-input>
+              </ion-item>
+              <ion-item no-lines no-padding
+                *ngIf="lala.get('sS').hasError('required') && lala.get('sS').touched">
+                <div no-lines class="error"
+                  *ngIf="lala.get('sS').hasError('required') && lala.get('sS').touched">
+                  FRA monthly payment is required!
+                </div>
+              </ion-item>
+              
+              <ion-item no-padding>
+                <ion-label floating>Save Profile As
+                  <ion-icon small name="medical" item-left></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="proFile"></ion-input>
+              </ion-item>
+              
+              <ion-item no-lines no-padding
+                *ngIf="lala.get('proFile').hasError('required') && lala.get('proFile').touched">
+                <div no-lines class="error"
+                  *ngIf="lala.get('proFile').hasError('required') && lala.get('proFile').touched">
+                  Profile name is required!
+                </div>
+              </ion-item>
+            
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center padding-horizontal>
+      <ion-col>
+        
+        <button ion-button full class="buttons" [disabled] ="!lala.valid" (click)="logType()">Submit</button>
+        
+        <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>
+      
+      
+      </ion-col>
+    </ion-row>
   </ion-grid>
-  </ion-content>
-  
-
-    
-
-   
+</ion-content>
 
 
-    
