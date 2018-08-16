@@ -30,7 +30,7 @@ export class LoginPage {
               public _user: UserProvider) {
 
     this.todo = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      userName: ['', [Validators.required, Validators.email]],
       passWord: ['', Validators.required],
     });
   }
@@ -65,7 +65,7 @@ export class LoginPage {
     console.log(this.user);
     this._user.onLog(this.user)
       .subscribe((res: any) => {
-
+        console.log("all user info", res)
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('userId', res.userId);
         this.navCtrl.push('DashboardPage');
