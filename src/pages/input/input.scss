@@ -17,10 +17,24 @@ page-input {
     .card-ios .item-ios.item-block .item-inner {
     box-shadow: inset 0 -1px 0 0 #dedede;
     border-bottom-color: #dedede !important;
+    background-color: #A3BBAD;
 }
     .card-md .col .item-md.item-block:last-child .item-inner,
     .card-ios .col .item-ios.item-block:last-child .item-inner {
     box-shadow: inset 0 -1px 0 0 #dedede;
     border-bottom-color: #dedede !important;
+    background-color: #A3BBAD;
 }
+
+  .error {
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    font-size: large;
+  }
+
+  ion-input.hotfix{
+    display: none;
+  }
+
 }

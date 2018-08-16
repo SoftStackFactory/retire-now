@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TooltipsModule } from 'ionic-tooltips';
 import { UserProvider } from '../../providers/user/user';
 
 /**
@@ -23,10 +24,8 @@ export class InputPage {
 
     this.inputForm = this.formBuilder.group({
       dor: ['', Validators.required],
-      frA: ['', Validators.required],
       fra$: ['', Validators.required],
       profile: ['', Validators.required],
-      
     });
    }
 
@@ -65,19 +64,26 @@ export class InputPage {
    
     this._user.getUserData()    
       .subscribe((res: any) => {
-      console.log(res);
-      userData.fraMonths = res.fraMonths;
+      console.log("this is the response from get request", res);
+      userData.fraMonths = res.totalFRAMonths;
       userData.FRAAge = res.fraAge;
       userData.FRADate = res.fraDate;
       
-      this._user.runRetireNowCalc(userData)
-        .subscribe((res: any) => {
-        console.log("this is the response from the res", res);
+      
 
 
       
-      })
+     
 
+    }, (err:any) => {
+      //add error handling here
+    }, () => {
+      //
+      console.log(userData)
+      this._user.runRetireNowCalc(userData)
+        .subscribe((res: any) => {
+        console.log("this is the response from the res", res);
+      })
     })
 
  
@@ -99,7 +105,18 @@ export class InputPage {
 
 
   logType(){
+
+    if(this.inputForm.status==="VALID" && this.inputForm.touched) {
+      console.log(this.inputForm)
+      console.log('Submit the form!')
+    } else {
+      console.log('Dont Submit the form!')
+      alert('Form was incorrect!!')
+    }
+    
     console.log(this.inputForm.value)
   }
+
+
 
 }

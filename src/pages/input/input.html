@@ -1,56 +1,97 @@
 <!--
-  Generated template for the InputPage page.
+  Genfra$ted template for the InputPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-
+  
   <ion-navbar>
     <ion-title>input</ion-title>
   </ion-navbar>
 
 </ion-header>
-  
-<ion-content padding>
 
-
-  <ion-card>
-
-    <form [formGroup]="inputForm" (ngSubmit)="logType()">
-       
-        <ion-item>
-          <ion-label floating>Expected Retirement Date</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-          <ion-datetime type="text" formControlName="dor" displayFormat="MM/DD/YYYY" max="2070" [(ngModel)]="myDay"></ion-datetime>
-        </ion-item>
-      
-        <ion-item>
-            <ion-label floating>Full Retirement Age</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="frA"></ion-input>
-        </ion-item>     
-      
-        <ion-item>    
-            <ion-label floating>FRA Monthly Amount </ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="fra$"></ion-input>    
-        </ion-item>
-     
-        <ion-item>    
-            <ion-label floating>Save Profile As</ion-label><ion-icon small name="medical" color="danger" item-right></ion-icon>
-            <ion-input type="text" formControlName="profile"></ion-input>    
-        </ion-item>
+<ion-content padding-horizontal>
+  <ion-grid no-padding fixed>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header no-padding padding-top padding-left padding-right>
+            <h3>Please enter your information </h3>
+            <p no-padding>All fields with <ion-icon name="medical" color="danger" size="small"></ion-icon> are required.</p>
+          </ion-card-header>
           
-     </form>
-
-    </ion-card>
-
-
-    <button ion-button full class="buttons" (click)="onSubmit()">Submit</button>
+          <ion-card-content padding-horizontal padding-bottom>
+            
+            <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
               
-    <button ion-button full class="buttons" (click) = "this.lala.reset()">Reset</button>  
-
-
-   <ion-icon name="medical" color="danger">Required</ion-icon>   
+              <ion-list>
+                <ion-item no-padding>
+                  <ion-label floating>Click to Select Date of Retirement
+                    <ion-icon small name="medical" item-left></ion-icon>
+                  </ion-label>
+                  <ion-datetime  displayFormat="MM/DD/YYYY" max="2090"
+                    formControlName="dor"
+                    [(ngModel)]="dor"></ion-datetime>
+                
+                </ion-item>
+                <ion-item no-lines no-padding
+                  *ngIf="inputForm.get('dor').hasError('required') && inputForm.get('dor').touched">
+                  <div no-lines class="error"
+                    *ngIf="inputForm.get('dor').hasError('required') && inputForm.get('dor').touched">
+                    Date of retirement is required!
+                  </div>
+                </ion-item>
+              </ion-list>
+              
+              <ion-item no-padding>
+                <ion-label floating>Full Retirement Amount<ion-icon small name="medical" item-left></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="fra$"></ion-input>
+              </ion-item>
+              
+              
+              <ion-item no-lines no-padding
+                *ngIf="inputForm.get('fra$').hasError('required') && inputForm.get('fra$').touched">
+                <div no-lines class="error"
+                  *ngIf="inputForm.get('fra$').hasError('required') && inputForm.get('fra$').touched">
+                  Full retirement amount!
+                </div>
+              </ion-item>
+              
+              
+              <ion-item no-padding>
+                <ion-label floating>Save Profile As
+                  <ion-icon small name="medical" item-left></ion-icon>
+                </ion-label>
+                <ion-input type="text" formControlName="profile"></ion-input>
+              </ion-item>
+              
+              <ion-item no-lines no-padding
+                *ngIf="inputForm.get('profile').hasError('required') && inputForm.get('profile').touched">
+                <div no-lines class="error"
+                  *ngIf="inputForm.get('profile').hasError('required') && inputForm.get('profile').touched">
+                  profile name is required!
+                </div>
+              </ion-item>
+            
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center padding-horizontal>
+      <ion-col>
+        
+        <button ion-button full class="buttons" [disabled] ="!inputForm.valid" (click)="onSubmit()">Submit</button>
+        
+        <button ion-button full class="buttons" (click) = "this.inputForm.reset()">Reset</button>
+      
+      
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 
 
- 
