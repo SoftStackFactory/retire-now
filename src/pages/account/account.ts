@@ -18,6 +18,8 @@ import {UserProvider} from '../../providers/user/user';
 export class AccountPage {
 
   data:any;
+  viewName:any;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  public _user: UserProvider) {
 
@@ -38,9 +40,9 @@ export class AccountPage {
 
 extRact(){
   this.data = sessionStorage.getItem('userInfo')
-  let viewName = JSON.parse(this.data);
-  console.log(viewName);
-  console.log(viewName.userData.firstName)
+  this.viewName = JSON.parse(this.data);
+  console.log(this.viewName);
+  console.log(this.viewName.userData.firstName)
 }
   
 }
