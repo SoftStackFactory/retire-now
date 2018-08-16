@@ -30,7 +30,7 @@ export class LoginPage {
               public _user: UserProvider) {
 
     this.todo = this.formBuilder.group({
-      userName: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       passWord: ['', Validators.required],
     });
   }
