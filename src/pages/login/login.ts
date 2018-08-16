@@ -66,8 +66,9 @@ export class LoginPage {
     this._user.onLog(this.user)
       .subscribe((res: any) => {
         console.log("all user info", res)
-        sessionStorage.setItem('token', res.token);
-        sessionStorage.setItem('userId', res.userId);
+        sessionStorage.setItem('userInfo', res)
+        //sessionStorage.setItem('token', res.token);
+        //sessionStorage.setItem('userId', res.userId);
         this.navCtrl.push('DashboardPage');
 
       }, (error: any) => {
