@@ -40,6 +40,7 @@ extRact(){
   this.data = sessionStorage.getItem('userInfo')
   let viewName = JSON.parse(this.data);
   console.log(viewName);
+  console.log(viewName.userData.firstName)
 }
   
 }
