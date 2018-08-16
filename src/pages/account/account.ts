@@ -28,7 +28,7 @@ export class AccountPage {
     console.log('ionViewDidLoad AccountPage');
   }
 
-  view(){
+  viewTutorial(){
     this.navCtrl.push('TutorialPage')
   }
 
