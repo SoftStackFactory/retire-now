@@ -33,17 +33,6 @@ export class InputPage {
     console.log('ionViewDidLoad InputPage');
   }
 
-  exampleData: any = {
-    "firstName": "string",
-    "lastName": "string",
-    "dob": "2018-08-12T23:53:05.513Z",
-    "realm": "string",
-    "username": "string",
-    "email": "string",
-    "emailVerified": true,
-    "id": "string"
-  }
-
   onSubmit(){
 
   let userData = {
@@ -55,6 +44,7 @@ export class InputPage {
       myDOR: "2020-01-20",
       myDOB: "1965-01-15" 
   }
+  let userObject: object = {};
 
     userData.myFRAAmt = this.inputForm.value.fra$;
     userData.profileName = this.inputForm.value.profile;
@@ -67,13 +57,7 @@ export class InputPage {
       console.log("this is the response from get request", res);
       userData.fraMonths = res.totalFRAMonths;
       userData.FRAAge = res.fraAge;
-      userData.FRADate = res.fraDate;
-      
-      
-
-
-      
-     
+      userData.FRADate = res.fraDate; 
 
     }, (err:any) => {
       //add error handling here
@@ -83,6 +67,18 @@ export class InputPage {
       this._user.runRetireNowCalc(userData)
         .subscribe((res: any) => {
         console.log("this is the response from the res", res);
+        userObject = res;
+      }, (err:any) => {
+        //add error handling here
+      }, () => {
+        this._user.postProfile(userObject)
+        .subscribe((res:any) => {
+        console.log("this is the response from posting profile", res);
+        })
+        , (err:any) => {
+        //add error handling here
+        }
+
       })
     })
 
