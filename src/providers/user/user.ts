@@ -26,7 +26,7 @@ export class UserProvider {
   //loopback add on to register a user
   regURL:string='appUsers/';
   //loopback add on to login in a already registered user
-  logURL:string='/login';
+  logURL:string='login';
   //loopback add on to access profile model
   profileURL:string='profiles';
 
