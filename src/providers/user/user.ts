@@ -111,6 +111,11 @@ export class UserProvider {
     return this.http.get(this.baseURL + this.regURL + userId + "/profiles/")
    }
 
+   deleteUserProfile(id){
+     let userId = sessionStorage.getItem("userId");
+    return this.http.delete(this.baseURL + this.regURL + userId + "/profiles/" + id);
+   }
+
   onLogout(){
     this.isLoggedIn = false; 
   }

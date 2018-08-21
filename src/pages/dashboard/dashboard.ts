@@ -39,8 +39,13 @@ export class DashboardPage {
   }
 
   
-  delete(userProfile){
-    //need to set delete up
+  
+  onDelete(profileId){
+   
+    this._user.deleteUserProfile(profileId)
+      .subscribe( ( res: any ) => { 
+        this.savedProfiles = this.savedProfiles.filter(arr => arr.id !== profileId);
+      })
   }
 
   presentModal() {
