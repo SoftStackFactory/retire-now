@@ -120,5 +120,11 @@ export class UserProvider {
     return this.http.post(this.baseURL + this.regURL + this.logOutURL + "?access_token" + token, user)
   }
 
+  getProfileResults(){
+    let userId = sessionStorage.getItem("userId");
+    let profileId = sessionStorage.getItem("profileId");
+    return this.http.get(this.baseURL + this.regURL + userId + "/profiles/" + profileId)
+  }
+
 
 }
