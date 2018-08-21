@@ -33,6 +33,7 @@ export class AccountPage {
   }
 
   logout(){
+    this._user.onLogout(); 
     this.navCtrl.push('LandingPage')
   }
 

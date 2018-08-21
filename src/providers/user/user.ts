@@ -26,7 +26,9 @@ export class UserProvider {
   //loopback add on to register a user
   regURL:string='appUsers/';
   //loopback add on to login in a already registered user
-  logURL:string='login';
+  logInURL:string='login';
+  //loopback add on to logout an user
+  logOutURL:string='logout/'
   //loopback add on to access profile model
   profileURL:string='profiles';
 
@@ -79,7 +81,7 @@ export class UserProvider {
   //login call after a user has registered 
   onLog(login){
     this.isLoggedIn = true; 
-    return this.http.post(this.baseURL + this.regURL + this.logURL, login)
+    return this.http.post(this.baseURL + this.regURL + this.logInURL, login)
   };
 
 
@@ -106,8 +108,11 @@ export class UserProvider {
     return this.http.post(this.baseURL + this.regURL + userId + "/profiles", userObject);
   }
 
-  onLogout(){
+  onLogout(user){
+    let token = sessionStorage.getItem("token");
     this.isLoggedIn = false; 
+    console.log("onLogout", user); 
+    return this.http.post(this.baseURL + this.regURL + this.logOutURL + "?access_token" + token, user)
   }
 
 
