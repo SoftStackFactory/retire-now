@@ -26,7 +26,9 @@ export class AccountPage {
               private viewCtrl: ViewController, 
               private appCtrl:App,
               public _user: UserProvider
-            ) {}
+            ) {
+              this.extRact()
+            }
 
   ionViewDidLoad() {
   }
@@ -37,7 +39,7 @@ export class AccountPage {
 
   logout(){
     this.appCtrl.getRootNav().push('LandingPage');
-    this._user.onLogout(); 
+    this._user.onLogout("user"); 
   }
 
 extRact(){
