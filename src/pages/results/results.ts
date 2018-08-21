@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { UserProvider } from '../../providers/user/user';
 
 /**
  * Generated class for the ResultsPage page.
@@ -16,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ResultsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserProvider) {}
   barChart: any;
  
     public barChartOptions:any = {
@@ -63,6 +63,12 @@ export class ResultsPage {
        */
     }
     ionViewDidLoad() {
+      console.log('ionViewDidLoad DashboardPage');
+      this._user.getProfileResults()
+        .subscribe( (res: any) => {
+            console.log("result for profile ID", res)
+        }) 
+      
     }
 
   }

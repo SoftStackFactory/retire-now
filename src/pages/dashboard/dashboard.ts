@@ -43,8 +43,9 @@ export class DashboardPage {
     //need to set delete up
   }
 
-  presentModal() {
+  presentModal(id) {
     const modal = this.modalCtrl.create(ResultsPage);
+    sessionStorage.setItem("profileId", id)
     modal.present();
   }
 }

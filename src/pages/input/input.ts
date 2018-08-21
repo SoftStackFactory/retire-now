@@ -74,6 +74,8 @@ export class InputPage {
         this._user.postProfile(userObject)
         .subscribe((res:any) => {
         console.log("this is the response from posting profile", res);
+        sessionStorage.setItem("profileId", res.id)
+        this.navCtrl.setRoot('ResultsPage');
         })
         , (err:any) => {
         //add error handling here
