@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { UserProvider } from '../../providers/user/user';
 
 /**
  * Generated class for the ResultsPage page.
@@ -16,21 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ResultsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserProvider) {}
   barChart: any;
  
+    toggleChart: boolean = false;
+    profile: any;
+
     public barChartOptions:any = {
       scaleShowVerticalLines: false,
       responsive: true
     };
 
-    public barChartLabels:string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+    public barChartLabels:string[] = [];
     public barChartType:string = 'bar';
     public barChartLegend:boolean = true;
    
     public barChartData:any[] = [
-      {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-      {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
+      {data: [], label: ''}
     ];
    
     // events
@@ -63,6 +65,20 @@ export class ResultsPage {
        */
     }
     ionViewDidLoad() {
+      this.toggleChart = false;
+      console.log('ionViewDidLoad DashboardPage');
+      this._user.getProfileResults()
+        .subscribe( (res: any) => {
+            console.log("result for profile ID", res)
+            this.barChartLabels = res.barChartLabels;
+            this.barChartData = res.chart;
+            this.barChartData[0].label = res.name;
+            console.log(this.barChartData, "this is the chart");
+            this.profile = res;
+            console.log(this.profile, "this is the profile data");
+            this.toggleChart = true;
+        }) 
+      
     }
 
   }
