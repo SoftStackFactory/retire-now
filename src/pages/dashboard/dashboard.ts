@@ -23,11 +23,14 @@ export class DashboardPage {
 
   profileInformation:any;
 
+  savedProfiles: any;
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
     this._user.getUserProfiles()
       .subscribe( (res: any) => {
-            console.log("profiles for user ID", res)
+          console.log("profiles for user ID", res)
+          this.savedProfiles = res;
       })    
   }
 
