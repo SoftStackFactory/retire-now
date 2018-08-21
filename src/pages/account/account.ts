@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, App } from 'ionic-angular';
 import {UserProvider} from '../../providers/user/user';
 
 
@@ -19,21 +19,23 @@ export class AccountPage {
 
   data:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  public _user: UserProvider) {
-
-  this.extRact();
-  }
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private viewCtrl: ViewController, 
+              private appCtrl:App,
+              public _user: UserProvider
+            ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AccountPage');
   }
 
   viewTutorial(){
-    this.navCtrl.push('TutorialPage')
+    this.appCtrl.getRootNav().push('TutorialPage');
   }
 
   logout(){
-    this.navCtrl.push('LandingPage')
+    this.appCtrl.getRootNav().push('LandingPage');
+    this._user.onLogout(); 
   }
 
 extRact(){
