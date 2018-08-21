@@ -13,7 +13,7 @@
 </ion-header>
  
 <ion-content>
-  <ion-card>
+  <ion-card *ngIf="toggleChart">
     <div>
       <div style="display: block">
         <canvas baseChart
@@ -29,10 +29,10 @@
     <ion-card-content class="cardContent">
         <ion-item-group text-wrap> 
           <ion-item-divider text-center color="light">Retirement Information</ion-item-divider>
-          <ion-item>Retirement age: 66</ion-item>
-          <ion-item>FRA Monthly Amount: $1200</ion-item> 
-          <ion-item>Monthly Amount at 66: $850</ion-item>
-          <ion-item>Retirement in: X yrs X Mths X Days</ion-item>      
+          <ion-item>{{"Retirement age: "+ profile.retireAge}}</ion-item>
+          <ion-item>{{"FRA Monthly Amount: " + "$" + profile.fraAmount}}</ion-item> 
+          <ion-item>{{"Monthly Amount at " + profile.retireAge + ": $" + profile.monthlyAmount}}</ion-item>
+          <!--<ion-item>Retirement in: X yrs X Mths X Days</ion-item> -->
         </ion-item-group>
     </ion-card-content>
   </ion-card>
