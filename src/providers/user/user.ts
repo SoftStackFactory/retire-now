@@ -106,6 +106,11 @@ export class UserProvider {
     return this.http.post(this.baseURL + this.regURL + userId + "/profiles", userObject);
   }
 
+  getUserProfiles(){
+    let userId = sessionStorage.getItem("userId");
+    return this.http.get(this.baseURL + this.regURL + userId + "/profiles/")
+   }
+
   onLogout(){
     this.isLoggedIn = false; 
   }

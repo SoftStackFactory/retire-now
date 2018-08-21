@@ -30,16 +30,17 @@
           </div>
         </div>
   </ion-card>
-  <ion-card >
+  <ion-card *ngFor="let profile of savedProfiles">
       <!-- *ngIf="cardInformation" -->
       
     <ion-card-header  (click)='presentModal()'>
         <!-- *ngFor="let card of cardInformaiton.results" -->
-      <strong>Profile:</strong> User Saved Name
+      <strong>Profile:</strong> {{profile.name}}
     </ion-card-header>
 
     <ion-card-content (click)='presentModal()' >
-      saved overview of reults 
+      {{"Retire Age: " + profile.retireAge}} <br/>
+      {{"Retire Amount Monthly: " + profile.monthlyAmount}}
     </ion-card-content>
 
     <ion-row>

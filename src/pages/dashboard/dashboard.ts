@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ResultsPage } from '../../pages/results/results';
 import { InputPage } from '../../pages/input/input';
 import { ModalController } from 'ionic-angular';
-
+import { UserProvider } from '../../providers/user/user';
 /**
  * Generated class for the DashboardPage page.
  *
@@ -18,13 +18,20 @@ import { ModalController } from 'ionic-angular';
 })
 export class DashboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public _user: UserProvider) {
   }
 
   profileInformation:any;
 
+  savedProfiles: any;
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
+    this._user.getUserProfiles()
+      .subscribe( (res: any) => {
+          console.log("profiles for user ID", res)
+          this.savedProfiles = res;
+      })    
   }
 
   editInfo(){
