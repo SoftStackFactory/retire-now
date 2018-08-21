@@ -67,6 +67,7 @@ export class UserProvider {
         totalFRAMonths = "already at 70, trigger"; 
         }
     let fraDate = moment(userDOB).add(totalFRAMonths, "months");
+    console.log("this is the fra date calculation:", fraDate)
     user.totalFRAMonths = totalFRAMonths; 
     user.fraAge = fraAge; 
     user.fraDate = fraDate; 
@@ -81,13 +82,7 @@ export class UserProvider {
     return this.http.post(this.baseURL + this.regURL + this.logURL, login)
   };
 
-  // infoPull(login) {
-  //    return this.http.get(this.baseURL+ this.logURL, login)
-  // }
 
-  //reset password
-
-  //logout user
 
 
   //on submit button click - input page
@@ -100,11 +95,15 @@ export class UserProvider {
   }
 
   //Takes in assembled userData object from input page and returns a profile lb model object
-  //https://retire-now-backend-kevin.herokuapp.com/api/profiles/retireNowCalc
-  //https://retire-now-backend-kevin.herokuapp.com/api/profiles/retireNowCalc
   runRetireNowCalc(userData){
     console.log('send post:', userData)
     return this.http.post(this.baseURL + this.profileURL + "/retireNowCalc", userData)
+  }
+
+  postProfile(userObject){
+    let userId = sessionStorage.getItem("userId");
+    console.log("sending user profile post:", userObject);
+    return this.http.post(this.baseURL + this.regURL + userId + "/profiles", userObject);
   }
 
   onLogout(){
