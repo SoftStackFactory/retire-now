@@ -32,12 +32,12 @@
       <ion-toolbar>
         <div *ngIf="_user.isLoggedIn; else newUser">
           <ion-buttons end>
-            <button ion-button color="primary" (click)="this.navCtrl.setRoot('AccountPage')">Skip</button>
+            <button ion-button color="primary" (click)="skip()">Skip</button>
           </ion-buttons>
         </div>
         <ng-template #newUser>
           <ion-buttons end>
-            <button ion-button color="primary" (click)="this.navCtrl.setRoot('InputPage')">Skip</button>
+            <button ion-button color="primary" (click)="newUserSkip()">Skip</button>
           </ion-buttons>
         </ng-template>
       </ion-toolbar>
@@ -54,13 +54,13 @@
       <h2 class="slide-title">Ready to Play?</h2>
       <ion-icon id="back-arrow" name="arrow-back" (click)="slidePrev()"></ion-icon>
       <div *ngIf="_user.isLoggedIn; else newUser">
-          <button ion-button large clear icon-end color="primary" (click)="this.navCtrl.setRoot('AccountPage')">
+          <button ion-button large clear icon-end color="primary" (click)="this.appCtrl.getRootNav().push('TabsPage')">
               Continue
             <ion-icon name="arrow-forward"></ion-icon>
           </button>
         </div>
         <ng-template #newUser>
-          <button ion-button large clear icon-end color="primary" (click)="this.navCtrl.setRoot('InputPage')">
+          <button ion-button large clear icon-end color="primary" (click)="this.appCtrl.getRootNav().push('TabsPage')">
             Continue
             <ion-icon name="arrow-forward"></ion-icon>
           </button>

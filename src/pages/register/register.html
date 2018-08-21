@@ -14,7 +14,7 @@
   <ion-grid no-padding fixed>
     <ion-row>
       <ion-col>
-        <ion-card >
+        <ion-card>
           <ion-card-header no-padding padding-top padding-left padding-right>
             <h3>Please enter your information to register:</h3>
             <p no-padding>All fields with <ion-icon name="medical" color="danger" size="small"></ion-icon> are required.</p>
@@ -25,9 +25,10 @@
               <!-- new user enters first name -->
               <ion-list >
                 <ion-item no-lines no-padding class="register-input">
-                  <ion-label col-width-50 floating>Enter First Name</ion-label>
+                  <ion-label col-width-50 floating>Enter First Name
+                      <ion-icon small name="medical" color="danger" item-right></ion-icon>
+                  </ion-label>
                   <ion-input [(ngModel)]="user.firstName" type="text" formControlName="first"></ion-input>
-                  <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
                 <ion-item no-lines no-padding class="register-input"
@@ -42,9 +43,10 @@
               <!-- new user enters last name -->
               <ion-list>
                 <ion-item no-padding >
-                  <ion-label col-width-50 floating>Enter Last Name</ion-label>
+                  <ion-label col-width-50 floating>Enter Last Name
+                      <ion-icon small name="medical" color="danger" item-right></ion-icon>
+                  </ion-label>
                   <ion-input [(ngModel)]="user.lastName" type="text" formControlName="last"></ion-input>
-                  <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
                 <ion-item no-lines no-padding 
@@ -59,9 +61,10 @@
               <!-- new user enters email -->
               <ion-list>
                 <ion-item no-padding >
-                  <ion-label floating>Enter E-Mail Address</ion-label>
+                  <ion-label floating>Enter E-Mail Address
+                      <ion-icon small name="medical" color="danger" item-right></ion-icon>
+                  </ion-label>
                   <ion-input [(ngModel)]="user.email" type="email" formControlName="email"></ion-input>
-                  <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
                 <ion-item no-lines no-padding 
@@ -81,9 +84,10 @@
               <ion-list>
 
                 <ion-item no-padding>
-                  <ion-label for="password" floating>Enter Password</ion-label>
+                  <ion-label for="password" floating>Enter Password
+                      <ion-icon small name="medical" color="danger" item-right></ion-icon>
+                  </ion-label>
                   <ion-input [(ngModel)]="user.password" type="password" formControlName="password"></ion-input>
-                  <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
                 <ion-item no-lines no-padding 
@@ -103,10 +107,10 @@
               <!-- **needs to be edited to have a "verify" ability -->
               <ion-list>
                 <ion-item no-padding >
-
-                  <ion-label for="vPassword"  floating>Verify Password</ion-label>
+                  <ion-label for="vPassword" floating>Verify Password
+                      <ion-icon small name="medical" color="danger" item-right></ion-icon>
+                  </ion-label>
                   <ion-input [(ngModel)]="vpassword" type="password" formControlName="vpassword"></ion-input>
-                  <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
                 
                 <ion-item no-lines no-padding 
@@ -128,11 +132,12 @@
               <!-- new user enters their date of birth, MM/DD/YYYY. max is used for age 60 in current year -->
               <ion-list>
                 <ion-item no-padding >
-                  <ion-label floating>Click to Select Date of Birth</ion-label>
+                  <ion-label floating>Click to Select Date of Birth
+                      <ion-icon small name="medical" color="danger" item-right></ion-icon>
+                  </ion-label>
                   <ion-datetime [(ngModel)]="user.dob" displayFormat="MM/DD/YYYY" initialValue="1959"
                     formControlName="dob"
                     [(ngModel)]="myDate"></ion-datetime>
-                  <ion-icon small name="medical" color="danger" item-right></ion-icon>
                 </ion-item>
               </ion-list>
               

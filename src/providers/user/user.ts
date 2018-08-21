@@ -108,7 +108,12 @@ export class UserProvider {
     return this.http.post(this.baseURL + this.regURL + userId + "/profiles", userObject);
   }
 
-  onLogout(user){
+  getUserProfiles(){
+    let userId = sessionStorage.getItem("userId");
+    return this.http.get(this.baseURL + this.regURL + userId + "/profiles/")
+   }
+
+  onLogout(){
     let token = sessionStorage.getItem("token");
     this.isLoggedIn = false; 
     console.log("onLogout", user); 

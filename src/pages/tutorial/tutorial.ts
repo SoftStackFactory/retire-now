@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, App } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import {UserProvider} from '../../providers/user/user';
@@ -21,6 +21,7 @@ export class TutorialPage {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
+              private appCtrl:App,
               public _user: UserProvider) {}
 
   @ViewChild(Slides) slides: Slides;
@@ -38,11 +39,11 @@ export class TutorialPage {
   }
 
   skip(){
-    this.navCtrl.setRoot('DashboardPage')
+    this.appCtrl.getRootNav().push('TabsPage');
   }
 
   newUserSkip(){
-    this.navCtrl.setRoot('DashboardPage')
+    this.navCtrl.setRoot('TabsPage')
   }
 
   mySlides = [
