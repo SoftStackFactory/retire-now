@@ -59,7 +59,7 @@ export class RegisterPage {
       .subscribe((res: any) => {
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('userId', res.userId);
-          this.navCtrl.push('TutorialPage');
+          this.navCtrl.setRoot('TutorialPage');
 
       }, (error: any) => {
         if (error.status === 401) {
