@@ -29,7 +29,7 @@
               <ion-list>
                 <ion-item no-padding>
                   <ion-label floating>Click to Select Date of Retirement
-                    <ion-icon small name="medical" item-left></ion-icon>
+                    <ion-icon small name="medical" color="danger" item-left></ion-icon>
                   </ion-label>
                   <ion-datetime  displayFormat="MM/DD/YYYY" max="2090"
                     formControlName="dor"
@@ -46,8 +46,10 @@
               </ion-list>
               
               <ion-item no-padding>
-                <ion-label floating>Full Retirement Amount<ion-icon small name="medical" item-left></ion-icon>
+                <ion-label floating>Full Retirement Amount<ion-icon small name="medical" color="danger" item-left></ion-icon>
                 </ion-label>
+                <ion-icon name="help-circle" item-right tooltip="I'm a tooltip below a button" positionV="top" arrow>
+                  </ion-icon>
                 <ion-input type="text" formControlName="fra$"></ion-input>
               </ion-item>
               
@@ -63,7 +65,7 @@
               
               <ion-item no-padding>
                 <ion-label floating>Save Profile As
-                  <ion-icon small name="medical" item-left></ion-icon>
+                  <ion-icon small name="medical" color="danger" item-left></ion-icon>
                 </ion-label>
                 <ion-input type="text" formControlName="profile"></ion-input>
               </ion-item>
@@ -93,5 +95,13 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+
+
+
+
+
+
+
+
 
 

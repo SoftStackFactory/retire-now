@@ -13,11 +13,13 @@ import { ChartsModule } from 'ng2-charts';
 import { UserProvider } from '../providers/user/user';
 import { ResultsPageModule } from "../pages/results/results.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {LandingPage} from "../pages/landing/landing";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    LandingPage,
     ListPage
   ],
   imports: [
@@ -32,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   entryComponents: [
     MyApp,
     HomePage,
+    LandingPage,
     ListPage
   ],
   providers: [

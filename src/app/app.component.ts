@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import * as moment from 'moment';
+import {LandingPage} from "../pages/landing/landing";
 
 
 @Component({
@@ -14,7 +15,7 @@ import * as moment from 'moment';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LandingPage;
 
   pages: Array<{title: string, component: any}>;
 

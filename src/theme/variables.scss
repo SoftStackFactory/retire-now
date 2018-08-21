@@ -34,30 +34,37 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:     #0E3B43,
-  secondary:  #32db64,
-  danger:     #f53d3d,
+  primary:     #3E7E38,
+  secondary:  #9DEDC3,
+  danger:     #E87878,
   light:      #f4f4f4,
   dark:       #222,
   lightTan: #e8cda9 ,
   darkTan: #d2b48c ,
   lightGreen: #80b74b,
   darkGreen: #007936,
-  lightBlue:	#a7cce7,
-  darkBlue: #28288a
+  lightBlue:	#A1C4EF,
+  darkBlue: #264368
 );
 
 // ionic primary button color #488aff
 
 .scroll-content {
-  background: #65532F ;
+  background: #EDF0F2;
+}
+.item-md, .item-ios {
+  background: transparent!important;
+}
+.card-ios .last .item-ios.item-block .item-inner, .card-md .last .item-md.item-block .item-inner {
+  -webkit-box-shadow: none!important;
+  box-shadow: none!important;
 }
 
-$toolbar-background: #312509 ;
+$toolbar-background: #22391F;
 
-$card-ios-background-color: #A3BBAD;
-$card-md-background-color: #A3BBAD;
-$card-background-color: #A3BBAD;
+$card-ios-background-color: #FFF;
+$card-md-background-color: #FFF;
+$card-background-color: #FFF;
 
 
 
