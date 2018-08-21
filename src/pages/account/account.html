@@ -19,9 +19,9 @@
               <h3>Name</h3>
             </ion-card-header>
             <ion-card-content padding-horizontal padding-bottom>
-              <ion-list>
-                <ion-item no-lines no-padding>
-                  <ion-label col-width-50>User's Name</ion-label>
+              <ion-list *ngIf = "viewName">
+                <ion-item  no-lines no-padding>
+                  <ion-label col-width-50>{{viewName.userData.firstName}} {{viewName.userData.lastName}}</ion-label>
                 </ion-item>
               </ion-list>
             </ion-card-content>
@@ -31,7 +31,7 @@
             <ion-card-content padding-horizontal padding-bottom>
               <ion-list>
                 <ion-item no-lines no-padding>
-                  <ion-label col-width-50>User's Email</ion-label>
+                  <ion-label col-width-50>{{viewName.userData.email}}</ion-label>
                 </ion-item>
               </ion-list>
             </ion-card-content>
@@ -47,6 +47,7 @@
     </ion-row>
     </ion-grid> 
   </ion-content>
+
 
 
 
