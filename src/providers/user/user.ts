@@ -113,7 +113,7 @@ export class UserProvider {
     return this.http.get(this.baseURL + this.regURL + userId + "/profiles/")
    }
 
-  onLogout(){
+  onLogout(user){
     let token = sessionStorage.getItem("token");
     this.isLoggedIn = false; 
     console.log("onLogout", user); 
