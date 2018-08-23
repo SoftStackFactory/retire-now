@@ -21,6 +21,8 @@ export class DashboardPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public _user: UserProvider) {
   }
 
+  
+
   profileInformation:any;
 
   savedProfiles: any;
