@@ -33,15 +33,16 @@ export class UserProvider {
   profileURL:string='profiles';
 
   isLoggedIn: boolean = false; 
+  userDOB: any; 
 
   //register call to create an account and calculate appUser FRA info
   onReg(user){
     console.log("user.dob", user.dob)
-    let userDOB = user.dob; 
+    this.userDOB = user.dob; 
     let totalFRAMonths;
     let fraAge; 
-    let myDOBNum = parseInt(userDOB.substring(0,4), 10);
-    if (userDOB.substring(5,11) === "01-01"){
+    let myDOBNum = parseInt(this.userDOB.substring(0,4), 10);
+    if (this.userDOB.substring(5,11) === "01-01"){
         myDOBNum -= 1; 
       }
         if (myDOBNum >= 1960) {
@@ -68,7 +69,7 @@ export class UserProvider {
         } else {
         totalFRAMonths = "already at 70, trigger"; 
         }
-    let fraDate = moment(userDOB).add(totalFRAMonths, "months");
+    let fraDate = moment(this.userDOB).add(totalFRAMonths, "months");
     console.log("this is the fra date calculation:", fraDate)
     user.totalFRAMonths = totalFRAMonths; 
     user.fraAge = fraAge; 
@@ -84,7 +85,30 @@ export class UserProvider {
     return this.http.post(this.baseURL + this.regURL + this.logInURL, login)
   };
 
+minDOR: any;
+maxDOR: any;
 
+newUserInputDORCalc(){
+  let dobNum = parseInt(this.userDOB.substring(0,4), 10);
+  let minDORYear = 62 + dobNum; 
+  let maxDORYear = 70 + dobNum; 
+  let minDORY = minDORYear.toString(); 
+  let maxDORY = maxDORYear.toString();
+  this.minDOR = minDORY + this.userDOB.slice(4,10);
+  this.maxDOR = maxDORY + this.userDOB.slice(4,10);
+}
+
+  inputDORCalc(dob){
+    let dobNum = parseInt(dob.substring(0,4), 10);
+    let minDORYear = 62 + dobNum; 
+    let maxDORYear = 70 + dobNum; 
+    let minDORY = minDORYear.toString(); 
+    let maxDORY = maxDORYear.toString();
+    this.minDOR = minDORY + dob.slice(4,10);
+    this.maxDOR = maxDORY + dob.slice(4,10);
+    // this.minDOR = moment(dob).add(62, "y");
+    // this.maxDOR = moment(dob).add(70, "y");
+  }
 
 
   //on submit button click - input page

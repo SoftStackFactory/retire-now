@@ -31,7 +31,7 @@
                   <ion-label floating>Click to Select Date of Retirement
                     <ion-icon small name="medical" color="danger" item-left></ion-icon>
                   </ion-label>
-                  <ion-datetime  displayFormat="MM/DD/YYYY" max="2090"
+                  <ion-datetime  displayFormat="MM/DD/YYYY" min="{{minDOR}}" max="{{maxDOR}}"
                     formControlName="dor"
                     [(ngModel)]="dor"></ion-datetime>
                 
