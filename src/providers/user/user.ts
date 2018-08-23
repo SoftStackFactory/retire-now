@@ -114,6 +114,12 @@ export class UserProvider {
     return this.http.get(this.baseURL + this.regURL + userId + "/profiles/")
    }
 
+  updateUserProfile(){  
+    let userId = sessionStorage.getItem("userId");
+    let profileId = this.profileDataDB.id;
+    return this.http.put(this.baseURL + this.regURL + userId + "/profiles/" + profileId, this.profileDataDB);
+  }
+
 
    deleteUserProfile(id){
      let userId = sessionStorage.getItem("userId");

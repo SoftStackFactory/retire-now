@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ResultsPage } from '../../pages/results/results';
-import { InputPage } from '../../pages/input/input';
 import { ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
+import { InputEditPage } from '../input-edit/input-edit';
 /**
  * Generated class for the DashboardPage page.
  *
@@ -54,8 +54,7 @@ export class DashboardPage {
     modal.present();
   }
   inputModal(profile){
-    const modal = this.modalCtrl.create(InputPage);
-    this._user.profileToggleDB = true;
+    const modal = this.modalCtrl.create(InputEditPage);
     this._user.profileDataDB = profile;
     modal.present();
   }
