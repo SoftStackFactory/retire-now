@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, App } from 'ionic-angular';
 import {UserProvider} from '../../providers/user/user';
 
 
@@ -18,28 +18,35 @@ import {UserProvider} from '../../providers/user/user';
 export class AccountPage {
 
   data:any;
+  viewName:any;
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  public _user: UserProvider) {
-
-  this.extRact();
-  }
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private viewCtrl: ViewController, 
+              private appCtrl:App,
+              public _user: UserProvider
+            ) {
+              this.extRact()
+            }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AccountPage');
   }
 
-  view(){
-    this.navCtrl.push('TutorialPage')
+  viewTutorial(){
+    this.appCtrl.getRootNav().push('TutorialPage');
   }
 
   logout(){
-    this.navCtrl.push('LandingPage')
+    this.appCtrl.getRootNav().setRoot('LoginPage');
+    this._user.onLogout("user"); 
   }
 
 extRact(){
   this.data = sessionStorage.getItem('userInfo')
-  let viewName = JSON.parse(this.data);
-  console.log(viewName);
+  this.viewName = JSON.parse(this.data);
+  console.log(this.viewName);
+  console.log(this.viewName.userData.firstName)
 }
   
 }

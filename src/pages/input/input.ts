@@ -19,8 +19,15 @@ import { UserProvider } from '../../providers/user/user';
 export class InputPage {
 
   inputForm : FormGroup;
+  data: any; 
+  userInfo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public _user: UserProvider) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private formBuilder: FormBuilder, 
+              public _user: UserProvider,
+            ) { 
+              this.extRact()
 
     this.inputForm = this.formBuilder.group({
       dor: ['', Validators.required],
@@ -33,15 +40,19 @@ export class InputPage {
     console.log('ionViewDidLoad InputPage');
   }
 
-  exampleData: any = {
-    "firstName": "string",
-    "lastName": "string",
-    "dob": "2018-08-12T23:53:05.513Z",
-    "realm": "string",
-    "username": "string",
-    "email": "string",
-    "emailVerified": true,
-    "id": "string"
+  minDOR: any;
+  maxDOR: any;
+
+  extRact(){
+    this.data = sessionStorage.getItem('userInfo')
+    this.userInfo = JSON.parse(this.data);
+    console.log("this.userInfo", this.userInfo);
+    console.log("this.userInfo.userData.myDOB", this.userInfo.userData.dob)
+    this._user.inputDORCalc(this.userInfo.userData.dob);
+    this.minDOR = this._user.minDOR; 
+    this.maxDOR = this._user.maxDOR;
+    console.log(this.maxDOR);
+    console.log(this.minDOR); 
   }
 
   onSubmit(){
@@ -55,6 +66,7 @@ export class InputPage {
       myDOR: "2020-01-20",
       myDOB: "1965-01-15" 
   }
+  let userObject: object = {};
 
     userData.myFRAAmt = this.inputForm.value.fra$;
     userData.profileName = this.inputForm.value.profile;
@@ -67,13 +79,7 @@ export class InputPage {
       console.log("this is the response from get request", res);
       userData.fraMonths = res.totalFRAMonths;
       userData.FRAAge = res.fraAge;
-      userData.FRADate = res.fraDate;
-      
-      
-
-
-      
-     
+      userData.FRADate = res.fraDate; 
 
     }, (err:any) => {
       //add error handling here
@@ -83,6 +89,20 @@ export class InputPage {
       this._user.runRetireNowCalc(userData)
         .subscribe((res: any) => {
         console.log("this is the response from the res", res);
+        userObject = res;
+      }, (err:any) => {
+        //add error handling here
+      }, () => {
+        this._user.postProfile(userObject)
+        .subscribe((res:any) => {
+        console.log("this is the response from posting profile", res);
+        sessionStorage.setItem("profileId", res.id)
+        this.navCtrl.setRoot('ResultsPage');
+        })
+        , (err:any) => {
+        //add error handling here
+        }
+
       })
     })
 

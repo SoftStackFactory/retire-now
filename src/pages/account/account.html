@@ -16,22 +16,22 @@
         <ion-col>
           <ion-card>
             <ion-card-header no-padding padding-top padding-left padding-right>
-              <h3>Name</h3>
+              <h2 ion-text color="primary">Name</h2>
             </ion-card-header>
             <ion-card-content padding-horizontal padding-bottom>
-              <ion-list>
-                <ion-item no-lines no-padding>
-                  <ion-label col-width-50>User's Name</ion-label>
+              <ion-list *ngIf = "viewName">
+                <ion-item  no-lines no-padding>
+                  <ion-label col-width-50>{{viewName.userData.firstName}} {{viewName.userData.lastName}}</ion-label>
                 </ion-item>
               </ion-list>
             </ion-card-content>
             <ion-card-header no-padding padding-top padding-left padding-right>
-              <h3>Email</h3>
+              <h2 ion-text color="primary">Email</h2>
             </ion-card-header>
             <ion-card-content padding-horizontal padding-bottom>
-              <ion-list>
+              <ion-list class="last">
                 <ion-item no-lines no-padding>
-                  <ion-label col-width-50>User's Email</ion-label>
+                  <ion-label col-width-50>{{viewName.userData.email}}</ion-label>
                 </ion-item>
               </ion-list>
             </ion-card-content>
@@ -40,13 +40,14 @@
     </ion-row>
     <ion-row justify-content-center padding-horizontal>
       <ion-col>
-        <button ion-button icon-end block full>Change Password</button>
-        <button ion-button icon-end block full (click)="viewTutorial()">View Tutorial</button>
+        
+        <button ion-button icon-end block full margin-vertical (click)="viewTutorial()">View Tutorial</button>
         <button ion-button icon-end block full (click)="logout()">Logout</button>
       </ion-col>
     </ion-row>
     </ion-grid> 
   </ion-content>
+
 
 
 

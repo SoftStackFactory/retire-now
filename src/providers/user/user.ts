@@ -26,20 +26,24 @@ export class UserProvider {
   //loopback add on to register a user
   regURL:string='appUsers/';
   //loopback add on to login in a already registered user
-  logURL:string='/login';
+  logInURL:string='login';
+  //loopback add on to logout an user
+  logOutURL:string='logout/'
   //loopback add on to access profile model
   profileURL:string='profiles';
 
   isLoggedIn: boolean = false; 
+  profileDataDB: any; //stores the profile when the modal input is loaded
+  userDOB: any; 
 
   //register call to create an account and calculate appUser FRA info
   onReg(user){
     console.log("user.dob", user.dob)
-    let userDOB = user.dob; 
+    this.userDOB = user.dob; 
     let totalFRAMonths;
     let fraAge; 
-    let myDOBNum = parseInt(userDOB.substring(0,4), 10);
-    if (userDOB.substring(5,11) === "01-01"){
+    let myDOBNum = parseInt(this.userDOB.substring(0,4), 10);
+    if (this.userDOB.substring(5,11) === "01-01"){
         myDOBNum -= 1; 
       }
         if (myDOBNum >= 1960) {
@@ -66,7 +70,8 @@ export class UserProvider {
         } else {
         totalFRAMonths = "already at 70, trigger"; 
         }
-    let fraDate = moment(userDOB).add(totalFRAMonths, "months");
+    let fraDate = moment(this.userDOB).add(totalFRAMonths, "months");
+    console.log("this is the fra date calculation:", fraDate)
     user.totalFRAMonths = totalFRAMonths; 
     user.fraAge = fraAge; 
     user.fraDate = fraDate; 
@@ -78,16 +83,33 @@ export class UserProvider {
   //login call after a user has registered 
   onLog(login){
     this.isLoggedIn = true; 
-    return this.http.post(this.baseURL + this.regURL + this.logURL, login)
+    return this.http.post(this.baseURL + this.regURL + this.logInURL, login)
   };
 
-  // infoPull(login) {
-  //    return this.http.get(this.baseURL+ this.logURL, login)
-  // }
+minDOR: any;
+maxDOR: any;
 
-  //reset password
+newUserInputDORCalc(){
+  let dobNum = parseInt(this.userDOB.substring(0,4), 10);
+  let minDORYear = 62 + dobNum; 
+  let maxDORYear = 70 + dobNum; 
+  let minDORY = minDORYear.toString(); 
+  let maxDORY = maxDORYear.toString();
+  this.minDOR = minDORY + this.userDOB.slice(4,10);
+  this.maxDOR = maxDORY + this.userDOB.slice(4,10);
+}
 
-  //logout user
+  inputDORCalc(dob){
+    let dobNum = parseInt(dob.substring(0,4), 10);
+    let minDORYear = 62 + dobNum; 
+    let maxDORYear = 70 + dobNum; 
+    let minDORY = minDORYear.toString(); 
+    let maxDORY = maxDORYear.toString();
+    this.minDOR = minDORY + dob.slice(4,10);
+    this.maxDOR = maxDORY + dob.slice(4,10);
+    // this.minDOR = moment(dob).add(62, "y");
+    // this.maxDOR = moment(dob).add(70, "y");
+  }
 
 
   //on submit button click - input page
@@ -100,15 +122,39 @@ export class UserProvider {
   }
 
   //Takes in assembled userData object from input page and returns a profile lb model object
-  //https://retire-now-backend-kevin.herokuapp.com/api/profiles/retireNowCalc
-  //https://retire-now-backend-kevin.herokuapp.com/api/profiles/retireNowCalc
   runRetireNowCalc(userData){
     console.log('send post:', userData)
     return this.http.post(this.baseURL + this.profileURL + "/retireNowCalc", userData)
   }
 
-  onLogout(){
+  postProfile(userObject){
+    let userId = sessionStorage.getItem("userId");
+    console.log("sending user profile post:", userObject);
+    return this.http.post(this.baseURL + this.regURL + userId + "/profiles", userObject);
+  }
+
+  getUserProfiles(){
+    let userId = sessionStorage.getItem("userId");
+    return this.http.get(this.baseURL + this.regURL + userId + "/profiles/")
+   }
+
+
+   deleteUserProfile(id){
+     let userId = sessionStorage.getItem("userId");
+    return this.http.delete(this.baseURL + this.regURL + userId + "/profiles/" + id);
+   }
+
+  onLogout(user){
+    let token = sessionStorage.getItem("token");
     this.isLoggedIn = false; 
+    console.log("onLogout", user); 
+    return this.http.post(this.baseURL + this.regURL + this.logOutURL + "?access_token" + token, user)
+  }
+
+  getProfileResults(){
+    let userId = sessionStorage.getItem("userId");
+    let profileId = sessionStorage.getItem("profileId");
+    return this.http.get(this.baseURL + this.regURL + userId + "/profiles/" + profileId)
   }
 
 

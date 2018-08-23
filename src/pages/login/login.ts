@@ -49,7 +49,7 @@ export class LoginPage {
   }
 
   doDashboard() {
-    this.navCtrl.setRoot('DashboardPage');
+    this.navCtrl.setRoot('TabsPage');
   }
 
   // doTabs(){
@@ -67,9 +67,9 @@ export class LoginPage {
       .subscribe((res: any) => {
         console.log("all user info", res)
         sessionStorage.setItem('userInfo', JSON.stringify(res))
-        //sessionStorage.setItem('token', res.token);
-        //sessionStorage.setItem('userId', res.userId);
-        this.navCtrl.push('DashboardPage');
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('userId', res.userId);
+        this.navCtrl.setRoot('TabsPage');
 
       }, (error: any) => {
         if (error.status === 401) {

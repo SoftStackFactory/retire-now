@@ -11,47 +11,47 @@
   </ion-navbar>
 
 
-
 </ion-header>
 
 
-<ion-content padding> 
+<ion-content padding>
 
-  <ion-card>
+  <ion-card *ngIf=toggleLoad>
       <div class="row">
           <div class="column">
           <!-- app logo needs to go below -->
-          <img src="https://projecthelping.org/wp-content/uploads/2017/11/Your-Logo-here.png" alt="your logo here image" width="100" height="100">
+          <img src="assets/imgs/receipt.png" alt="retire now logo receipt" width="100" height="100">
           </div>
       
           <div class="column">
           <!-- will need to edit based on actually input field -->
-          <h1 style="text-align: center"> Hello, User!</h1>
+          <h1 style="text-align: center">{{"Hello " + userInfo.userData.firstName + "!"}}</h1>
           </div>
         </div>
   </ion-card>
-  <ion-card >
+  <ion-card *ngFor="let profile of savedProfiles">
       <!-- *ngIf="cardInformation" -->
       
-    <ion-card-header  (click)='presentModal()'>
+    <ion-card-header  (click)='presentModal(profile.id)'>
         <!-- *ngFor="let card of cardInformaiton.results" -->
-      <strong>Profile:</strong> User Saved Name
+      <strong>{{profile.name}}</strong> 
     </ion-card-header>
 
-    <ion-card-content (click)='presentModal()' >
-      saved overview of reults 
+    <ion-card-content (click)='presentModal(profile.id)'>
+      {{"Retire Age: " + profile.retireAge}} <br/>
+      {{"Retire Amount Monthly: " + profile.monthlyAmount}}
     </ion-card-content>
 
     <ion-row>
       <ion-col>
         <button ion-button icon-start clear small (click)="editInfo()">
           <ion-icon name="text"></ion-icon>
-          <div>Edit Informaiton</div>
+          <div>Edit Profile</div>
         </button>
       </ion-col>
 
       <ion-col>
-        <button ion-button icon-start clear small color="danger" (click)="delete(userProfile)">
+        <button ion-button icon-start clear small color="danger" (click)="onDelete(profile.id)">
           <ion-icon name="close"></ion-icon>
           <div>Delete Profile</div>
         </button>
