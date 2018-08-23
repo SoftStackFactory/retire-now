@@ -13,7 +13,8 @@ import { ChartsModule } from 'ng2-charts';
 import { UserProvider } from '../providers/user/user';
 import { ResultsPageModule } from "../pages/results/results.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {LandingPage} from "../pages/landing/landing";
+import { LandingPage } from "../pages/landing/landing";
+import { InputEditPageModule } from '../pages/input-edit/input-edit.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {LandingPage} from "../pages/landing/landing";
     ChartsModule,
     HttpClientModule,
     ResultsPageModule,
+    InputEditPageModule,
     BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
