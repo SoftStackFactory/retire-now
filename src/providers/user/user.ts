@@ -33,6 +33,7 @@ export class UserProvider {
   profileURL:string='profiles';
 
   isLoggedIn: boolean = false; 
+  profileDataDB: any; //stores the profile when the modal input is loaded
 
   //register call to create an account and calculate appUser FRA info
   onReg(user){

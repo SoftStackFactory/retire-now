@@ -53,4 +53,10 @@ export class DashboardPage {
     sessionStorage.setItem("profileId", id)
     modal.present();
   }
+  inputModal(profile){
+    const modal = this.modalCtrl.create(InputPage);
+    this._user.profileToggleDB = true;
+    this._user.profileDataDB = profile;
+    modal.present();
+  }
 }
