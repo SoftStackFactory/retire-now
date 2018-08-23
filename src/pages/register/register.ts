@@ -54,7 +54,7 @@ export class RegisterPage {
   //function to register a user
   onRegister() {
     console.log("PW", this.registerInput.status == "INVALID")
-    console.log(this.user);
+    console.log("this.user", this.user);
     this._user.onReg(this.user)
       .subscribe((res: any) => {
         sessionStorage.setItem('token', res.token);
