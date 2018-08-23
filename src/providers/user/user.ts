@@ -33,6 +33,7 @@ export class UserProvider {
   profileURL:string='profiles';
 
   isLoggedIn: boolean = false; 
+  profileDataDB: any; //stores the profile when the modal input is loaded
   userDOB: any; 
 
   //register call to create an account and calculate appUser FRA info
@@ -136,6 +137,12 @@ newUserInputDORCalc(){
     let userId = sessionStorage.getItem("userId");
     return this.http.get(this.baseURL + this.regURL + userId + "/profiles/")
    }
+
+  updateUserProfile(){  
+    let userId = sessionStorage.getItem("userId");
+    let profileId = this.profileDataDB.id;
+    return this.http.put(this.baseURL + this.regURL + userId + "/profiles/" + profileId, this.profileDataDB);
+  }
 
 
    deleteUserProfile(id){

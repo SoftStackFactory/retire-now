@@ -23,9 +23,9 @@
           <img src="assets/imgs/receipt.png" alt="retire now logo receipt" width="100" height="100">
           </div>
       
-          <div class="column">
+          <div class="user">
           <!-- will need to edit based on actually input field -->
-          <h1 style="text-align: center">{{"Hello " + userInfo.userData.firstName + "!"}}</h1>
+          <h1 >{{"Hello " + userInfo.userData.firstName + "!"}}</h1>
           </div>
         </div>
   </ion-card>
@@ -44,7 +44,7 @@
 
     <ion-row>
       <ion-col>
-        <button ion-button icon-start clear small (click)="editInfo()">
+        <button ion-button icon-start clear small (click)="inputModal(profile)">
           <ion-icon name="text"></ion-icon>
           <div>Edit Profile</div>
         </button>
