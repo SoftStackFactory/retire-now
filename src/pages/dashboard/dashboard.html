@@ -11,11 +11,10 @@
   </ion-navbar>
 
 
-
 </ion-header>
 
 
-<ion-content padding> 
+<ion-content padding>
 
   <ion-card *ngIf=toggleLoad>
       <div class="row">
@@ -35,7 +34,7 @@
       
     <ion-card-header  (click)='presentModal(profile.id)'>
         <!-- *ngFor="let card of cardInformaiton.results" -->
-      <strong>Profile:</strong> {{profile.name}}
+      <strong>{{profile.name}}</strong> 
     </ion-card-header>
 
     <ion-card-content (click)='presentModal(profile.id)'>
