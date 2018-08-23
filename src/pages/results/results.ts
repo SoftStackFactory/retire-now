@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
 /**
@@ -16,7 +16,8 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ResultsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserProvider) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserProvider, public viewCtrl: ViewController) {}
+  dismiss() { this.viewCtrl.dismiss(); }
   barChart: any;
  
     toggleChart: boolean = false;
@@ -72,6 +73,7 @@ export class ResultsPage {
             console.log("result for profile ID", res)
             this.barChartLabels = res.barChartLabels;
             this.barChartData = res.chart;
+            console.log("chart name",res.name);
             this.barChartData[0].label = res.name;
             console.log(this.barChartData, "this is the chart");
             this.profile = res;

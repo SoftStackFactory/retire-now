@@ -19,8 +19,15 @@ import { UserProvider } from '../../providers/user/user';
 export class InputPage {
 
   inputForm : FormGroup;
+  data: any; 
+  userInfo: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public _user: UserProvider) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private formBuilder: FormBuilder, 
+              public _user: UserProvider,
+            ) { 
+              this.extRact()
 
     this.inputForm = this.formBuilder.group({
       dor: ['', Validators.required],
@@ -31,6 +38,21 @@ export class InputPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InputPage');
+  }
+
+  minDOR: any;
+  maxDOR: any;
+
+  extRact(){
+    this.data = sessionStorage.getItem('userInfo')
+    this.userInfo = JSON.parse(this.data);
+    console.log("this.userInfo", this.userInfo);
+    console.log("this.userInfo.userData.myDOB", this.userInfo.userData.dob)
+    this._user.inputDORCalc(this.userInfo.userData.dob);
+    this.minDOR = this._user.minDOR; 
+    this.maxDOR = this._user.maxDOR;
+    console.log(this.maxDOR);
+    console.log(this.minDOR); 
   }
 
   onSubmit(){

@@ -21,12 +21,17 @@ export class DashboardPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public _user: UserProvider) {
   }
 
+  
+
   profileInformation:any;
 
   savedProfiles: any;
-
+  userInfo: any;
+  toggleLoad: boolean = false;
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
+    let user = sessionStorage.getItem('userInfo');
+    this.userInfo = JSON.parse(user);
+    this.toggleLoad = true;
     this._user.getUserProfiles()
       .subscribe( (res: any) => {
           console.log("profiles for user ID", res)
