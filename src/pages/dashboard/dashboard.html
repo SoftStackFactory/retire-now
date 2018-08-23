@@ -34,7 +34,7 @@
       
     <ion-card-header  (click)='presentModal(profile.id)'>
         <!-- *ngFor="let card of cardInformaiton.results" -->
-      <strong>Profile:</strong> {{profile.name}}
+      <strong>{{profile.name}}</strong> 
     </ion-card-header>
 
     <ion-card-content (click)='presentModal(profile.id)'>
@@ -46,7 +46,7 @@
       <ion-col>
         <button ion-button icon-start clear small (click)="editInfo()">
           <ion-icon name="text"></ion-icon>
-          <div>Edit Informaiton</div>
+          <div> Edit Profile </div>
         </button>
       </ion-col>
 
