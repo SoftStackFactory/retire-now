@@ -59,7 +59,12 @@ export class TutorialPage {
     },
     {
       title: "Input",
-      description: "Select a retirement date, enter your full retirment amount, and give a name to the retirement profile. When you submit, our calculation will show your retirement benefit at age 62, your full retirement age, 70, and your inputed retirement date age.",
+      description: "Select a retirement date, enter your full retirment amount, and give a name to the retirement profile. Click submit to see your calculated payout.",
+      image: "assets/imgs/coins.jpg",
+    },
+    {
+      title: "Results",
+      description: "The graph will always showcase your monthly payouts at 62, your full retirement age, and 70. Your age at your entered retirement date will be the fourth bar.",
       image: "assets/imgs/coins.jpg",
     }
   ];
