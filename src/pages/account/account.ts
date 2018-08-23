@@ -38,7 +38,7 @@ export class AccountPage {
   }
 
   logout(){
-    this.appCtrl.getRootNav().push('LandingPage');
+    this.appCtrl.getRootNav().setRoot('LoginPage');
     this._user.onLogout("user"); 
   }
 
