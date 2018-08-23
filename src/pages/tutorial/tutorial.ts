@@ -53,13 +53,13 @@ export class TutorialPage {
     //   image: "assets/imgs/coins.jpg",
     // },
     {
-      title: "What is Ionic?",
-      description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
+      title: "Dashboard",
+      description: "Here you will be able to see all your created retirement profiles. You can pull up all profile information by tapping on the profile. Learn how to make a profile on the next slide!",
       image: "assets/imgs/coins.jpg",
     },
     {
-      title: "What is Ionic Cloud?",
-      description: "The <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
+      title: "Input",
+      description: "Select a retirement date, enter your full retirment amount, and give a name to the retirement profile. When you submit, our calculation will show your retirement benefit at age 62, your full retirement age, 70, and your inputed retirement date age.",
       image: "assets/imgs/coins.jpg",
     }
   ];
