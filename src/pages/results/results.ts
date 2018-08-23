@@ -72,6 +72,7 @@ export class ResultsPage {
             console.log("result for profile ID", res)
             this.barChartLabels = res.barChartLabels;
             this.barChartData = res.chart;
+            console.log("chart name",res.name);
             this.barChartData[0].label = res.name;
             console.log(this.barChartData, "this is the chart");
             this.profile = res;
