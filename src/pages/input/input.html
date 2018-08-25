@@ -24,7 +24,7 @@
           
           <ion-card-content padding-horizontal padding-bottom>
             
-            <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="inputForm" (ngSubmit)="onSubmit()" (keyup.enter)= "onSubmit()">
               
               <ion-list>
                 <ion-item no-padding>
