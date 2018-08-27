@@ -45,7 +45,7 @@ export class TutorialPage {
   newUserSkip(){
     this.navCtrl.setRoot('TabsPage')
   }
-
+  
   mySlides = [
     // {
     //   title: "Welcome to the Docs!",
