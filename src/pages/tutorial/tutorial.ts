@@ -55,7 +55,7 @@ export class TutorialPage {
     {
       title: "Dashboard",
       description: "Here you will be able to see all your created retirement profiles. You can pull up all profile information by tapping on the profile. Learn how to make a profile on the next slide!",
-      image: "assets/imgs/coins.jpg",
+      image: "assets/imgs/IMG_2974",
     },
     {
       title: "Input",
