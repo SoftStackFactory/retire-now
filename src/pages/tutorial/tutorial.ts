@@ -55,12 +55,12 @@ export class TutorialPage {
     {
       title: "Dashboard",
       description: "Here you will be able to see all your created retirement profiles. You can pull up all profile information by tapping on the profile. Learn how to make a profile on the next slide!",
-      image: "assets/imgs/IMG_2974",
+      image: "assets/imgs/coins.jpg",
     },
     {
       title: "Input",
       description: "Select a retirement date, enter your full retirment amount, and give a name to the retirement profile. Click submit to see your calculated payout.",
-      image: "assets/imgs/coins.jpg",
+      image: "assets/imgs/IMG_2974.PNG",
     },
     {
       title: "Results",
