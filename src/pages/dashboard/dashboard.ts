@@ -29,6 +29,14 @@ export class DashboardPage {
   userInfo: any;
   toggleLoad: boolean = false;
   ionViewDidLoad() {
+ 
+  }
+
+  editInfo(){
+    this.navCtrl.push('InputPage');
+  }
+
+  loadUserData(){
     let user = sessionStorage.getItem('userInfo');
     this.userInfo = JSON.parse(user);
     this.toggleLoad = true;
@@ -38,12 +46,6 @@ export class DashboardPage {
           this.savedProfiles = res;
       })    
   }
-
-  editInfo(){
-    this.navCtrl.push('InputPage');
-  }
-
-  
   
   onDelete(profileId){
    
@@ -58,9 +60,15 @@ export class DashboardPage {
     sessionStorage.setItem("profileId", id)
     modal.present();
   }
+
   inputModal(profile){
     const modal = this.modalCtrl.create(InputEditPage);
     this._user.profileDataDB = profile;
     modal.present();
+  }
+
+  
+  ionViewWillEnter(){
+    this.loadUserData();
   }
 }
