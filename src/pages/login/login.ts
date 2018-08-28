@@ -20,7 +20,7 @@ import {UserProvider} from '../../providers/user/user';
 })
 export class LoginPage {
 
-  todo: FormGroup;
+  loginForm: FormGroup;
   user = {};
   error = {message: ''};
 
@@ -29,7 +29,7 @@ export class LoginPage {
               private formBuilder: FormBuilder,
               public _user: UserProvider) {
 
-    this.todo = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       userName: ['', [Validators.required, Validators.email]],
       passWord: ['', Validators.required],
     });
@@ -45,7 +45,7 @@ export class LoginPage {
 
   logForm() {
     //this.navCtrl.setRoot('TabsPage')
-    console.log(this.todo.value)
+    console.log(this.loginForm.value)
   }
 
   doDashboard() {
