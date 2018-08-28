@@ -1,3 +1,3 @@
 export const ENV = {
   mode: 'Production',
-  url: 'https://retire-now-backend-dan.herokuapp.com/api/'
+  url: 'https://retire-now-backend.herokuapp.com/api/'
