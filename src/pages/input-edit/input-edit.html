@@ -11,7 +11,7 @@
   </ion-navbar>
   <ion-header>
     <ion-toolbar>
-      <ion-title>Title</ion-title>
+      <ion-title>{{"Profile: " + _user.profileDataDB.name}}</ion-title>
       <ion-buttons start>
         <button ion-button (click)="dismiss()"><span ion-text color="danger" showWhen="ios, browser">Cancel</span>
           <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
