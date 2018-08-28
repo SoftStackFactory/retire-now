@@ -25,7 +25,7 @@ export class DashboardPage {
 
   profileInformation:any;
 
-  savedProfiles: any;
+  savedProfiles: any = [];
   userInfo: any;
   toggleLoad: boolean = false;
   ionViewDidLoad() {
@@ -44,7 +44,7 @@ export class DashboardPage {
       .subscribe( (res: any) => {
           console.log("profiles for user ID", res)
           this.savedProfiles = res;
-      })    
+      }) 
   }
   
   onDelete(profileId){
