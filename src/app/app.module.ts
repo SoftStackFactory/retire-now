@@ -15,6 +15,7 @@ import { ResultsPageModule } from "../pages/results/results.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingPage } from "../pages/landing/landing";
 import { InputEditPageModule } from '../pages/input-edit/input-edit.module';
+import { TabsPageModule} from "../pages/tabs/tabs.module"; 
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { InputEditPageModule } from '../pages/input-edit/input-edit.module';
     HttpClientModule,
     ResultsPageModule,
     InputEditPageModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TabsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
