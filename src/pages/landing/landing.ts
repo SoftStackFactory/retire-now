@@ -20,10 +20,10 @@ export class LandingPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   doLogin(){
-    this.navCtrl.setRoot('LoginPage');
+    this.navCtrl.push('LoginPage');
   }
   doRegister(){
-    this.navCtrl.setRoot('RegisterPage');
+    this.navCtrl.push('RegisterPage');
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LandingPage');
