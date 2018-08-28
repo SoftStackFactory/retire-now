@@ -24,9 +24,9 @@
           </ng-template>
         </ion-toolbar>
       <img src="assets/imgs/coins.jpg" class="slide-image"/>
-      <h2 class="slide-title">"Welcome to the Docs!"</h2>
+      <h2 class="slide-title">"Welcome to Retire Now!"</h2>
       <ion-icon id="forward-arrow" name="arrow-forward" (click)="nextSlide()"></ion-icon>
-      <p>"The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic."</p>
+      <p>"Let's go through a quick tutorial to familiarize yourself with the app.</p>
     </ion-slide>
     <ion-slide *ngFor="let slide of mySlides">
       <ion-toolbar>
@@ -51,16 +51,16 @@
       <ion-toolbar>
       </ion-toolbar>
       <img src="assets/imgs/coins.jpg" class="slide-image"/>
-      <h2 class="slide-title">Ready to Play?</h2>
+      <h2 class="slide-title">Now let's get planning!</h2>
       <ion-icon id="back-arrow" name="arrow-back" (click)="slidePrev()"></ion-icon>
       <div *ngIf="_user.isLoggedIn; else newUser">
-          <button ion-button large clear icon-end color="primary" (click)="this.appCtrl.getRootNav().push('TabsPage')">
+          <button ion-button large clear icon-end color="primary" (click)="skip()">
               Continue
             <ion-icon name="arrow-forward"></ion-icon>
           </button>
         </div>
         <ng-template #newUser>
-          <button ion-button large clear icon-end color="primary" (click)="this.appCtrl.getRootNav().push('TabsPage')">
+          <button ion-button large clear icon-end color="primary" (click)="newUserSkip()">
             Continue
             <ion-icon name="arrow-forward"></ion-icon>
           </button>

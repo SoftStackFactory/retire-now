@@ -56,7 +56,7 @@ export class DashboardPage {
   }
 
   presentModal(id) {
-    const modal = this.modalCtrl.create(ResultsPage);
+    let modal = this.modalCtrl.create(ResultsPage, {isModal: true});
     sessionStorage.setItem("profileId", id)
     modal.present();
   }
@@ -71,4 +71,5 @@ export class DashboardPage {
   ionViewWillEnter(){
     this.loadUserData();
   }
+
 }
