@@ -1,4 +1,4 @@
 export const ENV = {
   mode: 'Development',
-  url: 'heroku.url'
+  url: 'https://sandiego1.herokuapp.com/api/'
 }

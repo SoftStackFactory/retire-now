@@ -5,59 +5,66 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>dashboard</ion-title>
+    <ion-title>Dashboard</ion-title>
   </ion-navbar>
-
-
 </ion-header>
-
-
 <ion-content padding>
-
-  <ion-card *ngIf=toggleLoad>
+  <div *ngIf="savedProfiles.length===0; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <ion-card *ngIf="toggleLoad">
       <div class="row">
-          <div class="column">
+        <div class="column">
           <!-- app logo needs to go below -->
           <img src="assets/imgs/receipt.png" alt="retire now logo receipt" width="100" height="100">
-          </div>
-      
-          <div class="column">
-          <!-- will need to edit based on actually input field -->
-          <h1 style="text-align: center">{{"Hello " + userInfo.userData.firstName + "!"}}</h1>
-          </div>
         </div>
-  </ion-card>
-  <ion-card *ngFor="let profile of savedProfiles">
+        <div class="user">
+          <!-- will need to edit based on actually input field -->
+          <h1>{{"Hello " + userInfo.userData.firstName + "!"}}</h1>
+        </div>
+      </div>
+    </ion-card>
+    <ion-card class="noProfile" *ngIf="toggleLoad">
+      <p> You do not have any saved profiles. Go to input to add a new profile.</p>
+    </ion-card>
+  </ng-template>
+  <ng-template #elseBlock>
+    <ion-card *ngIf="toggleLoad">
+      <div class="row">
+        <div class="column">
+          <!-- app logo needs to go below -->
+          <img src="assets/imgs/receipt.png" alt="retire now logo receipt" width="100" height="100">
+        </div>
+        <div class="user">
+          <!-- will need to edit based on actually input field -->
+          <h1>{{"Hello " + userInfo.userData.firstName + "!"}}</h1>
+        </div>
+      </div>
+    </ion-card>
+    <ion-card *ngFor="let profile of savedProfiles">
       <!-- *ngIf="cardInformation" -->
-      
-    <ion-card-header  (click)='presentModal(profile.id)'>
+      <ion-card-header (click)="presentModal(profile.id)">
         <!-- *ngFor="let card of cardInformaiton.results" -->
-      <strong>{{profile.name}}</strong> 
-    </ion-card-header>
-
-    <ion-card-content (click)='presentModal(profile.id)'>
-      {{"Retire Age: " + profile.retireAge}} <br/>
-      {{"Retire Amount Monthly: " + profile.monthlyAmount}}
-    </ion-card-content>
-
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small (click)="editInfo()">
-          <ion-icon name="text"></ion-icon>
-          <div>Edit Profile</div>
-        </button>
-      </ion-col>
-
-      <ion-col>
-        <button ion-button icon-start clear small color="danger" (click)="onDelete(profile.id)">
-          <ion-icon name="close"></ion-icon>
-          <div>Delete Profile</div>
-        </button>
-      </ion-col>
-
-    </ion-row>
-  </ion-card>
-  
+        <strong>{{profile.name}}</strong>
+      </ion-card-header>
+      <ion-card-content (click)="presentModal(profile.id)">
+        {{"Retire Age: " + profile.retireAge}} <br/>
+        {{"Retire Amount Monthly: " + profile.monthlyAmount}}
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-start clear small (click)="inputModal(profile)">
+            <ion-icon name="text"></ion-icon>
+            <div>Edit Profile</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-start clear small color="danger" (click)="onDelete(profile.id)">
+            <ion-icon name="close"></ion-icon>
+            <div>Delete Profile</div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-template>
 </ion-content>

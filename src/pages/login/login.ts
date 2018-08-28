@@ -20,7 +20,7 @@ import {UserProvider} from '../../providers/user/user';
 })
 export class LoginPage {
 
-  todo: FormGroup;
+  loginForm: FormGroup;
   user = {};
   error = {message: ''};
 
@@ -29,7 +29,7 @@ export class LoginPage {
               private formBuilder: FormBuilder,
               public _user: UserProvider) {
 
-    this.todo = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       userName: ['', [Validators.required, Validators.email]],
       passWord: ['', Validators.required],
     });
@@ -45,7 +45,7 @@ export class LoginPage {
 
   logForm() {
     //this.navCtrl.setRoot('TabsPage')
-    console.log(this.todo.value)
+    console.log(this.loginForm.value)
   }
 
   doDashboard() {
@@ -70,11 +70,10 @@ export class LoginPage {
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('userId', res.userId);
         this.navCtrl.setRoot('TabsPage');
-
       }, (error: any) => {
         if (error.status === 401) {
           console.log('Error Message:', error.message)
-          this.error.message = 'you are not a registered user'
+          this.error.message = 'User information does not match'
         }
         else if (error.status === 400) {
           console.log('Error Message:', error.message)
@@ -84,9 +83,7 @@ export class LoginPage {
           console.log('Error Message:', error.message)
           this.error.message = 'something went wrong'
         }
-
       })
-
   }
 
 }

@@ -1,11 +1,27 @@
 page-dashboard {
 
-    .column{
-        width:36%;
-    }
+  .column {
+    width: 36%;
+    padding-top: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+  }
 
+  .user {
+    width: 36%;
+    padding-top: 30px;
+    padding-right: 8px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    text-align: center;
+  }
 
-  .button-inner{
+  .noProfile {
+    padding: 20px
+  }
+
+  .button-inner {
     vertical-align: middle;
   }
 

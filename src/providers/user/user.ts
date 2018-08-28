@@ -138,6 +138,12 @@ newUserInputDORCalc(){
     return this.http.get(this.baseURL + this.regURL + userId + "/profiles/")
    }
 
+  updateUserProfile(){  
+    let userId = sessionStorage.getItem("userId");
+    let profileId = this.profileDataDB.id;
+    return this.http.put(this.baseURL + this.regURL + userId + "/profiles/" + profileId, this.profileDataDB);
+  }
+
 
    deleteUserProfile(id){
      let userId = sessionStorage.getItem("userId");
@@ -148,6 +154,7 @@ newUserInputDORCalc(){
     let token = sessionStorage.getItem("token");
     this.isLoggedIn = false; 
     console.log("onLogout", user); 
+    sessionStorage.clear(); 
     return this.http.post(this.baseURL + this.regURL + this.logOutURL + "?access_token" + token, user)
   }
 

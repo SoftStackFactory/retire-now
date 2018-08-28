@@ -13,7 +13,9 @@ import { ChartsModule } from 'ng2-charts';
 import { UserProvider } from '../providers/user/user';
 import { ResultsPageModule } from "../pages/results/results.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {LandingPage} from "../pages/landing/landing";
+import { LandingPage } from "../pages/landing/landing";
+import { InputEditPageModule } from '../pages/input-edit/input-edit.module';
+import { TabsPageModule} from "../pages/tabs/tabs.module"; 
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {LandingPage} from "../pages/landing/landing";
     ChartsModule,
     HttpClientModule,
     ResultsPageModule,
-    BrowserAnimationsModule
+    InputEditPageModule,
+    BrowserAnimationsModule,
+    TabsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
