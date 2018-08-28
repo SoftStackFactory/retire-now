@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
+import { PARAMETERS } from '../../../node_modules/@angular/core/src/util/decorators';
 
 /**
  * Generated class for the ResultsPage page.
@@ -16,8 +17,18 @@ import { UserProvider } from '../../providers/user/user';
 })
 export class ResultsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserProvider, public viewCtrl: ViewController) {}
-  dismiss() { this.viewCtrl.dismiss(); }
+  isModal = false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserProvider, public viewCtrl: ViewController) {
+    console.log("Modal", this.isModal)
+    console.log(navParams.get('isModal'))
+    this.isModal = navParams.get('isModal');
+  }
+
+  dismiss() { 
+    this.viewCtrl.dismiss();
+   }
+
+
   barChart: any;
  
     toggleChart: boolean = false;

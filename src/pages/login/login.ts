@@ -74,7 +74,7 @@ export class LoginPage {
       }, (error: any) => {
         if (error.status === 401) {
           console.log('Error Message:', error.message)
-          this.error.message = 'you are not a registered user'
+          this.error.message = 'User information does not match'
         }
         else if (error.status === 400) {
           console.log('Error Message:', error.message)

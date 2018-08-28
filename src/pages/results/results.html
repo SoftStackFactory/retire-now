@@ -10,7 +10,7 @@
       Profile: {{barChartData[0].label}}
     </ion-title>
   </ion-navbar>
-  <ion-toolbar>
+  <ion-toolbar *ngIf="isModal">
       <ion-buttons start>
         <button ion-button (click)="dismiss()"><span ion-text color="primary" showWhen="ios, browser">Go Back</span>
           <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
