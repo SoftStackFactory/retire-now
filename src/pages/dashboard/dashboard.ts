@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ResultsPage } from '../../pages/results/results';
+import { InputPage } from '../../pages/input/input';
 import { ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { InputEditPage } from '../input-edit/input-edit';
@@ -54,7 +55,7 @@ export class DashboardPage {
   }
 
   presentModal(id) {
-    const modal = this.modalCtrl.create(ResultsPage);
+    let modal = this.modalCtrl.create(ResultsPage, {isModal: true});
     sessionStorage.setItem("profileId", id)
     modal.present();
   }
@@ -63,4 +64,6 @@ export class DashboardPage {
     this._user.profileDataDB = profile;
     modal.present();
   }
+
+  
 }

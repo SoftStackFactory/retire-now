@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TooltipsModule } from 'ionic-tooltips';
 import { UserProvider } from '../../providers/user/user';
 
+
 /**
  * Generated class for the InputPage page.
  *
@@ -56,6 +57,9 @@ export class InputPage {
   }
 
   onSubmit(){
+
+    
+    
 
   let userData = {
       fraMonths: 0,
@@ -120,6 +124,7 @@ export class InputPage {
     let userId = sessionStorage.getItem("userId")
     console.log("session storage id", userId)
  
+   
 
   }
 
