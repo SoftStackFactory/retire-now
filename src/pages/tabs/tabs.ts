@@ -15,7 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TabsPage {
 
-num: number = 2; 
+num: number;  
 
   dashboardRoot = 'DashboardPage'
   inputRoot = 'InputPage'
