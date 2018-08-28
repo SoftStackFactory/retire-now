@@ -147,7 +147,12 @@
                 </div>
               </ion-item>
             </ion-list>
-            
+            </ion-list>
+              <ion-list class="last">
+                <ion-item no-lines no-padding>
+                  <p>Already Registered? <a ion-text color="primary" (click)="doLogin()">Click here!!</a></p>
+                </ion-item>
+              </ion-list>
               
               <!-- submit button to deploy function onRegister  of a new user -->
               <div class="error1" ng-if="error">{{ error.message }}</div>

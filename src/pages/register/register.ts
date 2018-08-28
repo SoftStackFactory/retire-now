@@ -76,4 +76,8 @@ export class RegisterPage {
       })
   }
 
+  doLogin() {
+    this.navCtrl.setRoot('LoginPage');
+  }
+
 }
