@@ -84,6 +84,7 @@ export class InputPage {
       userData.fraMonths = res.totalFRAMonths;
       userData.FRAAge = res.fraAge;
       userData.FRADate = res.fraDate; 
+      userData.myDOB = res.dob;
 
     }, (err:any) => {
       //add error handling here

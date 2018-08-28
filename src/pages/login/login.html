@@ -22,7 +22,7 @@
               </p>
             </ion-card-header>
             <ion-card-content padding-horizontal padding-bottom>
-              <form [formGroup]="todo" (ngSubmit)="logForm()">
+              <form [formGroup]="todo" (ngSubmit)="logForm()" (keyup.enter)="submitLog()">
                 
                 <ion-list>
                   <ion-item no-lines no-padding>
@@ -65,7 +65,7 @@
                 
                 <ion-list class="last">
                   <ion-item no-lines no-padding>
-                    <p>Need to register? <span ion-text color="primary" (click)="doRegister()">Click here!!</span></p>
+                    <p>Need to register? <a ion-text color="primary" (click)="doRegister()">Click here!!</a></p>
                   </ion-item>
                 </ion-list>
                 
@@ -78,7 +78,7 @@
       </ion-row>
       <ion-row justify-content-center padding-horizontal>
         <ion-col>
-          <button ion-button full (click)="submitLog()" type="submit" [disabled]="!todo.valid">Login</button>
+          <button ion-button full (click)="submitLog()" type="submit" [disabled]="!todo.valid" >Login</button>
         </ion-col>
       </ion-row>
     </ion-grid>

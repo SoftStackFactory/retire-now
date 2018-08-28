@@ -20,7 +20,7 @@
             <p no-padding>All fields with <ion-icon name="medical" color="danger" size="small"></ion-icon> are required.</p>
           </ion-card-header>
           <ion-card-content padding-horizontal padding-bottom >
-            <form [formGroup]="registerInput" (ngSubmit)="onForm()" >
+            <form [formGroup]="registerInput" (ngSubmit)="onForm()" (keyup.enter)="onForm()" >
               
               <!-- new user enters first name -->
               <ion-list >
