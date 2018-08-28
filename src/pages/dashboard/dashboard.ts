@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ResultsPage } from '../../pages/results/results';
-import { InputPage } from '../../pages/input/input';
 import { ModalController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { InputEditPage } from '../input-edit/input-edit';
