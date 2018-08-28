@@ -48,6 +48,7 @@ export class InputPage {
     this.data = sessionStorage.getItem('userInfo')
     this.userInfo = JSON.parse(this.data);
     console.log("this.userInfo", this.userInfo);
+    console.log("this.userInfo.userData", this.userInfo.userData);
     console.log("this.userInfo.userData.myDOB", this.userInfo.userData.dob)
     this._user.inputDORCalc(this.userInfo.userData.dob);
     this.minDOR = this._user.minDOR;

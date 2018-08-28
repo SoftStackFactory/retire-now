@@ -62,6 +62,12 @@ export class RegisterPage {
       .subscribe((res: any) => {
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('userId', res.userId);
+        let tempObj = {
+          userData: {},
+        };
+        tempObj.userData = res;
+        sessionStorage.setItem('userInfo', JSON.stringify(tempObj))
+        console.log("tempObj", tempObj); 
         this.navCtrl.setRoot('TutorialPage');
       }, (error: any) => {
         if (error.status === 401) {
