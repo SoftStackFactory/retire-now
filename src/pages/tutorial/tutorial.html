@@ -1,28 +1,24 @@
-
 <ion-header>
-
   <ion-navbar>
     <ion-title>tutorial</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding class="tutorial-page">
-
-<ion-slides pager>
+  <ion-slides pager>
     <ion-slide>
       <ion-toolbar>
-          <div *ngIf="_user.isLoggedIn; else newUser1">
-            <ion-buttons end>
-              <button ion-button color="primary" (click)="skip()">Skip</button>
-            </ion-buttons>
-          </div>
-          <ng-template #newUser1>
-            <ion-buttons end>
-              <button ion-button color="primary" (click)="newUserSkip()">Skip</button>
-            </ion-buttons>
-          </ng-template>
-        </ion-toolbar>
+        <div *ngIf="_user.isLoggedIn; else newUser1">
+          <ion-buttons end>
+            <button ion-button color="primary" (click)="skip()">Skip</button>
+          </ion-buttons>
+        </div>
+        <ng-template #newUser1>
+          <ion-buttons end>
+            <button ion-button color="primary" (click)="newUserSkip()">Skip</button>
+          </ion-buttons>
+        </ng-template>
+      </ion-toolbar>
       <img src="assets/imgs/coins.jpg" class="slide-image"/>
       <h2 class="slide-title">Welcome to Retire Now!</h2>
       <ion-icon id="forward-arrow" name="arrow-forward" (click)="nextSlide()"></ion-icon>
@@ -54,18 +50,17 @@
       <h2 class="slide-title">Now let's get planning!</h2>
       <ion-icon id="back-arrow" name="arrow-back" (click)="slidePrev()"></ion-icon>
       <div *ngIf="_user.isLoggedIn; else newUser">
-          <button ion-button large clear icon-end color="primary" (click)="skip()">
-              Continue
-            <ion-icon name="arrow-forward"></ion-icon>
-          </button>
-        </div>
-        <ng-template #newUser>
-          <button ion-button large clear icon-end color="primary" (click)="newUserSkip()">
-            Continue
-            <ion-icon name="arrow-forward"></ion-icon>
-          </button>
-        </ng-template>
+        <button ion-button large clear icon-end color="primary" (click)="skip()">
+          Continue
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </div>
+      <ng-template #newUser>
+        <button ion-button large clear icon-end color="primary" (click)="newUserSkip()">
+          Continue
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ng-template>
     </ion-slide>
   </ion-slides>
-
 </ion-content>

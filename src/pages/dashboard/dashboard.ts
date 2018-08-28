@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ResultsPage } from '../../pages/results/results';
-import { ModalController } from 'ionic-angular';
-import { UserProvider } from '../../providers/user/user';
-import { InputEditPage } from '../input-edit/input-edit';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {ResultsPage} from '../../pages/results/results';
+import {ModalController} from 'ionic-angular';
+import {UserProvider} from '../../providers/user/user';
+import {InputEditPage} from '../input-edit/input-edit';
+
 /**
  * Generated class for the DashboardPage page.
  *
@@ -18,39 +19,38 @@ import { InputEditPage } from '../input-edit/input-edit';
 })
 export class DashboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public _user: UserProvider) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public modalCtrl: ModalController,
+              public _user: UserProvider) {
   }
 
-  
-
-  profileInformation:any;
-
+  profileInformation: any;
   savedProfiles: any = [];
   userInfo: any;
   toggleLoad: boolean = false;
+
   ionViewDidLoad() {
- 
   }
 
-  editInfo(){
+  editInfo() {
     this.navCtrl.push('InputPage');
   }
 
-  loadUserData(){
+  loadUserData() {
     let user = sessionStorage.getItem('userInfo');
     this.userInfo = JSON.parse(user);
     this.toggleLoad = true;
     this._user.getUserProfiles()
-      .subscribe( (res: any) => {
-          console.log("profiles for user ID", res)
-          this.savedProfiles = res;
-      }) 
+      .subscribe((res: any) => {
+        console.log("profiles for user ID", res)
+        this.savedProfiles = res;
+      })
   }
-  
-  onDelete(profileId){
-   
+
+  onDelete(profileId) {
     this._user.deleteUserProfile(profileId)
-      .subscribe( ( res: any ) => { 
+      .subscribe((res: any) => {
         this.savedProfiles = this.savedProfiles.filter(arr => arr.id !== profileId);
       })
   }
@@ -61,14 +61,13 @@ export class DashboardPage {
     modal.present();
   }
 
-  inputModal(profile){
+  inputModal(profile) {
     const modal = this.modalCtrl.create(InputEditPage);
     this._user.profileDataDB = profile;
     modal.present();
   }
 
-  
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.loadUserData();
   }
 

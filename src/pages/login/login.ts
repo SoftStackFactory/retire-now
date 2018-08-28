@@ -70,7 +70,6 @@ export class LoginPage {
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('userId', res.userId);
         this.navCtrl.setRoot('TabsPage');
-
       }, (error: any) => {
         if (error.status === 401) {
           console.log('Error Message:', error.message)
@@ -84,9 +83,7 @@ export class LoginPage {
           console.log('Error Message:', error.message)
           this.error.message = 'something went wrong'
         }
-
       })
-
   }
 
 }
