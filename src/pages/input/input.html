@@ -7,7 +7,7 @@
 <ion-header>
   
   <ion-navbar>
-    <ion-title>input</ion-title>
+    <ion-title>Input</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -24,7 +24,7 @@
           
           <ion-card-content padding-horizontal padding-bottom>
             
-            <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="inputForm" (ngSubmit)="onSubmit()" (keyup.enter)= "onSubmit()">
               
               <ion-list>
                 <ion-item no-padding>
