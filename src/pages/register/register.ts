@@ -57,8 +57,15 @@ export class RegisterPage {
     console.log("this.user", this.user);
     this._user.onReg(this.user)
       .subscribe((res: any) => {
+        
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('userId', res.userId);
+        let tempObj = {
+          userData: {},
+        };
+        tempObj.userData = res;
+        sessionStorage.setItem('userInfo', JSON.stringify(tempObj))
+        console.log("tempObj", tempObj); 
           this.navCtrl.setRoot('TutorialPage');
 
       }, (error: any) => {
@@ -74,6 +81,10 @@ export class RegisterPage {
         }
        
       })
+  }
+
+  doLogin() {
+    this.navCtrl.setRoot('LoginPage');
   }
 
 }
