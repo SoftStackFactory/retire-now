@@ -26,7 +26,7 @@
             <form [formGroup]="inputForm" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
               <ion-list>
                 <ion-item no-padding>
-                  <ion-label floating>Click to Select Date of Retirement
+                  <ion-label floating>Date of Retirement
                     <ion-icon small name="medical" color="danger" item-left></ion-icon>
                   </ion-label>
                   <ion-datetime displayFormat="MM/DD/YYYY" min="{{minDOR}}" max="{{maxDOR}}"
@@ -45,7 +45,7 @@
                 <ion-label floating>Full Retirement Amount
                   <ion-icon small name="medical" color="danger" item-left></ion-icon>
                 </ion-label>
-                <ion-icon name="help-circle" item-right tooltip="I'm a tooltip below a button" positionV="top" arrow>
+                <ion-icon name="help-circle" item-right tooltip="This is your FRA payment per month" positionV="top" arrow>
                 </ion-icon>
                 <ion-input type="text" formControlName="fra$"></ion-input>
               </ion-item>
@@ -53,7 +53,7 @@
                 *ngIf="inputForm.get('fra$').hasError('required') && inputForm.get('fra$').touched">
                 <div no-lines class="error"
                   *ngIf="inputForm.get('fra$').hasError('required') && inputForm.get('fra$').touched">
-                  Full retirement amount!
+                  Amount required!
                 </div>
               </ion-item>
               <ion-item no-padding>
@@ -66,7 +66,7 @@
                 *ngIf="inputForm.get('profile').hasError('required') && inputForm.get('profile').touched">
                 <div no-lines class="error"
                   *ngIf="inputForm.get('profile').hasError('required') && inputForm.get('profile').touched">
-                  profile name is required!
+                  Profile name is required!
                 </div>
               </ion-item>
             </form>
