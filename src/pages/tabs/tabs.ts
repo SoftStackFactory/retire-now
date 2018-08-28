@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the TabsPage tabs.
@@ -15,18 +15,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TabsPage {
 
-num: number;  
+  num: number;
 
-  dashboardRoot = 'DashboardPage'
-  inputRoot = 'InputPage'
-  accountRoot = 'AccountPage'
-
+  dashboardRoot = 'DashboardPage';
+  inputRoot = 'InputPage';
+  accountRoot = 'AccountPage';
 
   constructor(public navCtrl: NavController,
               public _navParams: NavParams) {
     let tabIndex = _navParams.get('tabIndex')
-    this.num = tabIndex ? tabIndex : 0; 
-    console.log("tabIndex", tabIndex); 
+    this.num = tabIndex ? tabIndex : 0;
+    console.log("tabIndex", tabIndex);
   }
 
 }

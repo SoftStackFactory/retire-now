@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {UserProvider} from '../../providers/user/user';
-import { PasswordValidationComponent } from '../../components/password-validation/password-validation';
+import {PasswordValidationComponent} from '../../components/password-validation/password-validation';
 
 /**
  * Generated class for the RegisterPage page.
@@ -19,9 +19,10 @@ import { PasswordValidationComponent } from '../../components/password-validatio
 export class RegisterPage {
 
   registerInput: FormGroup;
-  user = {password:"",
-          vpassword:''
-};
+  user = {
+    password: "",
+    vpassword: ''
+  };
   error = {message: ''};
 
   constructor(
@@ -29,17 +30,19 @@ export class RegisterPage {
     public navParams: NavParams,
     private formBuilder: FormBuilder,
     public _user: UserProvider
-    ) {this.registerInput = this.formBuilder.group({
+  ) {
+    this.registerInput = this.formBuilder.group({
       first: ['', Validators.required],
       last: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['',Validators.required],
+      password: ['', Validators.required],
       vpassword: ['', Validators.required],
       dob: ['', Validators.required],
-    }, {validator: [PasswordValidationComponent.MatchPassword],
+    }, {
+      validator: [PasswordValidationComponent.MatchPassword],
 
     });
-    
+
   }
 
   ionViewDidLoad() {
@@ -57,7 +60,6 @@ export class RegisterPage {
     console.log("this.user", this.user);
     this._user.onReg(this.user)
       .subscribe((res: any) => {
-        
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('userId', res.userId);
         let tempObj = {
@@ -66,20 +68,18 @@ export class RegisterPage {
         tempObj.userData = res;
         sessionStorage.setItem('userInfo', JSON.stringify(tempObj))
         console.log("tempObj", tempObj); 
-          this.navCtrl.setRoot('TutorialPage');
-
+        this.navCtrl.setRoot('TutorialPage');
       }, (error: any) => {
         if (error.status === 401) {
           console.log('Error Message:', error.message)
           this.error.message = 'you are not a registered user'
-        }else if (error.status === 422) {
+        } else if (error.status === 422) {
           console.log('Error Message:', error.message)
           this.error.message = 'something went wrong'
-        }else if (error.status === 404) {
+        } else if (error.status === 404) {
           console.log('Error Message:', error.message)
           this.error.message = 'you did not enter information above'
         }
-       
       })
   }
 
