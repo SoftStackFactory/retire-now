@@ -16,48 +16,70 @@
 
 <ion-content padding>
 
-  <ion-card *ngIf=toggleLoad>
-      <div class="row">
-          <div class="column">
-          <!-- app logo needs to go below -->
-          <img src="assets/imgs/receipt.png" alt="retire now logo receipt" width="100" height="100">
-          </div>
-      
-          <div class="user">
-          <!-- will need to edit based on actually input field -->
-          <h1 >{{"Hello " + userInfo.userData.firstName + "!"}}</h1>
-          </div>
-        </div>
-  </ion-card>
-  <ion-card *ngFor="let profile of savedProfiles">
-      <!-- *ngIf="cardInformation" -->
-      
-    <ion-card-header  (click)='presentModal(profile.id)'>
-        <!-- *ngFor="let card of cardInformaiton.results" -->
-      <strong>{{profile.name}}</strong> 
-    </ion-card-header>
+  <div *ngIf="savedProfiles.length===0; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <ion-card *ngIf=toggleLoad>
+            <div class="row">
+                <div class="column">
+                <!-- app logo needs to go below -->
+                <img src="assets/imgs/receipt.png" alt="retire now logo receipt" width="100" height="100">
+                </div>
+            
+                <div class="user">
+                <!-- will need to edit based on actually input field -->
+                <h1>{{"Hello " + userInfo.userData.firstName + "!"}}</h1>
+                </div>
+              </div>
+        </ion-card>
+        <ion-card class="noProfile" *ngIf=toggleLoad>
+                <p> You do not have any saved profiles. Go to input to add a new profile.</p>   
+        </ion-card>
+    </ng-template>
 
-    <ion-card-content (click)='presentModal(profile.id)'>
-      {{"Retire Age: " + profile.retireAge}} <br/>
-      {{"Retire Amount Monthly: " + profile.monthlyAmount}}
-    </ion-card-content>
+    <ng-template #elseBlock>
+        <ion-card *ngIf=toggleLoad>
+            <div class="row">
+                <div class="column">
+                <!-- app logo needs to go below -->
+                <img src="assets/imgs/receipt.png" alt="retire now logo receipt" width="100" height="100">
+                </div>
+            
+                <div class="user">
+                <!-- will need to edit based on actually input field -->
+                <h1 >{{"Hello " + userInfo.userData.firstName + "!"}}</h1>
+                </div>
+              </div>
+        </ion-card>
+        <ion-card *ngFor="let profile of savedProfiles">
+            <!-- *ngIf="cardInformation" -->
+            
+          <ion-card-header  (click)='presentModal(profile.id)'>
+              <!-- *ngFor="let card of cardInformaiton.results" -->
+            <strong>{{profile.name}}</strong> 
+          </ion-card-header>
 
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small (click)="inputModal(profile)">
-          <ion-icon name="text"></ion-icon>
-          <div>Edit Profile</div>
-        </button>
-      </ion-col>
+          <ion-card-content (click)='presentModal(profile.id)'>
+            {{"Retire Age: " + profile.retireAge}} <br/>
+            {{"Retire Amount Monthly: " + profile.monthlyAmount}}
+          </ion-card-content>
 
-      <ion-col>
-        <button ion-button icon-start clear small color="danger" (click)="onDelete(profile.id)">
-          <ion-icon name="close"></ion-icon>
-          <div>Delete Profile</div>
-        </button>
-      </ion-col>
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small (click)="inputModal(profile)">
+                <ion-icon name="text"></ion-icon>
+                <div>Edit Profile</div>
+              </button>
+            </ion-col>
 
-    </ion-row>
-  </ion-card>
-  
+            <ion-col>
+              <button ion-button icon-start clear small color="danger" (click)="onDelete(profile.id)">
+                <ion-icon name="close"></ion-icon>
+                <div>Delete Profile</div>
+              </button>
+            </ion-col>
+
+          </ion-row>
+        </ion-card>
+      </ng-template>
+    
 </ion-content>
