@@ -51,7 +51,7 @@ export class TutorialPage {
     this.navCtrl.setRoot(TabsPage, {tabIndex:1});
     console.log("newUserSkip function, tabIndex")
   }
-
+  
   mySlides = [
     // {
     //   title: "Welcome to the Docs!",
@@ -59,14 +59,19 @@ export class TutorialPage {
     //   image: "assets/imgs/coins.jpg",
     // },
     {
-      title: "What is Ionic?",
-      description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
-      image: "assets/imgs/coins.jpg",
+      title: "Dashboard",
+      description: "Here you will be able to see all your created retirement profiles. You can pull up all profile information by tapping on the profile. Learn how to make a profile on the next slide!",
+      image: "assets/imgs/IMG_2977.PNG",
     },
     {
-      title: "What is Ionic Cloud?",
-      description: "The <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
-      image: "assets/imgs/coins.jpg",
+      title: "Input",
+      description: "Select a retirement date, enter your full retirment amount, and give a name to the retirement profile. Click submit to see your calculated payout.",
+      image: "assets/imgs/IMG_2974.PNG",
+    },
+    {
+      title: "Results",
+      description: "The graph will always showcase your monthly payouts at 62, your full retirement age, and 70. Your age at your entered retirement date will be the fourth bar.",
+      image: "assets/imgs/IMG_2976.PNG",
     }
   ];
 
