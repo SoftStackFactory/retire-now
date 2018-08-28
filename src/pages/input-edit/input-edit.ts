@@ -49,7 +49,7 @@ export class InputEditPage {
         .subscribe((res:any) => {
         console.log("this is the response from updating the profile", res);
         sessionStorage.setItem("profileId", res.id)
-        this.navCtrl.setRoot('ResultsPage');
+        this.navCtrl.setRoot('ResultsPage', {isBtn: true});
         })
         , (err:any) => {
         //add error handling here

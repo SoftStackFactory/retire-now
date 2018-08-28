@@ -9,7 +9,7 @@
     <ion-title>
       Profile: {{barChartData[0].label}}
     </ion-title>
-    <ion-buttons start *ngIf="isModal">
+    <ion-buttons start *ngIf="isModal" >
       <button ion-button (click)="dismiss()"><span ion-text color="primary" showWhen="ios, browser">Go Back</span>
         <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
       </button>
@@ -41,4 +41,14 @@
       </ion-item-group>
     </ion-card-content>
   </ion-card>
+
+  <ion-row justify-content-center padding-horizontal>
+    <ion-col>
+  <ion-buttons *ngIf="isBtn" >
+    <button ion-button full class="buttons" (click)="dismiss()"><span showWhen="ios, browser">Go Back</span>
+      <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-col>
+</ion-row>
 </ion-content>
