@@ -1,45 +1,45 @@
 .tutorial-page {
 
-    .toolbar-background {
-      background: transparent;
-      border-color: transparent;
-    }
-  
-    .slide-zoom {
-      height: 100%;
-    }
-  
-    .slide-title {
-      margin-top: 1.8rem;
-    }
-  
-    .slide-image {
-      max-height: 45%;
-      max-width: 80%;
-      margin: 0px 0;
-    }
-  
-    b {
-      font-weight: 500;
-    }
-  
-    p {
-      padding: 0 40px;
-      font-size: 14px;
-      line-height: 1.5;
-      color: #60646B;
-  
-      b {
-        color: #000000;
-      }
-    }
-
+  .toolbar-background {
+    background: transparent;
+    border-color: transparent;
   }
 
-#back-arrow{
-  float: left;
-}
+  .slide-zoom {
+    height: 100%;
+  }
 
-#forward-arrow{
-  float: right;
+  .slide-title {
+    margin-top: 1.8rem;
+  }
+
+  .slide-image {
+    max-height: 45%;
+    max-width: 80%;
+    margin: 0px 0;
+  }
+
+  b {
+    font-weight: 500;
+  }
+
+  p {
+    padding: 0 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #60646B;
+
+    b {
+      color: #000000;
+    }
+  }
+
+  #back-arrow {
+    float: left;
+  }
+
+  #forward-arrow {
+    float: right;
+  }
+
 }

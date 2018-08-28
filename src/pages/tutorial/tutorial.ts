@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, App, Tabs } from 'ionic-angular';
-import { Slides } from 'ionic-angular';
-import { ViewChild } from '@angular/core';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, ViewController, App, Tabs} from 'ionic-angular';
+import {Slides} from 'ionic-angular';
+import {ViewChild} from '@angular/core';
 import {UserProvider} from '../../providers/user/user';
-import { TabsPage } from '../tabs/tabs';
-
-
+import {TabsPage} from '../tabs/tabs';
 
 /**
  * Generated class for the TutorialPage page.
@@ -21,17 +19,17 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class TutorialPage {
 
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private appCtrl:App,
+              private appCtrl: App,
               public _user: UserProvider,
               public _navParams: NavParams) {
-              }
+  }
 
   @ViewChild(Slides) slides: Slides;
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TutorialPage') 
+    console.log('ionViewDidLoad TutorialPage')
 
   }
 
@@ -43,15 +41,15 @@ export class TutorialPage {
     this.slides.slideNext();
   }
 
-  skip(){
+  skip() {
     this.appCtrl.getRootNav().push('TabsPage');
   }
 
-  newUserSkip(){
-    this.navCtrl.setRoot(TabsPage, {tabIndex:1});
+  newUserSkip() {
+    this.navCtrl.setRoot(TabsPage, {tabIndex: 1});
     console.log("newUserSkip function, tabIndex")
   }
-  
+
   mySlides = [
     // {
     //   title: "Welcome to the Docs!",

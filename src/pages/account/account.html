@@ -5,48 +5,46 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
-      <ion-title>Account</ion-title>
-    </ion-navbar>
-  </ion-header>
-
+  <ion-navbar>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content padding-horizontal>
-    <ion-grid no-padding fixed>
-      <ion-row>
-        <ion-col>
-          <ion-card>
-            <ion-card-header no-padding padding-top padding-left padding-right>
-              <h2 ion-text color="primary">Name</h2>
-            </ion-card-header>
-            <ion-card-content padding-horizontal padding-bottom>
-              <ion-list *ngIf = "viewName">
-                <ion-item  no-lines no-padding>
-                  <ion-label col-width-50>{{viewName.userData.firstName}} {{viewName.userData.lastName}}</ion-label>
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
-            <ion-card-header no-padding padding-top padding-left padding-right>
-              <h2 ion-text color="primary">Email</h2>
-            </ion-card-header>
-            <ion-card-content padding-horizontal padding-bottom>
-              <ion-list class="last">
-                <ion-item no-lines no-padding>
-                  <ion-label col-width-50>{{viewName.userData.email}}</ion-label>
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
+  <ion-grid no-padding fixed>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header no-padding padding-top padding-left padding-right>
+            <h2 ion-text color="primary">Name</h2>
+          </ion-card-header>
+          <ion-card-content padding-horizontal padding-bottom>
+            <ion-list *ngIf="viewName">
+              <ion-item no-lines no-padding>
+                <ion-label col-width-50>{{viewName.userData.firstName}} {{viewName.userData.lastName}}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+          <ion-card-header no-padding padding-top padding-left padding-right>
+            <h2 ion-text color="primary">Email</h2>
+          </ion-card-header>
+          <ion-card-content padding-horizontal padding-bottom>
+            <ion-list class="last">
+              <ion-item no-lines no-padding>
+                <ion-label col-width-50>{{viewName.userData.email}}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
     <ion-row justify-content-center padding-horizontal>
       <ion-col>
-        
         <button ion-button icon-end block full margin-vertical (click)="viewTutorial()">View Tutorial</button>
         <button ion-button icon-end block full (click)="logout()">Logout</button>
       </ion-col>
     </ion-row>
-    </ion-grid> 
-  </ion-content>
+  </ion-grid>
+</ion-content>
 
 
 
