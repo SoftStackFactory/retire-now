@@ -154,6 +154,7 @@ newUserInputDORCalc(){
     let token = sessionStorage.getItem("token");
     this.isLoggedIn = false; 
     console.log("onLogout", user); 
+    sessionStorage.clear(); 
     return this.http.post(this.baseURL + this.regURL + this.logOutURL + "?access_token" + token, user)
   }
 
