@@ -139,7 +139,15 @@
                     formControlName="dob"
                     [(ngModel)]="myDate"></ion-datetime>
                 </ion-item>
-              </ion-list>
+                <ion-item no-lines no-padding
+                *ngIf="registerInput.get('dob').hasError('required') && registerInput.get('dob').touched">
+                <div no-lines class="error"
+                  *ngIf="registerInput.get('dob').hasError('required') && registerInput.get('dob').touched">
+                  Date of birth is required!
+                </div>
+              </ion-item>
+            </ion-list>
+            
               
               <!-- submit button to deploy function onRegister  of a new user -->
               <div class="error1" ng-if="error">{{ error.message }}</div>
