@@ -133,6 +133,7 @@
                 </ion-item>
               </ion-list>
               <ion-list>
+              <!-- if a user is already registered they can use this click option to go to the login page -->
                 <ion-item no-lines no-padding
                   *ngIf="registerInput.get('dob').hasError('required') && registerInput.get('dob').touched">
                   <div no-lines class="error"
@@ -155,6 +156,7 @@
     </ion-row>
     <ion-row justify-content-center padding-horizontal>
       <ion-col>
+        <!-- submit button is disabled until the form is validated -->
         <button ion-button icon-end block full [disabled]="!registerInput.valid" (click)="onRegister()">Register
         </button>
       </ion-col>
