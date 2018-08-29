@@ -106,18 +106,16 @@
                   <ion-input [(ngModel)]="user.vpassword" type="password" formControlName="vpassword"></ion-input>
                 </ion-item>
                 <ion-item no-lines no-padding
-                  *ngIf="( registerInput.get('vpassword').hasError('required') || registerInput.get('vpassword').hasError('pattern') ) && registerInput.get('vpassword').touched">
+                  *ngIf="( registerInput.get('vpassword').hasError('required') || registerInput.get('vpassword').hasError('MatchPassword') ) && registerInput.get('vpassword').touched">
                   <div no-lines class="error"
                     *ngIf="registerInput.get('vpassword').hasError('required') && registerInput.get('vpassword').touched">
-                    Password is required!
+                    Verify Password is required!
                   </div>
                   
-                  <div
-                    *ngIf="registerInput.get('vpassword').touched && registerInput.get('vpassword').hasError('MatchPassword')" >
-                    Password Did Not Match
-                  </div>
-                  
-
+                <div no-lines class="error"
+                 *ngIf="registerInput.get('vpassword').hasError('MatchPassword') && registerInput.get('vpassword').touched "> 
+                 Password Did Not Match!
+                </div>
                   
                 </ion-item>
               </ion-list>

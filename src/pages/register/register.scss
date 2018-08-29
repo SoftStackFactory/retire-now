@@ -15,6 +15,7 @@ page-register {
   .error {
     color: map-get($colors, danger);;
     font-weight: bold;
+    text-align: center;
     font-size: 1em;
   }
 //error message if something happens
