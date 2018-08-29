@@ -103,7 +103,7 @@
                   <ion-label for="vPassword" floating>Verify Password
                     <ion-icon small name="medical" color="danger" item-right></ion-icon>
                   </ion-label>
-                  <ion-input [(ngModel)]="vpassword" type="password" formControlName="vpassword"></ion-input>
+                  <ion-input [(ngModel)]="user.vpassword" type="password" formControlName="vpassword"></ion-input>
                 </ion-item>
                 <ion-item no-lines no-padding
                   *ngIf="( registerInput.get('vpassword').hasError('required') || registerInput.get('vpassword').hasError('pattern') ) && registerInput.get('vpassword').touched">
@@ -111,14 +111,14 @@
                     *ngIf="registerInput.get('vpassword').hasError('required') && registerInput.get('vpassword').touched">
                     Password is required!
                   </div>
-                  <div no-lines class="error"
-                    *ngIf="registerInput.get('vpassword').hasError('pattern') && registerInput.get('vpassword').touched">
-                    Please enter valid password!
-                  </div>
+                  
                   <div
-                    *ngIf="registerInput.controls.confirmPassword.touched && userForm.hasError('mismatchedPasswords') && userForm.controls.password.valid">
+                    *ngIf="registerInput.get('vpassword').touched && registerInput.get('vpassword').hasError('MatchPassword')" >
+                    Password Did Not Match
                   </div>
-                  <div *ngIf="form.controls.vpassword.errors.MatchPassword">Password Did Not Match</div>
+                  
+
+                  
                 </ion-item>
               </ion-list>
               <!-- new user enters their date of birth, MM/DD/YYYY. max is used for age 60 in current year -->
