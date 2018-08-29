@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { TooltipsModule } from 'ionic-tooltips';
 import { UserProvider } from '../../providers/user/user';
 /**
  * Generated class for the InputEditPage page.
