@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {UserProvider} from '../../providers/user/user';
-import {PARAMETERS} from '../../../node_modules/@angular/core/src/util/decorators';
 
 /**
  * Generated class for the ResultsPage page.
