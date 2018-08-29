@@ -24,6 +24,7 @@
         </div>
       </div>
     </ion-card>
+    <!-- if user does not have any saved profiles this message will appear -->
     <ion-card class="noProfile" *ngIf="toggleLoad">
       <p> You do not have any saved profiles. Go to input to add a new profile.</p>
     </ion-card>
@@ -42,23 +43,25 @@
       </div>
     </ion-card>
     <ion-card *ngFor="let profile of savedProfiles">
-      <!-- *ngIf="cardInformation" -->
+      <!-- diplays users name -->
       <ion-card-header (click)="presentModal(profile.id)">
-        <!-- *ngFor="let card of cardInformaiton.results" -->
         <strong>{{profile.name}}</strong>
       </ion-card-header>
+      <!-- displays information on card -->
       <ion-card-content (click)="presentModal(profile.id)">
         Retire Age: {{profile.retireAge}} <br/>
         Retire Amount Monthly: {{profile.monthlyAmount | currency}}
       </ion-card-content>
       <ion-row>
         <ion-col>
+          <!-- button to allow user to edit profile -->
           <button ion-button icon-start clear small (click)="inputModal(profile)">
             <ion-icon name="text"></ion-icon>
             <div>Edit Profile</div>
           </button>
         </ion-col>
         <ion-col>
+          <!-- button to allow user to delete profile -->
           <button ion-button icon-start clear small color="danger" (click)="onDelete(profile.id)">
             <ion-icon name="close"></ion-icon>
             <div>Delete Profile</div>

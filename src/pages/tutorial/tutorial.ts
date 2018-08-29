@@ -5,13 +5,6 @@ import {ViewChild} from '@angular/core';
 import {UserProvider} from '../../providers/user/user';
 import {TabsPage} from '../tabs/tabs';
 
-/**
- * Generated class for the TutorialPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-tutorial',
@@ -28,10 +21,7 @@ export class TutorialPage {
 
   @ViewChild(Slides) slides: Slides;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TutorialPage')
-
-  }
+  ionViewDidLoad() {}
 
   slidePrev() {
     this.slides.slidePrev();
@@ -41,21 +31,17 @@ export class TutorialPage {
     this.slides.slideNext();
   }
 
+  //skip function called for a returning user, routes to dashboard
   skip() {
     this.appCtrl.getRootNav().push('TabsPage');
   }
 
+  //skip function called for a newly registered user, routes to input page
   newUserSkip() {
     this.navCtrl.setRoot(TabsPage, {tabIndex: 1});
-    console.log("newUserSkip function, tabIndex")
   }
 
   mySlides = [
-    // {
-    //   title: "Welcome to the Docs!",
-    //   description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
-    //   image: "assets/imgs/coins.jpg",
-    // },
     {
       title: "Dashboard",
       description: "Here you will be able to see all your created retirement profiles. You can pull up all profile information by tapping on the profile. Learn how to make a profile on the next slide!",

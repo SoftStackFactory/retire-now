@@ -18,11 +18,14 @@ import {PasswordValidationComponent} from '../../components/password-validation/
 })
 export class RegisterPage {
 
+  //formgroup to set up validation
   registerInput: FormGroup;
+  //need in veryify password and re-enter password are the same
   user = {
     password: "",
     vpassword: ''
   };
+  //when an error from trying to login happens 
   error = {message: ''};
 
   constructor(
@@ -31,6 +34,7 @@ export class RegisterPage {
     private formBuilder: FormBuilder,
     public _user: UserProvider
   ) {
+    //validates the requirements on the form
     this.registerInput = this.formBuilder.group({
       first: ['', Validators.required],
       last: ['', Validators.required],
@@ -82,7 +86,7 @@ export class RegisterPage {
         }
       })
   }
-
+//if a user is already registerd, this will take them to the login page
   doLogin() {
     this.navCtrl.setRoot('LoginPage');
   }
