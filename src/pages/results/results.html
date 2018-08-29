@@ -9,7 +9,7 @@
     <ion-title>
       Profile: {{barChartData[0].label}}
     </ion-title>
-    <ion-buttons start *ngIf="isModal">
+    <ion-buttons start *ngIf="isModal" >
       <button ion-button (click)="dismiss()"><span ion-text color="primary" showWhen="ios, browser">Go Back</span>
         <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
       </button>
@@ -32,13 +32,21 @@
       </div>
     </div>
     <ion-card-content class="cardContent">
-      <ion-item-group text-wrap>
-        <ion-item-divider text-center color="light">Retirement Information</ion-item-divider>
-        <ion-item>{{"Retirement age: "+ profile.retireAge}}</ion-item>
-        <ion-item>{{"FRA Monthly Amount: " + "$" + profile.fraAmount}}</ion-item>
-        <ion-item>{{"Monthly Amount at " + profile.retireAge + ": $" + profile.monthlyAmount}}</ion-item>
-        <!--<ion-item>Retirement in: X yrs X Mths X Days</ion-item> -->
-      </ion-item-group>
+      <h2 text-center color="light" padding-bottom>Retirement Information</h2>
+      <hr margin-bottom>
+      <p padding-bottom><strong>Retirement age:</strong> {{profile.retireAge}}</p>
+      <p padding-bottom><strong>FRA Monthly Amount:</strong> {{profile.fraAmount | currency}}</p>
+      <p><strong>Monthly Amount at {{profile.retireAge}}:</strong> {{profile.monthlyAmount | currency}}</p>
     </ion-card-content>
   </ion-card>
+
+  <ion-row justify-content-center padding-horizontal>
+    <ion-col>
+  <ion-buttons *ngIf="isBtn">
+    <button ion-button full class="buttons" (click)="dismiss()">
+      Go Back to Dashboard
+    </button>
+  </ion-buttons>
+</ion-col>
+</ion-row>
 </ion-content>

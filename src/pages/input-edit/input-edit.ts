@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { TooltipsModule } from 'ionic-tooltips';
 import { UserProvider } from '../../providers/user/user';
 /**
  * Generated class for the InputEditPage page.
@@ -49,7 +48,7 @@ export class InputEditPage {
         .subscribe((res:any) => {
         console.log("this is the response from updating the profile", res);
         sessionStorage.setItem("profileId", res.id)
-        this.navCtrl.setRoot('ResultsPage');
+        this.navCtrl.setRoot('ResultsPage', {isBtn: true});
         })
         , (err:any) => {
         //add error handling here

@@ -48,8 +48,8 @@
         <strong>{{profile.name}}</strong>
       </ion-card-header>
       <ion-card-content (click)="presentModal(profile.id)">
-        {{"Retire Age: " + profile.retireAge}} <br/>
-        {{"Retire Amount Monthly: " + profile.monthlyAmount}}
+        Retire Age: {{profile.retireAge}} <br/>
+        Retire Amount Monthly: {{profile.monthlyAmount | currency}}
       </ion-card-content>
       <ion-row>
         <ion-col>

@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
-import {DashboardPage} from '../dashboard/dashboard';
 import {RegisterPage} from '../register/register';
 import {TabsPage} from "../tabs/tabs";
 import {UserProvider} from '../../providers/user/user';
