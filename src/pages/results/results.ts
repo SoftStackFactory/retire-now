@@ -29,8 +29,8 @@ export class ResultsPage {
 
   barChart: any;
 
-  toggleChart: boolean = false;
-  profile: any;
+  toggleChart: boolean = false; //used to load chart with data after page load
+  profile: any; //used for populating card
 
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
