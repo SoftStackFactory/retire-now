@@ -34,19 +34,19 @@ export class ResultsPage {
 
   barChart: any;
 
-  toggleChart: boolean = false;
-  profile: any;
+  toggleChart: boolean = false; //used to load chart with data after page load
+  profile: any; //used for populating card
 
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
   };
 
-  public barChartLabels: string[] = [];
+  public barChartLabels: string[] = []; //Labels for ages
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
 
-  public barChartData: any[] = [
+  public barChartData: any[] = [ //Bar char amounts here
     {data: [], label: ''}
   ];
 
@@ -59,40 +59,17 @@ export class ResultsPage {
     console.log(e);
   }
 
-  public randomize(): void {
-    // Only Change 3 values
-    let data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
-    let clone = JSON.parse(JSON.stringify(this.barChartData));
-    clone[0].data = data;
-    this.barChartData = clone;
-    /**
-     * (My guess), for Angular to recognize the change in the dataset
-     * it has to change the dataset variable directly,
-     * so one way around it, is to clone the data, change it and then
-     * assign it;
-     */
-  }
-
+  //On loading of the chart, data from the backend server will populate 
+  //barChartLabels, and barChartData, see docs for more information
   ionViewDidLoad() {
     this.toggleChart = false;
     console.log('ionViewDidLoad DashboardPage');
     this._user.getProfileResults()
       .subscribe((res: any) => {
-        console.log("result for profile ID", res)
         this.barChartLabels = res.barChartLabels;
         this.barChartData = res.chart;
-        console.log("chart name", res.name);
         this.barChartData[0].label = res.name;
-        console.log(this.barChartData, "this is the chart");
         this.profile = res;
-        console.log(this.profile, "this is the profile data");
         this.toggleChart = true;
       })
   }
