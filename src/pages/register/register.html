@@ -139,7 +139,7 @@
                 </div>
               </ion-item>
             </ion-list>
-              
+              <!-- if a user is already registered they can use this click option to go to the login page -->
               <ion-list class="last">
                 <ion-item no-lines no-padding>
                   <p>Already Registered? <a ion-text color="primary" (click)="doLogin()">Click here!!</a></p>
@@ -154,6 +154,7 @@
     </ion-row>
     <ion-row justify-content-center padding-horizontal>
       <ion-col>
+        <!-- submit button is disabled until the form is validated -->
         <button ion-button icon-end block full [disabled]="!registerInput.valid" (click)="onRegister()">Register
         </button>
       </ion-col>
