@@ -2,13 +2,6 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController, App} from 'ionic-angular';
 import {UserProvider} from '../../providers/user/user';
 
-/**
- * Generated class for the AccountPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-account',
@@ -40,6 +33,7 @@ export class AccountPage {
     this._user.onLogout("user");
   }
 
+  //pulls in userInfo to be displayed on account page
   extRact() {
     this.data = sessionStorage.getItem('userInfo')
     this.viewName = JSON.parse(this.data);
