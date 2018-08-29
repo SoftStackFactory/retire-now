@@ -127,29 +127,33 @@ newUserInputDORCalc(){
     return this.http.post(this.baseURL + this.profileURL + "/retireNowCalc", userData)
   }
 
+  //Posts the obtained user profile object and adds it to the related user
   postProfile(userObject){
     let userId = sessionStorage.getItem("userId");
     console.log("sending user profile post:", userObject);
     return this.http.post(this.baseURL + this.regURL + userId + "/profiles", userObject);
   }
 
+  //Returns all of the respective user profiles related to the user
   getUserProfiles(){
     let userId = sessionStorage.getItem("userId");
     return this.http.get(this.baseURL + this.regURL + userId + "/profiles/")
    }
 
+  //Updates the profile of a user with edited data 
   updateUserProfile(){  
     let userId = sessionStorage.getItem("userId");
     let profileId = this.profileDataDB.id;
     return this.http.put(this.baseURL + this.regURL + userId + "/profiles/" + profileId, this.profileDataDB);
   }
 
-
-   deleteUserProfile(id){
+  //deletes a user profile with userId to identify the user, and id to identify the profile
+  deleteUserProfile(id){
      let userId = sessionStorage.getItem("userId");
     return this.http.delete(this.baseURL + this.regURL + userId + "/profiles/" + id);
    }
-
+  
+  //Takes in a user id and posts to the backend. Also clears sessions storage.
   onLogout(user){
     let token = sessionStorage.getItem("token");
     this.isLoggedIn = false; 
@@ -158,6 +162,7 @@ newUserInputDORCalc(){
     return this.http.post(this.baseURL + this.regURL + this.logOutURL + "?access_token" + token, user)
   }
 
+  //Returns a profile with userId to identify the user and profileId to identify the profile
   getProfileResults(){
     let userId = sessionStorage.getItem("userId");
     let profileId = sessionStorage.getItem("profileId");
