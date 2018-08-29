@@ -32,11 +32,11 @@ export class DashboardPage {
 
   ionViewDidLoad() {
   }
-
+// when edit info is pressed on the saved user card
   editInfo() {
     this.navCtrl.push('InputPage');
   }
-
+// user saved cards will be displayed
   loadUserData() {
     let user = sessionStorage.getItem('userInfo');
     this.userInfo = JSON.parse(user);
@@ -47,26 +47,26 @@ export class DashboardPage {
         this.savedProfiles = res;
       })
   }
-
+// deleted a user saved profile
   onDelete(profileId) {
     this._user.deleteUserProfile(profileId)
       .subscribe((res: any) => {
         this.savedProfiles = this.savedProfiles.filter(arr => arr.id !== profileId);
       })
   }
-
+// shows result page as a modal when a profile is clicked 
   presentModal(id) {
     let modal = this.modalCtrl.create(ResultsPage, {isModal: true});
     sessionStorage.setItem("profileId", id)
     modal.present();
   }
-
+// takes the user to the input-edit page when edit is clicked on the profile card
   inputModal(profile) {
     const modal = this.modalCtrl.create(InputEditPage);
     this._user.profileDataDB = profile;
     modal.present();
   }
-
+// allows the dashboard to update when a user saves a new profile
   ionViewWillEnter() {
     this.loadUserData();
   }
