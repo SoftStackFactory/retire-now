@@ -19,17 +19,15 @@ export class LandingPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  
+  //navigates from landing to login page
   doLogin() {
     this.navCtrl.push('LoginPage');
   }
 
+  //navigates from lading to register page
   doRegister() {
     this.navCtrl.push('RegisterPage');
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LandingPage');
   }
 
 }

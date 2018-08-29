@@ -34,7 +34,7 @@ export class UserProvider {
 
   isLoggedIn: boolean = false; 
   profileDataDB: any; //stores the profile when the modal input is loaded
-  userDOB: any; 
+  userDOB: any; //User date of birth used in onReg to calculate user FRA data
 
   //register call to create an account and calculate appUser FRA info
   onReg(user){
@@ -71,12 +71,9 @@ export class UserProvider {
         totalFRAMonths = "already at 70, trigger"; 
         }
     let fraDate = moment(this.userDOB).add(totalFRAMonths, "months");
-    console.log("this is the fra date calculation:", fraDate)
     user.totalFRAMonths = totalFRAMonths; 
     user.fraAge = fraAge; 
     user.fraDate = fraDate; 
-    console.log("user", user );
-    console.log("baseURL", this.baseURL);
     return this.http.post(this.baseURL + this.regURL, user)
   };
 
@@ -89,6 +86,7 @@ export class UserProvider {
 minDOR: any;
 maxDOR: any;
 
+//used to calculate and populate a proper date picker with retirement parameters for the user
 newUserInputDORCalc(){
   let dobNum = parseInt(this.userDOB.substring(0,4), 10);
   let minDORYear = 62 + dobNum; 
