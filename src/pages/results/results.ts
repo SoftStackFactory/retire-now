@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {UserProvider} from '../../providers/user/user';
-import {PARAMETERS} from '../../../node_modules/@angular/core/src/util/decorators';
 
 /**
  * Generated class for the ResultsPage page.
@@ -18,9 +17,15 @@ import {PARAMETERS} from '../../../node_modules/@angular/core/src/util/decorator
 export class ResultsPage {
 
   isModal = false;
+  isBtn = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserProvider, public viewCtrl: ViewController) {
+    console.log("Modal", this.isModal)
+    console.log("Button", this.isBtn)
+    console.log('Modal Param', navParams.get('isModal'))
+    console.log('Button Param', navParams.get('isBtn'))
     this.isModal = navParams.get('isModal');
+    this.isBtn = navParams.get('isBtn');
   }
 
   dismiss() {
