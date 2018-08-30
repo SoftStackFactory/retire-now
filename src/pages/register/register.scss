@@ -1,23 +1,24 @@
 page-register {
-
+//puts underlines under floating label when inside a card
   .card-md .item-md.item-block .item-inner,
   .card-ios .item-ios.item-block .item-inner {
     box-shadow: inset 0 -1px 0 0 #dedede;
     border-bottom-color: #dedede !important;
   }
-
+//puts underlines under floating label when inside a card, need for certain ones to reach even deeper level
   .card-md .col .item-md.item-block:last-child .item-inner,
   .card-ios .col .item-ios.item-block:last-child .item-inner {
     box-shadow: inset 0 -1px 0 0 #dedede;
     border-bottom-color: #dedede !important;
   }
-
+// error messages if no user input
   .error {
     color: map-get($colors, danger);;
     font-weight: bold;
+    text-align: center;
     font-size: 1em;
   }
-
+//error message if something happens
   .error1 {
     color: map-get($colors, danger);;
     font-weight: bold;
